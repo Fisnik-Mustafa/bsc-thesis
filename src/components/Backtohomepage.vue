@@ -1,15 +1,11 @@
 <template>
-  <div class="about">
-    <h1>Impressum</h1>
-    <p>Diese Lernplattform basiert auf das Lehrmittel 'Einfach Informatik 7-9'</p>
-    <p>Entwickler: Fisnik Mustafa</p>
     <router-link to="/">
-      <button class="back_to_homepage">
-        Startseite
-      </button>
+        <button class="back_to_homepage">
+            Startseite
+        </button>
     </router-link>
-  </div>
 </template>
+
 <script>
 export default {
 
@@ -23,6 +19,7 @@ export default {
   right: 0px;
   margin: 20px;
   padding: 10px;
+  border-radius: 10px;
 }
 .back_to_homepage:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
