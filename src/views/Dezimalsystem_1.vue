@@ -3,6 +3,14 @@
     <h1>Dezimalsystem_1</h1>
     <Backtohomepage />
     <p>Erkennst du die dargestellte Zahl?</p>
+    <hr style="color: black;">
+
+    <Verifier 
+      v-if="this.submitted"
+      :correctSolution="this.result"
+      :tip="'Versuche die Karten zusammenzuaddieren.'"
+      @close-verifier="this.submitted = false"/>
+
     <div class="zahl">
       <div class="einheit">
         <div v-for="index in tausender" :key="index" class="karte">1000</div>
@@ -17,14 +25,22 @@
         <div v-for="index in einer" :key="index" class="karte">1</div>
       </div>
     </div>
+
+    <Nexttask />
+    <button @click="submit()" class="btn_submit">Überprüfen</button>
+    <input v-model="eingabe" type="text" placeholder="Antwort">
   </div>
 </template>
 
 <script>
+import Verifier from "@/components/Verifier.vue";
 import Backtohomepage from "@/components/Backtohomepage.vue";
+import Nexttask from "@/components/Nexttask.vue";
+
+
 
 export default {
-  components: { Backtohomepage },
+  components: { Backtohomepage, Nexttask, Verifier},
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999-1+1))+1,
@@ -36,6 +52,9 @@ export default {
       hunderter: 0,
       zehner: 0,
       einer: 0,
+      eingabe: null,
+      submitted: false,
+      result: false
     };
   },
   created: function () {
@@ -44,6 +63,12 @@ export default {
     this.zehner = Math.floor((this.randomnumber % 100) / 10);
     this.einer = this.randomnumber % 10;
   },
+  methods: {
+    submit() {
+      this.result = this.randomnumber == this.eingabe
+      this.submitted = true
+    }
+  }
 };
 </script>
 
@@ -53,16 +78,28 @@ export default {
   padding: 0px 50px 0px 50px;
   margin: 10px;
   width: 50px;
+  display: inline;
+  float: left;
+ /* margin: 0 auto; */
 }
 .zahl {
   display: flex;
   width: auto;
   margin: auto;
+  width: 700px;
 }
 .karte {
   background-color: white;
   border: 1px solid black;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.btn_submit {
+  margin-right: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.btn_submit:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 </style>
