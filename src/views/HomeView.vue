@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Zahlensysteme erkennen und verstehen.</h1>
-    <p>Test Test Test</p>
     <div class="tasks">
       <!-- DezimalSystem -->
       <router-link to="Dezimalsystem_1">
