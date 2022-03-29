@@ -79,12 +79,12 @@ export default {
   margin: 10px;
   width: 50px;
   display: inline;
-  float: left;
+  /* float: left; */
  /* margin: 0 auto; */
 }
 .zahl {
   display: flex;
-  width: auto;
+  /*width: auto;*/
   margin: auto;
   width: 700px;
 }
