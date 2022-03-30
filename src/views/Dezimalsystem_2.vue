@@ -7,11 +7,12 @@
       {{ randomnumber }}
     </p>
 
-    <Verifier 
+    <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
       :tip="'Versuche die Zahl in 1000er, 100er, 10er und 1er Blöcke zu teilen.'"
-      @close-verifier="this.submitted = false"/>
+      @close-verifier="this.submitted = false"
+    />
 
     <div class="btn_div">
       <button class="karte_btn" @click="increasetausender()">1000</button>
@@ -24,16 +25,44 @@
 
     <div class="zahl">
       <div class="einheit">
-        <div v-for="index in tausender" :key="index" class="karte" @click="removetausender()">1000</div>
+        <div
+          v-for="index in tausender"
+          :key="index"
+          class="karte"
+          @click="removetausender()"
+        >
+          1000
+        </div>
       </div>
       <div class="einheit">
-        <div v-for="index in hunderter" :key="index" class="karte" @click="removehunderter()">100</div>
+        <div
+          v-for="index in hunderter"
+          :key="index"
+          class="karte"
+          @click="removehunderter()"
+        >
+          100
+        </div>
       </div>
       <div class="einheit">
-        <div v-for="index in zehner" :key="index" class="karte" @click="removezehner()">10</div>
+        <div
+          v-for="index in zehner"
+          :key="index"
+          class="karte"
+          @click="removezehner()"
+        >
+          10
+        </div>
       </div>
       <div class="einheit">
-        <div v-for="index in einer" :key="index" class="karte" @click="removeeiner()">1</div>
+        <div
+          v-for="index in einer"
+          :key="index"
+          class="karte"
+          @click="removeeiner()"
+        >
+          1
+        </div>
       </div>
     </div>
 
@@ -55,53 +84,71 @@ export default {
       tausender: 0,
       hunderter: 0,
       zehner: 0,
-      einer: 0
+      einer: 0,
+      resulttausender: 0,
+      resulthunderter: 0,
+      resultzehner: 0,
+      resulteiner: 0,
+      result: false,
+      submitted: false
     };
   },
+  created: function () {
+    this.resulttausender = Math.floor(this.randomnumber / 1000);
+    this.resulthunderter = Math.floor((this.randomnumber % 1000) / 100);
+    this.resultzehner = Math.floor((this.randomnumber % 100) / 10);
+    this.resulteiner = this.randomnumber % 10;
+  },
   methods: {
+    submit() {
+      this.result = false
+      if(this.tausender == this.resulttausender && this.hunderter == this.resulthunderter && this.zehner == this.resultzehner && this.einer == this.resulteiner){
+        this.result = true
+      }
+      this.submitted = true
+    },
     increasetausender() {
-      if (this.tausender < 9){
-        this.tausender = this.tausender + 1
+      if (this.tausender < 9) {
+        this.tausender = this.tausender + 1;
       }
     },
     removetausender() {
-      if(this.tausender > 0){
-        this.tausender = this.tausender -1;
+      if (this.tausender > 0) {
+        this.tausender = this.tausender - 1;
       }
     },
     increasehunderter() {
-      if (this.hunderter < 9){
-        this.hunderter = this.hunderter + 1
+      if (this.hunderter < 9) {
+        this.hunderter = this.hunderter + 1;
       }
-      
     },
     removehunderter() {
-      if(this.hunderter > 0){
-        this.hunderter = this.hunderter -1;
+      if (this.hunderter > 0) {
+        this.hunderter = this.hunderter - 1;
       }
     },
     increasezehner() {
       if (this.zehner < 9) {
-        this.zehner = this.zehner + 1
+        this.zehner = this.zehner + 1;
       }
     },
     removezehner() {
-      if(this.zehner > 0){
+      if (this.zehner > 0) {
         this.zehner = this.zehner - 1;
       }
     },
     increaseeiner() {
-      if (this.einer < 9){
-        this.einer = this.einer + 1
+      if (this.einer < 9) {
+        this.einer = this.einer + 1;
       }
     },
     removeeiner() {
-      if(this.einer > 0){
+      if (this.einer > 0) {
         this.einer = this.einer - 1;
       }
     },
-  }
-}
+  },
+};
 </script>
 
 <style>
