@@ -75,12 +75,13 @@ export default {
 <style>
 .einheit {
   border: 1px solid black;
-  padding: 0px 50px 0px 50px;
-  margin: 10px;
+  padding: 0px 25px 0px 25px;
+  /* margin: 10px; */
+  height: 410px;
   width: 50px;
-  display: inline;
+  /* display: inline; */
   /* float: left; */
- /* margin: 0 auto; */
+  margin: 0 auto; 
 }
 .zahl {
   display: flex;
