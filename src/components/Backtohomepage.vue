@@ -20,8 +20,11 @@ export default {
   margin: 20px;
   padding: 10px;
   border-radius: 10px;
+  border-color: rgb(83,81,81);
 }
 .back_to_homepage:hover {
+  background-color: rgb(83, 81, 81);
+  color: white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 </style>

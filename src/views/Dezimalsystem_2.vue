@@ -157,6 +157,13 @@ export default {
   border-radius: 15px;
   margin: 10px;
   display: inline;
+  border-color: rgb(83,81,81);
+}
+.karte_btn:hover {
+  background-color: rgb(83, 81, 81);
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
 }
 .btn_div {
   margin: auto;
