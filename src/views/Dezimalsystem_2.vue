@@ -4,7 +4,7 @@
     <Backtohomepage />
     <p>
       Wieviele Karten benötigst du um diese Zahl darzustellen:
-      {{ randomnumber }}
+      <span style="font-size: large; font-weight: bold;">{{ randomnumber }}</span>
     </p>
 
     <Verifier
