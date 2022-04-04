@@ -12,16 +12,16 @@
       @close-verifier="this.submitted = false"/>
 
     <div class="zahl">
-      <div class="einheit">
+      <div class="einheit" v-if="tausender > 0">
         <div v-for="index in tausender" :key="index" class="karte">1000</div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="hunderter">
         <div v-for="index in hunderter" :key="index" class="karte">100</div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="zehner">
         <div v-for="index in zehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="einer">
         <div v-for="index in einer" :key="index" class="karte">1</div>
       </div>
     </div>
