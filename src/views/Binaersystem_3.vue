@@ -5,6 +5,13 @@
     <p>Addiere beide Binärzahlen korrekt zusammen.</p>
     <hr />
 
+    <Verifier
+      v-if="this.submitted"
+      :correctSolution="this.result"
+      :tip="'Versuche die Karten zusammenzuaddieren. und stelle durch Umtauschen sicher, dass von jeder Grösse die korrekten Anzahl Karten dargestellt sind.'"
+      @close-verifier="this.submitted = false"
+    />
+
     <h2>Zahl 1</h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_1_32 }}</div>
@@ -30,41 +37,73 @@
     </div>
 
     <br />
-
-    <hr v-if="addup" />
-
+    
     <h2>Summe</h2>
 
     <div class="zahl" v-if="addup">
-      
       <div class="einheit binaer" v-if="showposition_64">
         64
         <div v-for="index in position_64" :key="index" class="karte">1</div>
       </div>
+      <div class="einheit binaer" v-else>
+        64
+        <div class="karte">0</div>
+      </div>
+
       <div class="einheit binaer" v-if="showposition_32">
         32
         <div v-for="index in position_32" :key="index" class="karte">1</div>
       </div>
+      <div class="einheit binaer" v-else>
+        32
+        <div class="karte">0</div>
+      </div>
+
       <div class="einheit binaer" v-if="showposition_16">
         16
         <div v-for="index in position_16" :key="index" class="karte">1</div>
       </div>
+      <div class="einheit binaer" v-else>
+        16
+        <div class="karte">0</div>
+      </div>
+
       <div class="einheit binaer" v-if="showposition_8">
         8
         <div v-for="index in position_8" :key="index" class="karte">1</div>
       </div>
+      <div class="einheit binaer" v-else>
+        8
+        <div class="karte">0</div>
+      </div>
+
       <div class="einheit binaer" v-if="showposition_4">
         4
         <div v-for="index in position_4" :key="index" class="karte">1</div>
       </div>
+      <div class="einheit binaer" v-else>
+        4
+        <div class="karte">0</div>
+      </div>
+
       <div class="einheit binaer" v-if="showposition_2">
         2
         <div v-for="index in position_2" :key="index" class="karte">1</div>
       </div>
+      <div class="einheit binaer" v-else>
+        2
+        <div class="karte">0</div>
+      </div>
+
       <div class="einheit binaer" v-if="showposition_1">
         1
         <div v-for="index in position_1" :key="index" class="karte">1</div>
       </div>
+      <div class="einheit binaer" v-else>
+        1
+        <div class="karte">0</div>
+      </div>
+
     </div>
 
     <div v-if="addup">
@@ -111,13 +150,21 @@
         2 <i class="arrow left"></i> 2*1
       </button>
     </div>
+
+    <Nexttask />
+    <button @click="submit()" class="btn_submit">Überprüfen</button>
+    <p>{{ summand1indec }}</p>
+    <p>{{ summand2indec }}</p>
   </div>
 </template>
 
 <script>
 import Backtohomepage from "@/components/Backtohomepage.vue";
+import Nexttask from "@/components/Nexttask.vue";
+import Verifier from "@/components/Verifier.vue";
+
 export default {
-  components: { Backtohomepage },
+  components: { Backtohomepage, Nexttask, Verifier },
   data() {
     return {
       bit_1_32: 0,
@@ -152,7 +199,13 @@ export default {
       showposition_8: false,
       showposition_4: false,
       showposition_2: false,
-      showposition_1: false
+      showposition_1: false,
+      submitted: false,
+      result: false,
+      summand1indec: 0,
+      summand2indec: 0,
+      sumindec: 0,
+      submitsum: 0,
     };
   },
   created: function () {
@@ -173,6 +226,49 @@ export default {
     1;
   },
   methods: {
+    getDecfromBin(e0, e1, e2, e3, e4, e5, e6) {
+      if (e0 < 2 && e1 < 2 && e2 < 2 && e3 < 2 && e4 < 2 && e5 < 2 && e6 < 2) {
+        return e0 * 64 + e1 * 32 + e2 * 16 + e3 * 8 + e4 * 4 + e5 * 2 + e6 * 1;
+      } else {
+        return -1;
+      }
+    },
+    submit() {
+      this.summand1indec = this.getDecfromBin(
+        0,
+        this.bit_1_32,
+        this.bit_1_16,
+        this.bit_1_8,
+        this.bit_1_4,
+        this.bit_1_2,
+        this.bit_1_1
+      );
+      this.summand2indec = this.getDecfromBin(
+        0,
+        this.bit_2_32,
+        this.bit_2_16,
+        this.bit_2_8,
+        this.bit_2_4,
+        this.bit_2_2,
+        this.bit_2_1
+      );
+      this.sumindec = this.summand1indec + this.summand2indec;
+      this.submitsum = this.getDecfromBin(
+        this.position_64,
+        this.position_32,
+        this.position_16,
+        this.position_8,
+        this.position_4,
+        this.position_2,
+        this.position_1
+      );
+      if (this.submitsum == this.sumindec) {
+        this.result = true;
+      } else {
+        this.result = false;
+      }
+      this.submitted = true;
+    },
     getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -232,7 +328,7 @@ export default {
       this.checkmorethan2();
       this.checkboxtoshow();
     },
-    changesechzehnerforzweiunddressig(){
+    changesechzehnerforzweiunddressig() {
       this.position_32 = this.position_32 + 1;
       this.position_16 = this.position_16 - 2;
       this.checkmorethan2();
@@ -244,84 +340,65 @@ export default {
       this.checkmorethan2();
       this.checkboxtoshow();
     },
-    changeviererforachter(){
+    changeviererforachter() {
       this.position_8 = this.position_8 + 1;
       this.position_4 = this.position_4 - 2;
       this.checkmorethan2();
-      this.checkboxtoshow();   
+      this.checkboxtoshow();
     },
-    changezweierforvierer(){
+    changezweierforvierer() {
       this.position_4 = this.position_4 + 1;
       this.position_2 = this.position_2 - 2;
       this.checkmorethan2();
-      this.checkboxtoshow();      
+      this.checkboxtoshow();
     },
-    changeeinerforzweier(){
+    changeeinerforzweier() {
       this.position_2 = this.position_2 + 1;
       this.position_1 = this.position_1 - 2;
       this.checkmorethan2();
-      this.checkboxtoshow();    
+      this.checkboxtoshow();
     },
     checkboxtoshow() {
-      if(this.position_64 > 0){
+      if (this.position_64 > 0) {
         this.showposition_64 = true;
-        this.showposition_32 = true;
-        this.showposition_16 = true;
-        this.showposition_8 = true;
-        this.showposition_4 = true;
-        this.showposition_2 = true;
-        this.showposition_1 = true;
-      }else if(this.position_32 > 0){
+      }else {
         this.showposition_64 = false;
-        this.showposition_32 = true;
-        this.showposition_16 = true;
-        this.showposition_8 = true;
-        this.showposition_4 = true;
-        this.showposition_2 = true;
-        this.showposition_1 = true;        
-      }else if(this.position_16 > 0){
-        this.showposition_64 = false;
-        this.showposition_32 = false;
-        this.showposition_16 = true;
-        this.showposition_8 = true;
-        this.showposition_4 = true;
-        this.showposition_2 = true;
-        this.showposition_1 = true;        
-      }else if(this.position_8 > 0){
-        this.showposition_64 = false;
-        this.showposition_32 = false;
-        this.showposition_16 = false;
-        this.showposition_8 = true;
-        this.showposition_4 = true;
-        this.showposition_2 = true;
-        this.showposition_1 = true;        
-      }else if(this.position_4 > 0){
-        this.showposition_64 = false;
-        this.showposition_32 = false;
-        this.showposition_16 = false;
-        this.showposition_8 = false;
-        this.showposition_4 = true;
-        this.showposition_2 = true;
-        this.showposition_1 = true;
-      }else if(this.position_2 > 0){
-        this.showposition_64 = false;
-        this.showposition_32 = false;
-        this.showposition_16 = false;
-        this.showposition_8 = false;
-        this.showposition_4 = false;
-        this.showposition_2 = true;
-        this.showposition_1 = true;       
-      }else if(this.position_1 > 0){
-        this.showposition_64 = false;
-        this.showposition_32 = false;
-        this.showposition_16 = false;
-        this.showposition_8 = false;
-        this.showposition_4 = false;
-        this.showposition_2 = false;
-        this.showposition_1 = true;         
-      }
-    }
+      } 
 
+      if (this.position_32 > 0) {
+        this.showposition_32 = true;
+      }else {
+        this.showposition_32 = false;
+      }
+
+      if (this.position_16 > 0) {
+        this.showposition_16 = true;
+      }else {
+        this.showposition_16 = false;
+      }
+
+      if (this.position_8 > 0) {
+        this.showposition_8 = true;
+      }else {
+        this.showposition_8 = false;
+      }
+
+      if (this.position_4 > 0) {
+        this.showposition_4 = true;
+      }else {
+        this.showposition_4 = false;
+      } 
+      if (this.position_2 > 0) {
+        this.showposition_2 = true;
+      }else {
+        this.showposition_2 = false;
+      } 
+      if (this.position_1 > 0) {
+        this.showposition_1 = true;
+      }else {
+        this.showposition_1 = false;
+      }
+    },
   },
 };
 </script>
