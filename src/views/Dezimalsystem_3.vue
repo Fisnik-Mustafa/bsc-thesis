@@ -17,20 +17,20 @@
 
     <h2>Summand 1</h2>
     <div class="zahl">
-      <div class="einheit">
+      <div class="einheit" v-if="summand1tausender > 0">
         <div v-for="index in summand1tausender" :key="index" class="karte">
           1000
         </div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="summand1hunderter > 0">
         <div v-for="index in summand1hunderter" :key="index" class="karte">
           100
         </div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="summand1zehner > 0">
         <div v-for="index in summand1zehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="summand1einer > 0">
         <div v-for="index in summand1einer" :key="index" class="karte">1</div>
       </div>
     </div>
@@ -41,45 +41,45 @@
 
     <h2>Summand 2</h2>
     <div class="zahl">
-      <div class="einheit">
+      <div class="einheit" v-if="summand2tausender > 0">
         <div v-for="index in summand2tausender" :key="index" class="karte">
           1000
         </div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="summand2hunderter > 0">
         <div v-for="index in summand2hunderter" :key="index" class="karte">
           100
         </div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="summand2zehner > 0">
         <div v-for="index in summand2zehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit">
+      <div class="einheit" v-if="summand2einer > 0">
         <div v-for="index in summand2einer" :key="index" class="karte">1</div>
       </div>
     </div>
 
     <h2>Summe</h2>
     <div class="zahl" v-if="addup">
-      <div class="einheit summe">
+      <div class="einheit summe" v-if="summezehntausender > 0">
         <div v-for="index in summezehntausender" :key="index" class="karte">
           10000
         </div>
       </div>
-      <div class="einheit summe">
+      <div class="einheit summe" v-if="summetausender > 0">
         <div v-for="index in summetausender" :key="index" class="karte">
           1000
         </div>
       </div>
-      <div class="einheit summe">
+      <div class="einheit summe" v-if="summehunderter > 0">
         <div v-for="index in summehunderter" :key="index" class="karte">
           100
         </div>
       </div>
-      <div class="einheit summe">
+      <div class="einheit summe" v-if="summezehner > 0">
         <div v-for="index in summezehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit summe">
+      <div class="einheit summe" v-if="summeeiner > 0">
         <div v-for="index in summeeiner" :key="index" class="karte">1</div>
       </div>
     </div>
@@ -114,8 +114,9 @@
         10 <i class="arrow left"></i> 9*1
       </button>
     </div>
-    <button @click="submit()" class="btn_submit" v-if="addup">Überprüfen</button>
+
     <Nexttask />
+    <button @click="submit()" class="btn_submit" v-if="addup">Überprüfen</button>
   </div>
 </template>
 
