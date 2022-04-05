@@ -19,42 +19,36 @@
 
     <button
       class="binaer_btn"
-      v-bind:class="{ active: chosen32 }"
       @click="addcard(0)"
     >
       32
     </button>
     <button
       class="binaer_btn"
-      v-bind:class="{ active: chosen16 }"
       @click="addcard(1)"
     >
       16
     </button>
     <button
       class="binaer_btn"
-      v-bind:class="{ active: chosen8 }"
       @click="addcard(2)"
     >
       8
     </button>
     <button
       class="binaer_btn"
-      v-bind:class="{ active: chosen4 }"
       @click="addcard(3)"
     >
       4
     </button>
     <button
       class="binaer_btn"
-      v-bind:class="{ active: chosen2 }"
       @click="addcard(4)"
     >
       2
     </button>
     <button
       class="binaer_btn"
-      v-bind:class="{ active: chosen1 }"
       @click="addcard(5)"
     >
       1
@@ -236,6 +230,7 @@ export default {
   font-weight: bold;
   padding-top: 40px;
   padding-bottom: 40px;
+  background-color:antiquewhite;
 }
 .binary_container {
   display: flex;
