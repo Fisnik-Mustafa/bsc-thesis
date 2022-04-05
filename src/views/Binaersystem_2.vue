@@ -23,9 +23,17 @@
       <div class="binary_card">{{ bit1 }}</div>
     </div>
 
+    <Newtask :task="'Binaersystem_3'" />
     <Nexttask />
-    <button @click="submit()" class="btn_submit">Überprüfen</button>
-    <input v-model="usernum" type="text" placeholder="Antwort" />
+    <button @click="submit()" class="btn_submit">
+      <img src="../assets/icons/check.png" class="icon"/> <br />Überprüfen
+    </button>
+    <input
+      v-model="usernum"
+      type="text"
+      placeholder="Antwort"
+      style="margin: 10px"
+    />
   </div>
 </template>
 
@@ -33,9 +41,10 @@
 import Backtohomepage from "@/components/Backtohomepage.vue";
 import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
+import Newtask from "@/components/Newtask.vue";
 
 export default {
-  components: { Backtohomepage, Verifier, Nexttask },
+  components: { Backtohomepage, Verifier, Nexttask, Newtask },
   data() {
     return {
       num: 0,
@@ -47,7 +56,7 @@ export default {
       bit1: 0,
       usernum: "",
       result: false,
-      submitted: false
+      submitted: false,
     };
   },
   created: function () {
@@ -75,9 +84,9 @@ export default {
       this.num = this.num + this.bit1 * 1;
     },
     submit() {
-      if(this.num == this.usernum){
+      if (this.num == this.usernum) {
         this.result = true;
-      }else {
+      } else {
         this.result = false;
       }
       this.submitted = true;
