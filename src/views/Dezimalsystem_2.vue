@@ -4,7 +4,9 @@
     <Backtohomepage />
     <p>
       Wieviele Karten benötigst du um diese Zahl darzustellen:
-      <span style="font-size: large; font-weight: bold;">{{ randomnumber }}</span>
+      <span style="font-size: 25px; font-weight: bold">{{
+        randomnumber
+      }}</span>
     </p>
 
     <Verifier
@@ -65,9 +67,13 @@
         </div>
       </div>
     </div>
-
+    <Newtask :task="'Dezimalsystem_3'" />
     <Nexttask />
-    <button @click="submit()" class="btn_submit">Überprüfen</button>
+    <button @click="submit()" class="btn_submit">
+      <img src="../assets/icons/check.png" class="icon" />
+      <br />
+      Überprüfen
+    </button>
   </div>
 </template>
 
@@ -75,9 +81,10 @@
 import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
+import Newtask from "@/components/Newtask.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier },
+  components: { Backtohomepage, Nexttask, Verifier, Newtask },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -90,7 +97,7 @@ export default {
       resultzehner: 0,
       resulteiner: 0,
       result: false,
-      submitted: false
+      submitted: false,
     };
   },
   created: function () {
@@ -101,11 +108,16 @@ export default {
   },
   methods: {
     submit() {
-      this.result = false
-      if(this.tausender == this.resulttausender && this.hunderter == this.resulthunderter && this.zehner == this.resultzehner && this.einer == this.resulteiner){
-        this.result = true
+      this.result = false;
+      if (
+        this.tausender == this.resulttausender &&
+        this.hunderter == this.resulthunderter &&
+        this.zehner == this.resultzehner &&
+        this.einer == this.resulteiner
+      ) {
+        this.result = true;
       }
-      this.submitted = true
+      this.submitted = true;
     },
     increasetausender() {
       if (this.tausender < 9) {
@@ -157,13 +169,13 @@ export default {
   border-radius: 15px;
   margin: 10px;
   display: inline;
-  border-color: rgb(83,81,81);
+  border-color: rgb(83, 81, 81);
 }
 .karte_btn:hover {
   background-color: rgb(83, 81, 81);
   color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .btn_div {
   margin: auto;
