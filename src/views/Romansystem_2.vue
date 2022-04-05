@@ -22,18 +22,31 @@
     <br />
     <br />
 
+    <Newtask :task="'Romansystem_3'" />
     <Nexttask />
+    <button @click="submit()" class="btn_submit">
+      <img src="../assets/icons/check.png" class="icon"/> <br />Überprüfen
+    </button>
+    <input
+      v-model="eingabe"
+      type="text"
+      placeholder="Antwort"
+      style="margin: 10px"
+    />
+    <br />
     <button @click="showHint()" class="btn_submit" v-if="!hint">
+      <img src="../assets/icons/info.png" class="icon">
+      <br>
       Zeige Hinweis
     </button>
     <button @click="removeHint()" class="btn_submit" v-if="hint">
+      <img src="../assets/icons/info.png" class="icon">
+      <br>
       Entferne Hinweis
     </button>
-    <button @click="submit()" class="btn_submit">Überprüfen</button>
-    <input v-model="eingabe" type="text" placeholder="Antwort" />
+
     <p v-if="hint">
-      In der Tabelle findest du die entsprechenden Grössen und deren
-      Wert.
+      In der Tabelle findest du die entsprechenden Grössen und deren Wert.
     </p>
     <img src="../assets/hints/hint_roman_1.png" width="1000" v-if="hint" />
   </div>
@@ -43,9 +56,10 @@
 import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
+import Newtask from "@/components/Newtask.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier },
+  components: { Backtohomepage, Nexttask, Verifier, Newtask },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -58,7 +72,7 @@ export default {
       V: 0,
       I: 0,
       hint: false,
-      eingabe: '',
+      eingabe: "",
       result: false,
       submitted: false,
     };
@@ -115,10 +129,10 @@ export default {
     }
   },
   methods: {
-    submit(){
-      if(this.eingabe == this.randomnumber){
+    submit() {
+      if (this.eingabe == this.randomnumber) {
         this.result = true;
-      }else {
+      } else {
         this.result = false;
       }
       this.submitted = true;
@@ -128,8 +142,8 @@ export default {
     },
     removeHint() {
       this.hint = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
