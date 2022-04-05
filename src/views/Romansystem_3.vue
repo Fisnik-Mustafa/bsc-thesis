@@ -397,4 +397,8 @@ export default {
 </script>
 
 <style>
+.addition {
+  font-size: 25px;
+  font-weight: bold;
+}
 </style>
