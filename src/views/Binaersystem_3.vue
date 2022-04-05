@@ -152,9 +152,12 @@
         2 <i class="arrow left"></i> 2*1
       </button>
     </div>
-
+    
+    <Newtask :task="'Dezimalsystem_1'"/>
     <Nexttask />
-    <button @click="submit()" class="btn_submit">Überprüfen</button>
+    <button @click="submit()" class="btn_submit">
+      <img src="../assets/icons/check.png" class="icon"/> <br />
+      Überprüfen</button>
   </div>
 </template>
 
@@ -162,9 +165,10 @@
 import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
+import Newtask from "@/components/Newtask.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier },
+  components: { Backtohomepage, Nexttask, Verifier, Newtask },
   data() {
     return {
       bit_1_32: 0,
