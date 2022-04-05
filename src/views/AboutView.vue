@@ -17,6 +17,22 @@
       >
       respectively from <a href="https://www.flaticon.com/">www.flaticon.com</a>
     </div>
+    <div>
+      Help and check icon by
+      <a href="https://freeicons.io/profile/726" target="_blank"
+        >Free Preloaders</a
+      >
+      and
+      <a href="https://freeicons.io/profile/714" target="_blank">Raj Dev</a>
+      respectively on
+      <a href="https://freeicons.io" target="_blank">freeicons.io</a>
+    </div>
+    <div >
+      Info, go back, refresh and skip icon by
+      <a href="https://freeicons.io/profile/3" target="_blank">icon king1</a>,
+      on <a href="https://freeicons.io" target="_blank">freeicons.io</a>
+    </div>
+    <br />
     <!--    <router-link to="/">
       <button class="back_to_homepage">
         Startseite
