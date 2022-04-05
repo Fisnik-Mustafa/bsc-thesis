@@ -14,7 +14,7 @@
           <div class="flex-item flex-center flex-space-between flex-row">
             <img class="corr_img" v-if="correctSolution" :src="require('@/assets/icons/correct.png')"
              draggable="false"/>
-            <img class="corr_img" v-else :src="require('@/assets/icons/wrong.png')"
+            <img class="corr_img" v-else :src="require('@/assets/icons/wrong.jpeg')"
              draggable="false"/>
           </div>
           <hr>
