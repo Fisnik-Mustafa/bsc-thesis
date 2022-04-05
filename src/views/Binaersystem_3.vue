@@ -106,6 +106,8 @@
 
     </div>
 
+    <br>
+
     <div v-if="addup">
       <button
         class="umtausch"
@@ -153,8 +155,6 @@
 
     <Nexttask />
     <button @click="submit()" class="btn_submit">Überprüfen</button>
-    <p>{{ summand1indec }}</p>
-    <p>{{ summand2indec }}</p>
   </div>
 </template>
 
