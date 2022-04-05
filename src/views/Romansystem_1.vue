@@ -49,7 +49,7 @@
     <button @click="removeHint()" class="btn_submit" v-if="hint">Entferne Hinweis</button>
     <button @click="submit()" class="btn_submit">Überprüfen</button>
     <input v-model="eingabe" type="text" placeholder="Antwort">
-    <p v-if="hint">In der unteren Tabelle findest du die entsprechenden Grössen und deren Wert.</p>
+    <p v-if="hint">In der Tabelle findest du die entsprechenden Grössen und deren Wert.</p>
     <img src="../assets/hints/hint_roman_1.png" width="1000" v-if="hint">
 
   </div>
@@ -132,4 +132,5 @@ export default {
 .roman {
   width: 1000px;
 }
+
 </style>
