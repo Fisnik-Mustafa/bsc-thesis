@@ -28,47 +28,47 @@ const routes = [
   },
   {
     path: '/dezimalsystem_1',
-    name: 'dezimalsystem_1',
+    name: 'Dezimalsystem_1',
     component: Dezimalsystem_1
   },
   {
     path: '/dezimalsystem_2',
-    name: 'dezimalsystem_2',
+    name: 'Dezimalsystem_2',
     component: Dezimalsystem_2
   },
   {
     path: '/dezimalsystem_3',
-    name: 'dezimalsystem_3',
+    name: 'Dezimalsystem_3',
     component: Dezimalsystem_3
   },
   {
     path: '/romansystem_1',
-    name: 'romansystem_1',
+    name: 'Romansystem_1',
     component: Romansystem_1
   },
   {
     path: '/romansystem_2',
-    name: 'romansystem_2',
+    name: 'Romansystem_2',
     component: Romansystem_2
   },
   {
     path: '/romansystem_3',
-    name: 'romansystem_3',
+    name: 'Romansystem_3',
     component: Romansystem_3
   },
   {
     path: '/binaersystem_1',
-    name: 'binaersystem_1',
+    name: 'Binaersystem_1',
     component: Binaersystem_1
   },
   {
     path: '/binaersystem_2',
-    name: 'binaersystem_2',
+    name: 'Binaersystem_2',
     component: Binaersystem_2
   },
   {
     path: '/binaersystem_3',
-    name: 'binaersystem_3',
+    name: 'Binaersystem_3',
     component: Binaersystem_3
   },
   {
