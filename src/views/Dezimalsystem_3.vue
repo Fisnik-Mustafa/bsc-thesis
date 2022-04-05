@@ -114,9 +114,12 @@
         10 <i class="arrow left"></i> 9*1
       </button>
     </div>
-
+    <Newtask :task="'Romansystem_1'" />
     <Nexttask />
-    <button @click="submit()" class="btn_submit" v-if="addup">Überprüfen</button>
+    <button @click="submit()" class="btn_submit" v-if="addup">
+      <img src="../assets/icons/check.png" class="icon" />
+      <br />Überprüfen
+    </button>
   </div>
 </template>
 
@@ -124,9 +127,10 @@
 import Backtohomepage from "@/components/Backtohomepage.vue";
 import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
+import Newtask from "@/components/Newtask.vue";
 
 export default {
-  components: { Backtohomepage, Verifier, Nexttask },
+  components: { Backtohomepage, Verifier, Nexttask, Newtask },
   data() {
     return {
       summand2randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -207,7 +211,7 @@ export default {
         this.resulteiner == this.summeeiner
       ) {
         this.result = true;
-      }else{
+      } else {
         this.result = false;
       }
     },
