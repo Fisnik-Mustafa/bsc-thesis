@@ -4,7 +4,7 @@
     <Backtohomepage />
     <p>
       Stelle die folgende Zahl mithilfe der folgenden Karten dar:
-      <span style="font-size: large; font-weight: bold">{{
+      <span style="font-size: 25px; font-weight: bold">{{
         randomnumber
       }}</span>
     </p>
@@ -17,56 +17,28 @@
       @close-verifier="this.submitted = false"
     />
 
-    <button
-      class="binaer_btn"
-      @click="addcard(0)"
-    >
-      32
-    </button>
-    <button
-      class="binaer_btn"
-      @click="addcard(1)"
-    >
-      16
-    </button>
-    <button
-      class="binaer_btn"
-      @click="addcard(2)"
-    >
-      8
-    </button>
-    <button
-      class="binaer_btn"
-      @click="addcard(3)"
-    >
-      4
-    </button>
-    <button
-      class="binaer_btn"
-      @click="addcard(4)"
-    >
-      2
-    </button>
-    <button
-      class="binaer_btn"
-      @click="addcard(5)"
-    >
-      1
-    </button>
+    <button class="binaer_btn" @click="addcard(0)">32</button>
+    <button class="binaer_btn" @click="addcard(1)">16</button>
+    <button class="binaer_btn" @click="addcard(2)">8</button>
+    <button class="binaer_btn" @click="addcard(3)">4</button>
+    <button class="binaer_btn" @click="addcard(4)">2</button>
+    <button class="binaer_btn" @click="addcard(5)">1</button>
 
     <div class="binary_container">
-      <div class="binary_card">{{bit32}}</div>
-      <div class="binary_card">{{bit16}}</div>
-      <div class="binary_card">{{bit8}}</div>
-      <div class="binary_card">{{bit4}}</div>
-      <div class="binary_card">{{bit2}}</div>
-      <div class="binary_card">{{bit1}}</div>
+      <div class="binary_card">{{ bit32 }}</div>
+      <div class="binary_card">{{ bit16 }}</div>
+      <div class="binary_card">{{ bit8 }}</div>
+      <div class="binary_card">{{ bit4 }}</div>
+      <div class="binary_card">{{ bit2 }}</div>
+      <div class="binary_card">{{ bit1 }}</div>
     </div>
 
     <br />
-
+    <Newtask :task="'Binaersystem_2'" />
     <Nexttask />
-    <button @click="submit()" class="btn_submit">Überprüfen</button>
+    <button @click="submit()" class="btn_submit">
+      <img src="../assets/icons/check.png" class="icon"/> <br />Überprüfen
+    </button>
   </div>
 </template>
 
@@ -74,9 +46,10 @@
 import Backtohomepage from "@/components/Backtohomepage.vue";
 import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
+import Newtask from "@/components/Newtask.vue";
 
 export default {
-  components: { Backtohomepage, Verifier, Nexttask },
+  components: { Backtohomepage, Verifier, Nexttask, Newtask },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * 63) + 1,
@@ -96,7 +69,7 @@ export default {
       bit8: 0,
       bit4: 0,
       bit2: 0,
-      bit1: 0
+      bit1: 0,
     };
   },
   created: function () {
@@ -224,13 +197,13 @@ export default {
   width: 100px;
   /*height: 100px;*/
   border: 1px solid black;
-  font-size: large;
+  font-size: 25px;
   border-radius: 10px;
   margin: 0 auto;
   font-weight: bold;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color:antiquewhite;
+  background-color: white;
 }
 .binary_container {
   display: flex;
