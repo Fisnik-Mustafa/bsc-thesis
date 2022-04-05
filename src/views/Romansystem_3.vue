@@ -133,14 +133,24 @@
     </div>
 
     <br />
+    <Newtask :task="'Binaersystem_1'" />
     <Nexttask />
+    <button @click="submit()" class="btn_submit" v-if="addup">
+      <img src="../assets/icons/check.png" class="icon" />
+      <br />Überprüfen
+    </button>
+    <br />
     <button @click="showHint()" class="btn_submit" v-if="!hint">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
       Zeige Hinweis
     </button>
     <button @click="removeHint()" class="btn_submit" v-if="hint">
+      <img src="../assets/icons/info.png" class="icon">
+      <br>
       Entferne Hinweis
     </button>
-    <button @click="submit()" class="btn_submit">Überprüfen</button>
+
     <p v-if="hint">
       In der Tabelle findest du die entsprechenden Grössen und deren Wert.
     </p>
@@ -152,9 +162,10 @@
 import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
+import Newtask from "@/components/Newtask.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier },
+  components: { Backtohomepage, Nexttask, Verifier, Newtask },
   data() {
     return {
       randomnumber1: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
