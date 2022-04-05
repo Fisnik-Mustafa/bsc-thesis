@@ -12,7 +12,7 @@
       @close-verifier="this.submitted = false"
     />
 
-    <h2>Zahl 1</h2>
+    <h2>Summand 1</h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_1_32 }}</div>
       <div class="binary_card">{{ bit_1_16 }}</div>
@@ -26,7 +26,7 @@
     <button class="addition" @click="add()">+</button>
     <br />
 
-    <h2>Zahl 2</h2>
+    <h2>Summand 2</h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_2_32 }}</div>
       <div class="binary_card">{{ bit_2_16 }}</div>
