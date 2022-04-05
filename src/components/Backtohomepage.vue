@@ -1,6 +1,8 @@
 <template>
     <router-link to="/">
         <button class="back_to_homepage">
+          <img src="../assets/icons/home.png" style="height: 40px; width: 50px;" >
+          <br>
             Startseite
         </button>
     </router-link>
