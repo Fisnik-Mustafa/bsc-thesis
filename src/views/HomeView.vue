@@ -63,7 +63,7 @@ export default {
 
 <style>
 body {
-  background-color: rgb(112, 187, 112);
+  background-color: rgb(157, 220, 157);
 }
 .tasks {
   display: flex;
