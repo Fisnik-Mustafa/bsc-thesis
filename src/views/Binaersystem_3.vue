@@ -2,7 +2,7 @@
   <div>
     <h1>Binaersystem_3</h1>
     <Backtohomepage />
-    <p>Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst</p>
+    <p>Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.</p>
     <hr />
 
     <Verifier
