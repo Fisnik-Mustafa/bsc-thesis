@@ -2,7 +2,7 @@
   <div>
     <h1>Binaersystem_3</h1>
     <Backtohomepage />
-    <p>Addiere beide Binärzahlen korrekt zusammen.</p>
+    <p>Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst</p>
     <hr />
 
     <Verifier
@@ -12,7 +12,10 @@
       @close-verifier="this.submitted = false"
     />
 
-    <h2>Summand 1</h2>
+    <h2>
+      Summand 1:
+      <input type="text" placeholder="Summand 1" v-model="eingabesummand1" />
+    </h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_1_32 }}</div>
       <div class="binary_card">{{ bit_1_16 }}</div>
@@ -26,7 +29,10 @@
     <button class="addition" @click="add()">+</button>
     <br />
 
-    <h2>Summand 2</h2>
+    <h2>
+      Summand 2:
+      <input type="text" placeholder="Summand 2" v-model="eingabesummand2" />
+    </h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_2_32 }}</div>
       <div class="binary_card">{{ bit_2_16 }}</div>
@@ -37,8 +43,10 @@
     </div>
 
     <br />
-    
-    <h2>Summe</h2>
+
+    <h2 v-if="addup">
+      Summe: <input type="text" placeholder="Summe" v-model="eingabesumme" />
+    </h2>
 
     <div class="zahl" v-if="addup">
       <div class="einheit binaer" v-if="showposition_64">
@@ -103,10 +111,9 @@
         1
         <div class="karte">0</div>
       </div>
-
     </div>
 
-    <br>
+    <br />
 
     <div v-if="addup">
       <button
@@ -152,12 +159,13 @@
         2 <i class="arrow left"></i> 2*1
       </button>
     </div>
-    
-    <Newtask :task="'Dezimalsystem_1'"/>
+
+    <Newtask :task="'Dezimalsystem_1'" />
     <Nexttask />
     <button @click="submit()" class="btn_submit">
-      <img src="../assets/icons/check.png" class="icon"/> <br />
-      Überprüfen</button>
+      <img src="../assets/icons/check.png" class="icon" /> <br />
+      Überprüfen
+    </button>
   </div>
 </template>
 
@@ -210,6 +218,9 @@ export default {
       summand2indec: 0,
       sumindec: 0,
       submitsum: 0,
+      eingabesummand1: '',
+      eingabesummand2: '',
+      eingabesumme: ''
     };
   },
   created: function () {
@@ -266,7 +277,9 @@ export default {
         this.position_2,
         this.position_1
       );
-      if (this.submitsum == this.sumindec) {
+      if (this.submitsum == this.sumindec && this.eingabesummand1 == (this.bit_1_32*32+this.bit_1_16*16+this.bit_1_8*8+this.bit_1_4*4+this.bit_1_2*2+this.bit_1_1) &&
+      this.eingabesummand2 == (this.bit_2_32*32+this.bit_2_16*16+this.bit_2_8*8+this.bit_2_4*4+this.bit_2_2*2+this.bit_2_1) &&
+      this.eingabesumme == this.sumindec) {
         this.result = true;
       } else {
         this.result = false;
