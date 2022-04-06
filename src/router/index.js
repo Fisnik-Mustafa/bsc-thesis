@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Dezimalsystem_1 from  '../views/Dezimalsystem_1.vue'
 import Dezimalsystem_2 from '../views/Dezimalsystem_2.vue'
@@ -79,7 +79,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
