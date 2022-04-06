@@ -12,33 +12,33 @@
       @close-verifier="this.submitted = false"
     />
 
-    <h2>Summand 1</h2>
+    <h2>Summand 1: <input type="text" placeholder="Summand 1" v-model="eingabesummand1"></h2>
     <div class="zahl roman">
-      <div class="einheit" v-if="M1 > 0">
+      <div class="einheit">
         <div v-for="index in M1" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit" v-if="D1 > 0">
+      <div class="einheit">
         <div v-for="index in D1" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit" v-if="C1 > 0">
+      <div class="einheit">
         <div v-for="index in C1" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit" v-if="L1 > 0">
+      <div class="einheit">
         <div v-for="index in L1" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit" v-if="X1 > 0">
+      <div class="einheit">
         <div v-for="index in X1" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit" v-if="V1 > 0">
+      <div class="einheit">
         <div v-for="index in V1" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit" v-if="I1 > 0">
+      <div class="einheit">
         <div v-for="index in I1" :key="index" class="karte">I</div>
       </div>
     </div>
@@ -47,64 +47,64 @@
     <button class="addition" @click="add()">+</button>
     <br />
 
-    <h2>Summand 2</h2>
+    <h2>Summand 2: <input type="text" placeholder="Summand2" v-model="eingabesummand2"></h2>
     <div class="zahl roman">
-      <div class="einheit" v-if="M2 > 0">
+      <div class="einheit">
         <div v-for="index in M2" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit" v-if="D2 > 0">
+      <div class="einheit">
         <div v-for="index in D2" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit" v-if="C2 > 0">
+      <div class="einheit">
         <div v-for="index in C2" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit" v-if="L2 > 0">
+      <div class="einheit">
         <div v-for="index in L2" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit" v-if="X2 > 0">
+      <div class="einheit">
         <div v-for="index in X2" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit" v-if="V2 > 0">
+      <div class="einheit">
         <div v-for="index in V2" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit" v-if="I2 > 0">
+      <div class="einheit">
         <div v-for="index in I2" :key="index" class="karte">I</div>
       </div>
     </div>
 
-    <h2>Summe</h2>
-    <div class="zahl roman">
-      <div class="einheit summe" v-if="M3 > 0">
+    <h2 v-if="addup">Summe: <input type="text" placeholder="Summe" v-model="eingabesumme"></h2>
+    <div class="zahl roman" v-if="addup">
+      <div class="einheit summe">
         <div v-for="index in M3" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit summe" v-if="D3 > 0">
+      <div class="einheit summe">
         <div v-for="index in D3" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit summe" v-if="C3 > 0">
+      <div class="einheit summe">
         <div v-for="index in C3" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit summe" v-if="L3 > 0">
+      <div class="einheit summe">
         <div v-for="index in L3" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit summe" v-if="X3 > 0">
+      <div class="einheit summe">
         <div v-for="index in X3" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit summe" v-if="V3 > 0">
+      <div class="einheit summe">
         <div v-for="index in V3" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit summe" v-if="I3 > 0">
+      <div class="einheit summe">
         <div v-for="index in I3" :key="index" class="karte">I</div>
       </div>
     </div>
@@ -209,6 +209,9 @@ export default {
       submitted: false,
       result: false,
       sum: 0,
+      eingabesummand1: '',
+      eingabesummand2: '',
+      eingabesumme: ''
     };
   },
   created: function () {
@@ -384,7 +387,10 @@ export default {
         this.L3 == this.Lresult &&
         this.X3 == this.Xresult &&
         this.V3 == this.Vresult &&
-        this.I3 == this.Iresult
+        this.I3 == this.Iresult &&
+        this.eingabesummand1 == this.randomnumber1 &&
+        this.eingabesummand2 == this.randomnumber2 &&
+        this.eingabesumme == (this.M3*1000+this.D3*500+this.C3*100+this.L3*50+this.X3*10+this.V3*5+this.I3)
       ) {
         this.result = true;
       } else {
