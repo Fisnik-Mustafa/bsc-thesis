@@ -2,7 +2,7 @@
   <div>
     <h1>Romansystem_2</h1>
     <Backtohomepage />
-    <p>Wandle die römische Zahl in die entsprechende Dezimalzahl um</p>
+    <p>Wandle die vorrömische Zahl in die entsprechende Dezimalzahl um.</p>
     <hr />
 
     <Verifier
