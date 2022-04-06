@@ -15,7 +15,7 @@
     />
     <hr style="color: black" />
 
-    <h2>Summand 1 <input type="text" placeholder="Summand 1" v-model="eingabesummand1"></h2>
+    <h2>Summand 1: <input type="text" placeholder="Summand 1" v-model="eingabesummand1"></h2>
     <div class="zahl">
       <div class="einheit">
         <div v-for="index in summand1tausender" :key="index" class="karte">
