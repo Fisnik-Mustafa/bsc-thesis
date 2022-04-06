@@ -3,8 +3,8 @@
     <h1>Dezimalsystem_3</h1>
     <Backtohomepage />
     <p>
-      Bestimme die beiden Summanden und addiere sie korrekt zusammen, indem du
-      die Karten korrekt umtauschst
+      Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du
+      die Karten korrekt umtauschst.
     </p>
 
     <Verifier
@@ -15,22 +15,22 @@
     />
     <hr style="color: black" />
 
-    <h2>Summand 1</h2>
+    <h2>Summand 1 <input type="text" placeholder="Summand 1" v-model="eingabesummand1"></h2>
     <div class="zahl">
-      <div class="einheit" v-if="summand1tausender > 0">
+      <div class="einheit">
         <div v-for="index in summand1tausender" :key="index" class="karte">
           1000
         </div>
       </div>
-      <div class="einheit" v-if="summand1hunderter > 0">
+      <div class="einheit">
         <div v-for="index in summand1hunderter" :key="index" class="karte">
           100
         </div>
       </div>
-      <div class="einheit" v-if="summand1zehner > 0">
+      <div class="einheit">
         <div v-for="index in summand1zehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit" v-if="summand1einer > 0">
+      <div class="einheit">
         <div v-for="index in summand1einer" :key="index" class="karte">1</div>
       </div>
     </div>
@@ -39,47 +39,47 @@
     <button class="addition" @click="add()">+</button>
     <br />
 
-    <h2>Summand 2</h2>
+    <h2>Summand 2: <input type="text" placeholder="Summand 2" v-model="eingabesummand2"></h2>
     <div class="zahl">
-      <div class="einheit" v-if="summand2tausender > 0">
+      <div class="einheit">
         <div v-for="index in summand2tausender" :key="index" class="karte">
           1000
         </div>
       </div>
-      <div class="einheit" v-if="summand2hunderter > 0">
+      <div class="einheit">
         <div v-for="index in summand2hunderter" :key="index" class="karte">
           100
         </div>
       </div>
-      <div class="einheit" v-if="summand2zehner > 0">
+      <div class="einheit">
         <div v-for="index in summand2zehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit" v-if="summand2einer > 0">
+      <div class="einheit">
         <div v-for="index in summand2einer" :key="index" class="karte">1</div>
       </div>
     </div>
 
-    <h2>Summe</h2>
+    <h2 v-if="addup">Summe: <input type="text" placeholder="Summe" v-model="eingabesumme"></h2>
     <div class="zahl" v-if="addup">
-      <div class="einheit summe" v-if="summezehntausender > 0">
+      <div class="einheit summe">
         <div v-for="index in summezehntausender" :key="index" class="karte">
           10000
         </div>
       </div>
-      <div class="einheit summe" v-if="summetausender > 0">
+      <div class="einheit summe">
         <div v-for="index in summetausender" :key="index" class="karte">
           1000
         </div>
       </div>
-      <div class="einheit summe" v-if="summehunderter > 0">
+      <div class="einheit summe">
         <div v-for="index in summehunderter" :key="index" class="karte">
           100
         </div>
       </div>
-      <div class="einheit summe" v-if="summezehner > 0">
+      <div class="einheit summe">
         <div v-for="index in summezehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit summe" v-if="summeeiner > 0">
+      <div class="einheit summe">
         <div v-for="index in summeeiner" :key="index" class="karte">1</div>
       </div>
     </div>
@@ -163,6 +163,9 @@ export default {
       morethan10einer: false,
       result: false,
       submitted: false,
+      eingabesummand1: '',
+      eingabesummand2: '',
+      eingabesumme: ''
     };
   },
   created: function () {
@@ -208,7 +211,10 @@ export default {
         this.resulttausender == this.summetausender &&
         this.resulthunderter == this.summehunderter &&
         this.resultzehner == this.summezehner &&
-        this.resulteiner == this.summeeiner
+        this.resulteiner == this.summeeiner &&
+        this.eingabesummand1 == this.summand1randomnumber &&
+        this.eingabesummand2 == this.summand2randomnumber &&
+        this.eingabesumme == (this.resultzehntausender*10000 +this.resulttausender*1000 + this.resulthunderter*100 + this.resultzehner*10 + this.resulteiner)
       ) {
         this.result = true;
       } else {
