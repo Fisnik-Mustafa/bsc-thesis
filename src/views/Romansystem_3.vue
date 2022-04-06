@@ -2,7 +2,7 @@
   <div>
     <h1>Romansystem_3</h1>
     <Backtohomepage />
-    <p>Addiere die folgenden zwei römischen Zahlen korrekt zusammen.</p>
+    <p>Bestimme die beiden Summanden und die Summe in der Dezimaldarstelung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.</p>
     <hr />
 
     <Verifier
