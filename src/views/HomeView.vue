@@ -8,12 +8,12 @@
       </router-link>
 
       <router-link to="Dezimalsystem_2">
-        <button class="taskbtn">Dezimalsystem_2</button> 
-      </router-link> 
+        <button class="taskbtn">Dezimalsystem_2</button>
+      </router-link>
 
       <router-link to="Dezimalsystem_3">
         <button class="taskbtn">Dezimalsystem_3</button>
-      </router-link> 
+      </router-link>
 
       <!-- RömischesSystem -->
       <router-link to="Romansystem_1">
@@ -26,7 +26,7 @@
 
       <router-link to="Romansystem_3">
         <button class="taskbtn">Romansystem_3</button>
-      </router-link> 
+      </router-link>
 
       <!-- Binärsystem -->
       <router-link to="Binaersystem_1">
@@ -39,16 +39,13 @@
 
       <router-link to="Binaersystem_3">
         <button class="taskbtn">Binärsystem_3</button>
-      </router-link> 
+      </router-link>
     </div>
 
     <!-- About page Route -->
-      <router-link to="AboutView">
-        <button class ="info">
-          Information
-        </button>
-      </router-link>
-    
+    <router-link to="AboutView">
+      <button class="info">Information</button>
+    </router-link>
   </div>
 </template>
 
@@ -65,6 +62,25 @@ export default {
 body {
   background-color: rgb(157, 220, 157);
 }
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+span {
+  text-decoration: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
 .tasks {
   display: flex;
   align-items: center;
@@ -78,12 +94,13 @@ body {
   margin: 20px;
   padding: 10px;
   border-radius: 10px;
-  border-color: rgb(83,81,81);
+  border-color: rgb(83, 81, 81);
 }
 .info:hover {
-  background-color: rgb(83,81,81);
+  background-color: rgb(83, 81, 81);
   color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .taskbtn {
   text-align: center;
@@ -93,11 +110,11 @@ body {
   padding: 30px;
   margin: 10px;
   border-color: rgb(83, 81, 81);
-  
 }
 .taskbtn:hover {
   background-color: rgb(83, 81, 81);
   color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
