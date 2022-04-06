@@ -13,16 +13,16 @@
     />
 
     <div class="zahl">
-      <div class="einheit" v-show="tausender > 0">
+      <div class="einheit">
         <div v-for="index in tausender" :key="index" class="karte">1000</div>
       </div>
-      <div class="einheit" v-show="hunderter > 0">
+      <div class="einheit">
         <div v-for="index in hunderter" :key="index" class="karte">100</div>
       </div>
-      <div class="einheit" v-show="zehner > 0">
+      <div class="einheit">
         <div v-for="index in zehner" :key="index" class="karte">10</div>
       </div>
-      <div class="einheit" v-show="einer > 0">
+      <div class="einheit">
         <div v-for="index in einer" :key="index" class="karte">1</div>
       </div>
     </div>
