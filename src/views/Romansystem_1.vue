@@ -2,7 +2,7 @@
   <div>
     <h1>Romansystem_1</h1>
     <Backtohomepage />
-    <p>Erkennst du die dargestellte Zahl? Gib die Zahl im Dezimalsystem an.</p>
+    <p>Erkennst du die dargestellte vorrömische Zahl? Gib die Zahl im Dezimalsystem an.</p>
     <hr />
     <br />
 
@@ -14,31 +14,31 @@
     />
 
     <div class="zahl roman">
-      <div class="einheit" v-if="M > 0">
+      <div class="einheit">
         <div v-for="index in M" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit" v-if="D > 0">
+      <div class="einheit">
         <div v-for="index in D" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit" v-if="C > 0">
+      <div class="einheit">
         <div v-for="index in C" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit" v-if="L > 0">
+      <div class="einheit">
         <div v-for="index in L" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit" v-if="X > 0">
+      <div class="einheit">
         <div v-for="index in X" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit" v-if="V > 0">
+      <div class="einheit">
         <div v-for="index in V" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit" v-if="I > 0">
+      <div class="einheit">
         <div v-for="index in I" :key="index" class="karte">I</div>
       </div>
     </div>
