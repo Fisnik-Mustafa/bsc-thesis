@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1>Dezimalsystem_1</h1>
-    <Backtohomepage />
-    <p>Erkennst du die dargestellte Zahl?</p>
-    <hr style="color: black" />
-
+    <Header
+      :title="'Dezimalsystem_1'"
+      :taskdescription="'Erkennst du die dargestellte Zahl?'"
+    />
+    
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
@@ -46,12 +46,12 @@
 
 <script>
 import Verifier from "@/components/Verifier.vue";
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier, Newtask },
+  components: { Nexttask, Verifier, Newtask, Header },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,

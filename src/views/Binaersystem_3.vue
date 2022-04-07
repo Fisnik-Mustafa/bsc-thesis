@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>Binaersystem_3</h1>
-    <Backtohomepage />
-    <p>Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.</p>
-    <hr />
+    <Header
+      :title="'Binaersystem_3'"
+      :taskdescription="'Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.'"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -170,13 +170,13 @@
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier, Newtask },
+  components: { Nexttask, Verifier, Newtask, Header },
   data() {
     return {
       bit_1_32: 0,
@@ -218,9 +218,9 @@ export default {
       summand2indec: 0,
       sumindec: 0,
       submitsum: 0,
-      eingabesummand1: '',
-      eingabesummand2: '',
-      eingabesumme: ''
+      eingabesummand1: "",
+      eingabesummand2: "",
+      eingabesumme: "",
     };
   },
   created: function () {
@@ -277,9 +277,24 @@ export default {
         this.position_2,
         this.position_1
       );
-      if (this.submitsum == this.sumindec && this.eingabesummand1 == (this.bit_1_32*32+this.bit_1_16*16+this.bit_1_8*8+this.bit_1_4*4+this.bit_1_2*2+this.bit_1_1) &&
-      this.eingabesummand2 == (this.bit_2_32*32+this.bit_2_16*16+this.bit_2_8*8+this.bit_2_4*4+this.bit_2_2*2+this.bit_2_1) &&
-      this.eingabesumme == this.sumindec) {
+      if (
+        this.submitsum == this.sumindec &&
+        this.eingabesummand1 ==
+          this.bit_1_32 * 32 +
+            this.bit_1_16 * 16 +
+            this.bit_1_8 * 8 +
+            this.bit_1_4 * 4 +
+            this.bit_1_2 * 2 +
+            this.bit_1_1 &&
+        this.eingabesummand2 ==
+          this.bit_2_32 * 32 +
+            this.bit_2_16 * 16 +
+            this.bit_2_8 * 8 +
+            this.bit_2_4 * 4 +
+            this.bit_2_2 * 2 +
+            this.bit_2_1 &&
+        this.eingabesumme == this.sumindec
+      ) {
         this.result = true;
       } else {
         this.result = false;
@@ -378,41 +393,41 @@ export default {
     checkboxtoshow() {
       if (this.position_64 > 0) {
         this.showposition_64 = true;
-      }else {
+      } else {
         this.showposition_64 = false;
-      } 
+      }
 
       if (this.position_32 > 0) {
         this.showposition_32 = true;
-      }else {
+      } else {
         this.showposition_32 = false;
       }
 
       if (this.position_16 > 0) {
         this.showposition_16 = true;
-      }else {
+      } else {
         this.showposition_16 = false;
       }
 
       if (this.position_8 > 0) {
         this.showposition_8 = true;
-      }else {
+      } else {
         this.showposition_8 = false;
       }
 
       if (this.position_4 > 0) {
         this.showposition_4 = true;
-      }else {
+      } else {
         this.showposition_4 = false;
-      } 
+      }
       if (this.position_2 > 0) {
         this.showposition_2 = true;
-      }else {
+      } else {
         this.showposition_2 = false;
-      } 
+      }
       if (this.position_1 > 0) {
         this.showposition_1 = true;
-      }else {
+      } else {
         this.showposition_1 = false;
       }
     },

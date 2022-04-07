@@ -1,11 +1,9 @@
 <template>
   <div>
-    <h1>Binaersystem_2</h1>
-    <Backtohomepage />
-    <p>
-      Gegeben die Zahl in Binärdarstellung. Gib die Zahl in Dezimalsystem an.
-    </p>
-    <hr />
+    <Header
+      :title="'Binaersystem_2'"
+      :taskdescription="'Gegeben die Zahl in Binärdarstellung. Gib die Zahl in Dezimalsystem an.'"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -26,7 +24,7 @@
     <Newtask :task="'Binaersystem_3'" />
     <Nexttask />
     <button @click="submit()" class="btn_submit">
-      <img src="../assets/icons/check.png" class="icon"/> <br />Überprüfen
+      <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
     <input
       v-model="usernum"
@@ -38,13 +36,13 @@
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Verifier, Nexttask, Newtask },
+  components: { Verifier, Nexttask, Newtask, Header },
   data() {
     return {
       num: 0,

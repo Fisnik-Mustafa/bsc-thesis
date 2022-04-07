@@ -1,14 +1,10 @@
 <template>
   <div>
-    <h1>Binaersystem_1</h1>
-    <Backtohomepage />
-    <p>
-      Stelle die folgende Zahl mithilfe der folgenden Karten dar:
-      <span style="font-size: 25px; font-weight: bold">{{
-        randomnumber
-      }}</span>
-    </p>
-    <hr />
+    <Header
+      :title="'Binaersystem_1'"
+      :taskdescription="'Stelle die folgende Zahl mithilfe der folgenden Karten dar: '"
+      :num="randomnumber"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -37,19 +33,19 @@
     <Newtask :task="'Binaersystem_2'" />
     <Nexttask />
     <button @click="submit()" class="btn_submit">
-      <img src="../assets/icons/check.png" class="icon"/> <br />Überprüfen
+      <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
   </div>
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Verifier, Nexttask, Newtask },
+  components: { Verifier, Nexttask, Newtask, Header },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * 63) + 1,

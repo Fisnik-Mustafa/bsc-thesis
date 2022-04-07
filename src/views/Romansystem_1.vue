@@ -1,10 +1,9 @@
 <template>
   <div>
-    <h1>Romansystem_1</h1>
-    <Backtohomepage />
-    <p>Erkennst du die dargestellte vorrömische Zahl? Gib die Zahl im Dezimalsystem an.</p>
-    <hr />
-    <br />
+    <Header
+      :title="'Romansystem_1'"
+      :taskdescription="'Erkennst du die dargestellte vorrömische Zahl? Gib die Zahl im Dezimalsystem an.'"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -46,7 +45,7 @@
     <Newtask :task="'Romansystem_2'" />
     <Nexttask />
     <button @click="submit()" class="btn_submit">
-      <img src="../assets/icons/check.png" class="icon"/> <br />
+      <img src="../assets/icons/check.png" class="icon" /> <br />
       Überprüfen
     </button>
     <input
@@ -57,13 +56,13 @@
     />
     <br />
     <button @click="showHint()" class="btn_submit" v-if="!hint">
-      <img src="../assets/icons/info.png" class="icon">
-      <br>
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
       Zeige Hinweis
     </button>
     <button @click="removeHint()" class="btn_submit" v-if="hint">
-      <img src="../assets/icons/info.png" class="icon">
-      <br>
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
       Entferne Hinweis
     </button>
     <p v-if="hint">
@@ -74,13 +73,13 @@
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier, Newtask },
+  components: { Nexttask, Verifier, Newtask, Header },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,

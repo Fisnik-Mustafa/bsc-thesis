@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>Romansystem_2</h1>
-    <Backtohomepage />
-    <p>Wandle die vorrömische Zahl in die entsprechende Dezimalzahl um.</p>
-    <hr />
+
+    <Header
+      :title="'Romansystem_2'"
+      :taskdescription="'Wandle die vorrömische Zahl in die entsprechende Dezimalzahl um.'"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -11,9 +12,6 @@
       :tip="''"
       @close-verifier="this.submitted = false"
     />
-
-    <br />
-    <br />
 
     <div class="roman_number">
       {{ romannumber }}
@@ -25,7 +23,7 @@
     <Newtask :task="'Romansystem_3'" />
     <Nexttask />
     <button @click="submit()" class="btn_submit">
-      <img src="../assets/icons/check.png" class="icon"/> <br />Überprüfen
+      <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
     <input
       v-model="eingabe"
@@ -35,13 +33,13 @@
     />
     <br />
     <button @click="showHint()" class="btn_submit" v-if="!hint">
-      <img src="../assets/icons/info.png" class="icon">
-      <br>
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
       Zeige Hinweis
     </button>
     <button @click="removeHint()" class="btn_submit" v-if="hint">
-      <img src="../assets/icons/info.png" class="icon">
-      <br>
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
       Entferne Hinweis
     </button>
 
@@ -53,13 +51,13 @@
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier, Newtask },
+  components: { Nexttask, Verifier, Newtask, Header },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,

@@ -1,11 +1,10 @@
 <template>
   <div>
-    <h1>Dezimalsystem_3</h1>
-    <Backtohomepage />
-    <p>
-      Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du
-      die Karten korrekt umtauschst.
-    </p>
+
+    <Header
+      :title="'Dezimalsystem_3'"
+      :taskdescription="'Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Karten Karten korrekt umtauschst.'"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -13,9 +12,11 @@
       :tip="'Achte darauf, dass du korrekt umtauscht!'"
       @close-verifier="this.submitted = false"
     />
-    <hr style="color: black" />
 
-    <h2>Summand 1: <input type="text" placeholder="Summand 1" v-model="eingabesummand1"></h2>
+    <h2>
+      Summand 1:
+      <input type="text" placeholder="Summand 1" v-model="eingabesummand1" />
+    </h2>
     <div class="zahl">
       <div class="einheit">
         <div v-for="index in summand1tausender" :key="index" class="karte">
@@ -39,7 +40,10 @@
     <button class="addition" @click="add()">+</button>
     <br />
 
-    <h2>Summand 2: <input type="text" placeholder="Summand 2" v-model="eingabesummand2"></h2>
+    <h2>
+      Summand 2:
+      <input type="text" placeholder="Summand 2" v-model="eingabesummand2" />
+    </h2>
     <div class="zahl">
       <div class="einheit">
         <div v-for="index in summand2tausender" :key="index" class="karte">
@@ -59,7 +63,9 @@
       </div>
     </div>
 
-    <h2 v-if="addup">Summe: <input type="text" placeholder="Summe" v-model="eingabesumme"></h2>
+    <h2 v-if="addup">
+      Summe: <input type="text" placeholder="Summe" v-model="eingabesumme" />
+    </h2>
     <div class="zahl" v-if="addup">
       <div class="einheit summe">
         <div v-for="index in summezehntausender" :key="index" class="karte">
@@ -124,13 +130,13 @@
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Verifier, Nexttask, Newtask },
+  components: { Verifier, Nexttask, Newtask, Header },
   data() {
     return {
       summand2randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -163,9 +169,9 @@ export default {
       morethan10einer: false,
       result: false,
       submitted: false,
-      eingabesummand1: '',
-      eingabesummand2: '',
-      eingabesumme: ''
+      eingabesummand1: "",
+      eingabesummand2: "",
+      eingabesumme: "",
     };
   },
   created: function () {
@@ -214,7 +220,12 @@ export default {
         this.resulteiner == this.summeeiner &&
         this.eingabesummand1 == this.summand1randomnumber &&
         this.eingabesummand2 == this.summand2randomnumber &&
-        this.eingabesumme == (this.resultzehntausender*10000 +this.resulttausender*1000 + this.resulthunderter*100 + this.resultzehner*10 + this.resulteiner)
+        this.eingabesumme ==
+          this.resultzehntausender * 10000 +
+            this.resulttausender * 1000 +
+            this.resulthunderter * 100 +
+            this.resultzehner * 10 +
+            this.resulteiner
       ) {
         this.result = true;
       } else {

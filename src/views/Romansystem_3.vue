@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>Romansystem_3</h1>
-    <Backtohomepage />
-    <p>Bestimme die beiden Summanden und die Summe in der Dezimaldarstelung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.</p>
-    <hr />
+    <Header
+      :title="'Romansystem_3'"
+      :taskdescription="'Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.'"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -12,7 +12,10 @@
       @close-verifier="this.submitted = false"
     />
 
-    <h2>Summand 1: <input type="text" placeholder="Summand 1" v-model="eingabesummand1"></h2>
+    <h2>
+      Summand 1:
+      <input type="text" placeholder="Summand 1" v-model="eingabesummand1" />
+    </h2>
     <div class="zahl roman">
       <div class="einheit">
         <div v-for="index in M1" :key="index" class="karte">M</div>
@@ -47,7 +50,10 @@
     <button class="addition" @click="add()">+</button>
     <br />
 
-    <h2>Summand 2: <input type="text" placeholder="Summand2" v-model="eingabesummand2"></h2>
+    <h2>
+      Summand 2:
+      <input type="text" placeholder="Summand2" v-model="eingabesummand2" />
+    </h2>
     <div class="zahl roman">
       <div class="einheit">
         <div v-for="index in M2" :key="index" class="karte">M</div>
@@ -78,7 +84,9 @@
       </div>
     </div>
 
-    <h2 v-if="addup">Summe: <input type="text" placeholder="Summe" v-model="eingabesumme"></h2>
+    <h2 v-if="addup">
+      Summe: <input type="text" placeholder="Summe" v-model="eingabesumme" />
+    </h2>
     <div class="zahl roman" v-if="addup">
       <div class="einheit summe">
         <div v-for="index in M3" :key="index" class="karte">M</div>
@@ -146,8 +154,8 @@
       Zeige Hinweis
     </button>
     <button @click="removeHint()" class="btn_submit" v-if="hint">
-      <img src="../assets/icons/info.png" class="icon">
-      <br>
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
       Entferne Hinweis
     </button>
 
@@ -159,13 +167,13 @@
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier, Newtask },
+  components: { Nexttask, Verifier, Newtask, Header },
   data() {
     return {
       randomnumber1: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -209,9 +217,9 @@ export default {
       submitted: false,
       result: false,
       sum: 0,
-      eingabesummand1: '',
-      eingabesummand2: '',
-      eingabesumme: ''
+      eingabesummand1: "",
+      eingabesummand2: "",
+      eingabesumme: "",
     };
   },
   created: function () {
@@ -390,7 +398,14 @@ export default {
         this.I3 == this.Iresult &&
         this.eingabesummand1 == this.randomnumber1 &&
         this.eingabesummand2 == this.randomnumber2 &&
-        this.eingabesumme == (this.M3*1000+this.D3*500+this.C3*100+this.L3*50+this.X3*10+this.V3*5+this.I3)
+        this.eingabesumme ==
+          this.M3 * 1000 +
+            this.D3 * 500 +
+            this.C3 * 100 +
+            this.L3 * 50 +
+            this.X3 * 10 +
+            this.V3 * 5 +
+            this.I3
       ) {
         this.result = true;
       } else {

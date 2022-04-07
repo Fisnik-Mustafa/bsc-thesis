@@ -1,13 +1,10 @@
 <template>
   <div>
-    <h1>Dezimalsystem_2</h1>
-    <Backtohomepage />
-    <p>
-      Wieviele Karten benötigst du um diese Zahl darzustellen:
-      <span style="font-size: 25px; font-weight: bold">{{
-        randomnumber
-      }}</span>
-    </p>
+    <Header
+      :title="'Dezimalsystem_2'"
+      :taskdescription="'Wieviele Karten benötigst du um diese Zahl darzustellen:'"
+      :num="randomnumber"
+    />
 
     <Verifier
       v-if="this.submitted"
@@ -23,7 +20,7 @@
       <button class="karte_btn" @click="increaseeiner()">1</button>
     </div>
 
-    <hr style="color: black" />
+    <br> <br>
 
     <div class="zahl">
       <div class="einheit">
@@ -78,13 +75,13 @@
 </template>
 
 <script>
-import Backtohomepage from "@/components/Backtohomepage.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
+import Header from "@/components/Header.vue";
 
 export default {
-  components: { Backtohomepage, Nexttask, Verifier, Newtask },
+  components: {Nexttask, Verifier, Newtask, Header },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
