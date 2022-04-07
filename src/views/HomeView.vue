@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Zahlensysteme erkennen und verstehen.</h1>
+    <h1 style="padding-top: 100px;">Zahlensysteme erkennen und verstehen.</h1>
     <div class="tasks">
       <!-- DezimalSystem -->
       <router-link to="Dezimalsystem_1">
@@ -86,6 +86,7 @@ span {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 100px;
 }
 .info {
   position: absolute;
