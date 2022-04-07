@@ -162,11 +162,13 @@ export default {
 
 <style>
 .karte_btn {
-  padding: 10px 50px 10px 50px;
+  width: 90px;
+  height: 50px;
   border-radius: 15px;
   margin: 10px;
   display: inline;
   border-color: rgb(83, 81, 81);
+  font-size: 25px;
 }
 .karte_btn:hover {
   background-color: rgb(83, 81, 81);
@@ -176,6 +178,6 @@ export default {
 }
 .btn_div {
   margin: auto;
-  width: 700px;
+  max-width: 700px;
 }
 </style>

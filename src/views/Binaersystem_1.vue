@@ -12,13 +12,15 @@
       :tip="''"
       @close-verifier="this.submitted = false"
     />
+    <div style="max-width: 840px; display: flex; margin: auto;">
+      <div style="margin: 0 auto;" ><button class="binaer_btn" @click="addcard(0)">32</button></div>
+      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(1)">16</button></div>
+      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(2)">8</button></div>
+      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(3)">4</button></div>
+      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(4)">2</button></div>
+      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(5)">1</button></div>
+    </div>
 
-    <button class="binaer_btn" @click="addcard(0)">32</button>
-    <button class="binaer_btn" @click="addcard(1)">16</button>
-    <button class="binaer_btn" @click="addcard(2)">8</button>
-    <button class="binaer_btn" @click="addcard(3)">4</button>
-    <button class="binaer_btn" @click="addcard(4)">2</button>
-    <button class="binaer_btn" @click="addcard(5)">1</button>
 
     <div class="binary_container">
       <div class="binary_card">{{ bit32 }}</div>
@@ -204,6 +206,6 @@ export default {
 .binary_container {
   display: flex;
   margin: auto;
-  width: 840px;
+  max-width: 840px;
 }
 </style>

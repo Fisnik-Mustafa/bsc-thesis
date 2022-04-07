@@ -98,7 +98,7 @@ export default {
   display: flex;
   /*width: auto;*/
   margin: auto;
-  width: 700px;
+  max-width: 700px;
 }
 .karte {
   background-color: white;

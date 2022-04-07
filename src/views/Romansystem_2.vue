@@ -46,7 +46,13 @@
     <p v-if="hint">
       In der Tabelle findest du die entsprechenden Grössen und deren Wert.
     </p>
-    <img src="../assets/hints/hint_roman_1.png" width="1000" v-if="hint" />
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <img
+        src="../assets/hints/hint_roman_1.png"
+        style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
+        v-if="hint"
+      />
+    </div>
   </div>
 </template>
 
@@ -152,7 +158,7 @@ export default {
   background-color: aliceblue;
   border-radius: 10px;
   padding: 1em;
-  width: 600px;
+  max-width: 600px;
   margin: auto;
 }
 </style>

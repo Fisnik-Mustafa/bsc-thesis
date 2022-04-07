@@ -17,31 +17,31 @@
       <input type="text" placeholder="Summand 1" v-model="eingabesummand1" />
     </h2>
     <div class="zahl roman">
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in M1" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in D1" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in C1" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in L1" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in X1" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in V1" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in I1" :key="index" class="karte">I</div>
       </div>
     </div>
@@ -55,31 +55,31 @@
       <input type="text" placeholder="Summand2" v-model="eingabesummand2" />
     </h2>
     <div class="zahl roman">
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in M2" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in D2" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in C2" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in L2" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in X2" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in V2" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in I2" :key="index" class="karte">I</div>
       </div>
     </div>
@@ -88,31 +88,31 @@
       Summe: <input type="text" placeholder="Summe" v-model="eingabesumme" />
     </h2>
     <div class="zahl roman" v-if="addup">
-      <div class="einheit summe">
+      <div class="einheit roman_einheit summe">
         <div v-for="index in M3" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit summe">
+      <div class="einheit roman_einheit summe">
         <div v-for="index in D3" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit summe">
+      <div class="einheit roman_einheit summe">
         <div v-for="index in C3" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit summe">
+      <div class="einheit roman_einheit summe">
         <div v-for="index in L3" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit summe">
+      <div class="einheit roman_einheit summe">
         <div v-for="index in X3" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit summe">
+      <div class="einheit roman_einheit summe">
         <div v-for="index in V3" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit summe">
+      <div class="einheit roman_einheit summe">
         <div v-for="index in I3" :key="index" class="karte">I</div>
       </div>
     </div>
@@ -162,7 +162,13 @@
     <p v-if="hint">
       In der Tabelle findest du die entsprechenden Grössen und deren Wert.
     </p>
-    <img src="../assets/hints/hint_roman_1.png" width="1000" v-if="hint" />
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <img
+        src="../assets/hints/hint_roman_1.png"
+        style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
+        v-if="hint"
+      />
+    </div>
   </div>
 </template>
 

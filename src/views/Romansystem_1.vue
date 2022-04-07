@@ -13,31 +13,31 @@
     />
 
     <div class="zahl roman">
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in M" :key="index" class="karte">M</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in D" :key="index" class="karte">D</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in C" :key="index" class="karte">C</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in L" :key="index" class="karte">L</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in X" :key="index" class="karte">X</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in V" :key="index" class="karte">V</div>
       </div>
 
-      <div class="einheit">
+      <div class="einheit roman_einheit">
         <div v-for="index in I" :key="index" class="karte">I</div>
       </div>
     </div>
@@ -68,7 +68,13 @@
     <p v-if="hint">
       In der Tabelle findest du die entsprechenden Grössen und deren Wert.
     </p>
-    <img src="../assets/hints/hint_roman_1.png" width="1000" v-if="hint" />
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <img
+        src="../assets/hints/hint_roman_1.png"
+        style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
+        v-if="hint"
+      />
+    </div>
   </div>
 </template>
 
@@ -148,6 +154,9 @@ export default {
 
 <style>
 .roman {
-  width: 800px;
+  max-width: 800px;
+}
+.roman_einheit {
+  padding: 0px 15px 0px 15px;
 }
 </style>
