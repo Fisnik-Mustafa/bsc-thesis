@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>Impressum</h1>
+    <h1 style="padding-top: 100px; padding-bottom: 100px;">Impressum</h1>
     <Backtohomepage />
     <p>
       Diese Lernplattform basiert auf das Lehrmittel 'Einfach Informatik 7-9'
