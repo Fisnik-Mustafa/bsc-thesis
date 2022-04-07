@@ -27,9 +27,9 @@
     </button>
     <input
       v-model="eingabe"
-      type="text"
+      type="number"
       placeholder="Antwort"
-      style="margin: 10px"
+      class="field"
     />
     <br />
     <button @click="showHint()" class="btn_submit" v-if="!hint">
@@ -53,6 +53,8 @@
         v-if="hint"
       />
     </div>
+    <Footer />
+    
   </div>
 </template>
 
@@ -61,9 +63,10 @@ import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header },
+  components: { Nexttask, Verifier, Newtask, Header, Footer },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,

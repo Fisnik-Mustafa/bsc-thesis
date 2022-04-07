@@ -28,7 +28,7 @@ export default {
 <style>
 .header {
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 .aufgabenstellung {
   background-color:azure;

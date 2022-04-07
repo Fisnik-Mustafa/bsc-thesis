@@ -37,10 +37,11 @@
     </button>
     <input
       v-model="eingabe"
-      type="text"
+      type="number"
       placeholder="Antwort"
-      style="margin: 10px"
+      class="field"
     />
+    <Footer />
   </div>
 </template>
 
@@ -49,9 +50,10 @@ import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header },
+  components: { Nexttask, Verifier, Newtask, Header, Footer },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -117,4 +119,5 @@ export default {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
+
 </style>

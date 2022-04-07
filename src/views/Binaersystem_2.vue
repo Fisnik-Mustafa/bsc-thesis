@@ -28,10 +28,12 @@
     </button>
     <input
       v-model="usernum"
-      type="text"
+      type="number"
       placeholder="Antwort"
-      style="margin: 10px"
+      class="field"
     />
+    
+    <Footer />
   </div>
 </template>
 
@@ -40,9 +42,10 @@ import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Verifier, Nexttask, Newtask, Header },
+  components: { Verifier, Nexttask, Newtask, Header, Footer },
   data() {
     return {
       num: 0,

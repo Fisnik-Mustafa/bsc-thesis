@@ -14,7 +14,7 @@
 
     <h2>
       Summand 1:
-      <input type="text" placeholder="Summand 1" v-model="eingabesummand1" />
+      <input type="number" placeholder="Summand 1" v-model="eingabesummand1" class="field" />
     </h2>
     <div class="zahl roman">
       <div class="einheit roman_einheit">
@@ -52,7 +52,7 @@
 
     <h2>
       Summand 2:
-      <input type="text" placeholder="Summand2" v-model="eingabesummand2" />
+      <input type="number" placeholder="Summand2" v-model="eingabesummand2" class="field" />
     </h2>
     <div class="zahl roman">
       <div class="einheit roman_einheit">
@@ -169,6 +169,7 @@
         v-if="hint"
       />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -177,9 +178,10 @@ import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header },
+  components: { Nexttask, Verifier, Newtask, Header, Footer },
   data() {
     return {
       randomnumber1: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,

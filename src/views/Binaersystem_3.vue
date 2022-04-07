@@ -14,7 +14,7 @@
 
     <h2>
       Summand 1:
-      <input type="text" placeholder="Summand 1" v-model="eingabesummand1" />
+      <input type="number" placeholder="Summand 1" v-model="eingabesummand1" class="field" />
     </h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_1_32 }}</div>
@@ -31,7 +31,7 @@
 
     <h2>
       Summand 2:
-      <input type="text" placeholder="Summand 2" v-model="eingabesummand2" />
+      <input type="number" placeholder="Summand 2" v-model="eingabesummand2" class="field" />
     </h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_2_32 }}</div>
@@ -45,7 +45,7 @@
     <br />
 
     <h2 v-if="addup">
-      Summe: <input type="text" placeholder="Summe" v-model="eingabesumme" />
+      Summe: <input type="number" placeholder="Summe" v-model="eingabesumme" class="field"/>
     </h2>
 
     <div class="zahl" v-if="addup">

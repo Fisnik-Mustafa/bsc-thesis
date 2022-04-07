@@ -126,6 +126,8 @@
       <img src="../assets/icons/check.png" class="icon" />
       <br />Überprüfen
     </button>
+    
+    <Footer />
   </div>
 </template>
 
@@ -134,9 +136,10 @@ import Verifier from "@/components/Verifier.vue";
 import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Verifier, Nexttask, Newtask, Header },
+  components: { Verifier, Nexttask, Newtask, Header, Footer },
   data() {
     return {
       summand2randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
