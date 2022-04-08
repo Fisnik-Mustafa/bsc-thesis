@@ -85,7 +85,7 @@
     </div>
 
     <h2 v-if="addup">
-      Summe: <input type="text" placeholder="Summe" v-model="eingabesumme" />
+      Summe: <input type="number" placeholder="Summe" v-model="eingabesumme" class="field" />
     </h2>
     <div class="zahl roman" v-if="addup">
       <div class="einheit roman_einheit summe">
