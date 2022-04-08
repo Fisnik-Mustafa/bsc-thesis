@@ -12,15 +12,14 @@
       :tip="''"
       @close-verifier="this.submitted = false"
     />
-    <div style="max-width: 840px; display: flex; margin: auto;">
-      <div style="margin: 0 auto;" ><button class="binaer_btn" @click="addcard(0)">32</button></div>
-      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(1)">16</button></div>
-      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(2)">8</button></div>
-      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(3)">4</button></div>
-      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(4)">2</button></div>
-      <div style="margin: 0 auto;"><button class="binaer_btn" @click="addcard(5)">1</button></div>
+    <div style="max-width: 840px; display: flex; margin: auto">
+      <button class="binaer_btn" @click="addcard(0)"><span style="display: flex; flex-direction: row; justify-content: center;">32</span></button>
+      <button class="binaer_btn" @click="addcard(1)"><span style="display: flex; flex-direction: row; justify-content: center;">16</span></button>
+      <button class="binaer_btn" @click="addcard(2)"><span style="display: flex; flex-direction: row; justify-content: center;">8</span></button>
+      <button class="binaer_btn" @click="addcard(3)"><span style="display: flex; flex-direction: row; justify-content: center;">4</span></button>
+      <button class="binaer_btn" @click="addcard(4)"><span style="display: flex; flex-direction: row; justify-content: center;">2</span></button>
+      <button class="binaer_btn" @click="addcard(5)"><span style="display: flex; flex-direction: row; justify-content: center;">1</span></button>
     </div>
-
 
     <div class="binary_container">
       <div class="binary_card">{{ bit32 }}</div>
@@ -33,11 +32,11 @@
 
     <br />
     <Newtask :task="'Binaersystem_2'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
-    
+
     <Footer />
   </div>
 </template>
@@ -77,6 +76,9 @@ export default {
     this.deztobin();
   },
   methods: {
+    reloadPage(){
+      this.$router.go(0);
+    },
     deztobin() {
       this.temprandomnumber = this.randomnumber;
       while (this.temprandomnumber > 0) {
@@ -177,7 +179,8 @@ export default {
   width: 100px;
   height: 100px;
   /*padding: 30px;*/
-  margin: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
   font-size: large;
   border-radius: 10px;
   border-color: rgb(83, 81, 81);

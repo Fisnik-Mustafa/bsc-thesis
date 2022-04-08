@@ -21,7 +21,7 @@
     <br />
 
     <Newtask :task="'Romansystem_3'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
@@ -136,6 +136,9 @@ export default {
     }
   },
   methods: {
+    reloadPage(){
+      this.$router.go(0);
+    },
     submit() {
       if (this.eingabe == this.randomnumber) {
         this.result = true;

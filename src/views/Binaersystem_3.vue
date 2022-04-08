@@ -161,7 +161,7 @@
     </div>
 
     <Newtask :task="'Dezimalsystem_1'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />
       Überprüfen
@@ -241,6 +241,9 @@ export default {
     1;
   },
   methods: {
+    reloadPage(){
+      this.$router.go(0);
+    },
     getDecfromBin(e0, e1, e2, e3, e4, e5, e6) {
       if (e0 < 2 && e1 < 2 && e2 < 2 && e3 < 2 && e4 < 2 && e5 < 2 && e6 < 2) {
         return e0 * 64 + e1 * 32 + e2 * 16 + e3 * 8 + e4 * 4 + e5 * 2 + e6 * 1;

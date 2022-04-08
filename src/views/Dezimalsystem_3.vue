@@ -15,7 +15,7 @@
 
     <h2>
       Summand 1:
-      <input type="text" placeholder="Summand 1" v-model="eingabesummand1" />
+      <input type="number" placeholder="Summand 1" v-model="eingabesummand1" class="field"/>
     </h2>
     <div class="zahl">
       <div class="einheit">
@@ -42,7 +42,7 @@
 
     <h2>
       Summand 2:
-      <input type="text" placeholder="Summand 2" v-model="eingabesummand2" />
+      <input type="number" placeholder="Summand 2" v-model="eingabesummand2" class="field" />
     </h2>
     <div class="zahl">
       <div class="einheit">
@@ -64,7 +64,7 @@
     </div>
 
     <h2 v-if="addup">
-      Summe: <input type="text" placeholder="Summe" v-model="eingabesumme" />
+      Summe: <input type="number" placeholder="Summe" v-model="eingabesumme" class="field"/>
     </h2>
     <div class="zahl" v-if="addup">
       <div class="einheit summe">
@@ -121,7 +121,7 @@
       </button>
     </div>
     <Newtask :task="'Romansystem_1'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit" v-if="addup">
       <img src="../assets/icons/check.png" class="icon" />
       <br />Überprüfen
@@ -210,6 +210,9 @@ export default {
     this.resulteiner = this.summerandomnumber % 10;
   },
   methods: {
+    reloadPage(){
+      this.$router.go(0);
+    },
     submit() {
       this.checkResult();
       this.submitted = true;

@@ -22,7 +22,7 @@
     </div>
 
     <Newtask :task="'Binaersystem_3'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
@@ -70,6 +70,9 @@ export default {
     this.getDecNum();
   },
   methods: {
+    reloadPage(){
+      this.$router.go(0);
+    },
     // source: mdn web docs
     getRandomIntInclusive(min, max) {
       min = Math.ceil(min);

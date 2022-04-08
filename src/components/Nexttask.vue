@@ -1,13 +1,22 @@
 <template>
-  <button @click="this.$router.go(0)" class="next_task">
-    <img src="../assets/icons/restart.png" class="icon"/>
+  <button @click="next_task()" class="next_task">
+    <img src="../assets/icons/restart.png" class="icon" />
     <br />
     Neue Aufgabe
   </button>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    reloadPage() {
+      location.reload();
+    },
+    next_task() {
+      this.$emit("next_task");
+    }
+  },
+};
 </script>
 
 <style>

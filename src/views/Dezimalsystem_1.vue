@@ -29,7 +29,7 @@
 
     <br />
     <Newtask :task="'Dezimalsystem_2'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" />
       <br />
@@ -81,6 +81,9 @@ export default {
       this.result = this.randomnumber == this.eingabe;
       this.submitted = true;
     },
+    reloadPage(){
+      this.$router.go(0);
+    }
   },
 };
 </script>

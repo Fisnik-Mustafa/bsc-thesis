@@ -13,14 +13,38 @@
       @close-verifier="this.submitted = false"
     />
 
-    <div class="btn_div">
-      <button class="karte_btn" @click="increasetausender()">1000</button>
-      <button class="karte_btn" @click="increasehunderter()">100</button>
-      <button class="karte_btn" @click="increasezehner()">10</button>
-      <button class="karte_btn" @click="increaseeiner()">1</button>
+    <div
+      class="btn_div"
+      style="display: flex; margin: auto; max-width: 700px"
+    >
+      <button class="karte_btn" @click="increasetausender()">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >1000</span
+        >
+      </button>
+      <button class="karte_btn" @click="increasehunderter()">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >100</span
+        >
+      </button>
+      <button class="karte_btn" @click="increasezehner()">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >10</span
+        >
+      </button>
+      <button class="karte_btn" @click="increaseeiner()">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >1</span
+        >
+      </button>
     </div>
 
-    <br> <br>
+    <br />
+    <br />
 
     <div class="zahl">
       <div class="einheit">
@@ -65,13 +89,13 @@
       </div>
     </div>
     <Newtask :task="'Dezimalsystem_3'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" />
       <br />
       Überprüfen
     </button>
-    
+
     <Footer />
   </div>
 </template>
@@ -107,6 +131,9 @@ export default {
     this.resulteiner = this.randomnumber % 10;
   },
   methods: {
+    reloadPage(){
+      this.$router.go(0);
+    },
     submit() {
       this.result = false;
       if (
@@ -168,7 +195,7 @@ export default {
   width: 90px;
   height: 50px;
   border-radius: 15px;
-  margin: 10px;
+  margin: 0 auto;
   display: inline;
   border-color: rgb(83, 81, 81);
   font-size: 25px;
@@ -181,6 +208,6 @@ export default {
 }
 .btn_div {
   margin: auto;
-  max-width: 700px;
+  max-width: 800px;
 }
 </style>

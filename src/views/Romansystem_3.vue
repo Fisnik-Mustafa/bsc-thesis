@@ -142,7 +142,7 @@
 
     <br />
     <Newtask :task="'Binaersystem_1'" />
-    <Nexttask />
+    <Nexttask @next_task="reloadPage()"/>
     <button @click="submit()" class="btn_submit" v-if="addup">
       <img src="../assets/icons/check.png" class="icon" />
       <br />Überprüfen
@@ -316,6 +316,9 @@ export default {
     this.Iresult = temp;
   },
   methods: {
+    reloadPage(){
+      this.$router.go(0);
+    },
     add() {
       this.M3 = this.M1 + this.M2;
       this.D3 = this.D1 + this.D2;
