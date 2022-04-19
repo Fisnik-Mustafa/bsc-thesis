@@ -118,46 +118,43 @@
     <div v-if="addup">
       <button
         class="umtausch"
-        v-if="morethan2zweiunddreissiger"
         @click="changezweiunddreissigforvierundsechzig()"
       >
-        64 <i class="arrow left"></i> 2*32
+        <span class="karte btncard bin">62</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">32</span>
       </button>
       <button
         class="umtausch"
-        v-if="morethan2sechszehner"
         @click="changesechzehnerforzweiunddressig()"
       >
-        32 <i class="arrow left"></i> 2*16
+        <span class="karte btncard bin">32</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">16</span>
       </button>
       <button
         class="umtausch"
         v-if="morethan2achter"
         @click="changeachterforsechszehner()"
       >
-        16 <i class="arrow left"></i> 2*8
+        <span class="karte btncard bin">16</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">8</span>
       </button>
       <button
         class="umtausch"
-        v-if="morethan2vierer"
         @click="changeviererforachter()"
       >
-        8 <i class="arrow left"></i> 2*4
+        <span class="karte btncard bin">8</span>  <i class="arrow left"></i> 2 x <span class="karte btncard bin">4</span> 
       </button>
       <button
         class="umtausch"
-        v-if="morethan2zweier"
         @click="changezweierforvierer()"
       >
-        4 <i class="arrow left"></i> 2*2
+       <span class="karte btncard bin">4</span>  <i class="arrow left"></i> 2 x <span class="karte btncard bin">2</span> 
       </button>
       <button
         class="umtausch"
-        v-if="morethan2einer"
         @click="changeeinerforzweier()"
       >
-        2 <i class="arrow left"></i> 2*1
+       <span class="karte btncard bin">2</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">1</span>
       </button>
+      <p style="color: red" v-if="notmorethan2">Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
+      umtauschen kannst!</p>
     </div>
 
     <Newtask :task="'Dezimalsystem_1'" />
@@ -221,6 +218,7 @@ export default {
       eingabesummand1: "",
       eingabesummand2: "",
       eingabesumme: "",
+      notmorethan2: false,
     };
   },
   created: function () {
@@ -358,40 +356,76 @@ export default {
       }
     },
     changezweiunddreissigforvierundsechzig() {
+      if(this.position_32 > 1){
       this.position_64 = this.position_64 + 1;
       this.position_32 = this.position_32 - 2;
       this.checkmorethan2();
       this.checkboxtoshow();
+      this.notmorethan2 = false;
+      }else{
+        this.notmorethan2 = true;
+      }
+
     },
     changesechzehnerforzweiunddressig() {
+      if(this.position_16 > 1){
       this.position_32 = this.position_32 + 1;
       this.position_16 = this.position_16 - 2;
       this.checkmorethan2();
       this.checkboxtoshow();
+      this.notmorethan2 = false;
+      }else{
+        this.notmorethan2 = true;
+      }
+
     },
     changeachterforsechszehner() {
+      if(this.position_8 > 1){
       this.position_16 = this.position_16 + 1;
       this.position_8 = this.position_8 - 2;
       this.checkmorethan2();
       this.checkboxtoshow();
+      this.notmorethan2 = false;
+      }else{
+        this.notmorethan2 = true;
+      }
+
     },
     changeviererforachter() {
+      if(this.position_4 > 1){
       this.position_8 = this.position_8 + 1;
       this.position_4 = this.position_4 - 2;
       this.checkmorethan2();
       this.checkboxtoshow();
+      this.notmorethan2 = false;
+      }else{
+        this.notmorethan2 = true;
+      }
+
     },
     changezweierforvierer() {
+      if(this.position_2 > 1){
       this.position_4 = this.position_4 + 1;
       this.position_2 = this.position_2 - 2;
       this.checkmorethan2();
       this.checkboxtoshow();
+      this.notmorethan2 = false;
+      }else{
+        this.notmorethan2 = true;
+      }
+
     },
     changeeinerforzweier() {
+      if(this.position_1 > 1){
       this.position_2 = this.position_2 + 1;
       this.position_1 = this.position_1 - 2;
       this.checkmorethan2();
       this.checkboxtoshow();
+      this.notmorethan2 = false;
+      }else{
+        this.notmorethan2 = true;
+      }
+
     },
     checkboxtoshow() {
       if (this.position_64 > 0) {
@@ -443,5 +477,9 @@ export default {
   height: 175px;
   padding-left: 10px;
   padding-right: 10px;
+}
+.bin {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 </style>

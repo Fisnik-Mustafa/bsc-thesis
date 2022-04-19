@@ -14,7 +14,12 @@
 
     <h2>
       Summand 1:
-      <input type="number" placeholder="Summand 1" v-model="eingabesummand1" class="field" />
+      <input
+        type="number"
+        placeholder="Summand 1"
+        v-model="eingabesummand1"
+        class="field"
+      />
     </h2>
     <div class="zahl roman">
       <div class="einheit roman_einheit">
@@ -52,7 +57,12 @@
 
     <h2>
       Summand 2:
-      <input type="number" placeholder="Summand2" v-model="eingabesummand2" class="field" />
+      <input
+        type="number"
+        placeholder="Summand2"
+        v-model="eingabesummand2"
+        class="field"
+      />
     </h2>
     <div class="zahl roman">
       <div class="einheit roman_einheit">
@@ -85,7 +95,13 @@
     </div>
 
     <h2 v-if="addup">
-      Summe: <input type="number" placeholder="Summe" v-model="eingabesumme" class="field" />
+      Summe:
+      <input
+        type="number"
+        placeholder="Summe"
+        v-model="eingabesumme"
+        class="field"
+      />
     </h2>
     <div class="zahl roman" v-if="addup">
       <div class="einheit roman_einheit summe">
@@ -120,29 +136,53 @@
     <br />
 
     <div v-if="addup">
-      <button class="umtausch" v-if="morethan2D" @click="changeDforM()">
-        M <i class="arrow left"></i> 2*D
+      <button class="umtausch" @click="changeDforM()">
+        <span class="karte btncard rm">M</span> <i class="arrow left"></i> 2 x <span class="karte btncard rm">D</span>
       </button>
-      <button class="umtausch" v-if="morethan5C" @click="changeCforD()">
-        D <i class="arrow left"></i> 5*C
+      <button class="umtausch" @click="changeCforD()">
+        <span class="karte btncard rm">D</span> <i class="arrow left"></i> 5 x <span class="karte btncard rm">C</span>
       </button>
-      <button class="umtausch" v-if="morethan2L" @click="changeLforC()">
-        C <i class="arrow left"></i> 2*L
+      <button class="umtausch" @click="changeLforC()">
+        <span class="karte btncard rm">C</span> <i class="arrow left"></i> 2 x <span class="karte btncard rm">L</span>
       </button>
-      <button class="umtausch" v-if="morethan5X" @click="changeXforL()">
-        L <i class="arrow left"></i> 5*X
+      <button class="umtausch" @click="changeXforL()">
+        <span class="karte btncard rm">L</span> <i class="arrow left"></i> 5 x <span class="karte btncard rm">X</span>
       </button>
-      <button class="umtausch" v-if="morethan2V" @click="changeVforX()">
-        X <i class="arrow left"></i> 2*V
+      <button class="umtausch" @click="changeVforX()">
+        <span class="karte btncard rm">X</span> <i class="arrow left"></i> 2 x <span class="karte btncard rm">V</span>
       </button>
-      <button class="umtausch" v-if="morethan5I" @click="changeIforV()">
-        V <i class="arrow left"></i> 5*I
+      <button class="umtausch" @click="changeIforV()">
+        <span class="karte btncard rm">V</span> <i class="arrow left"></i> 5 x <span class="karte btncard rm">I</span>
       </button>
     </div>
+    <p style="color: red" v-if="notmorethan2D">
+      Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
+      umtauschen kannst!
+    </p>
+    <p style="color: red" v-if="notmorethan5C">
+      Du benötigst mindestens 5 Karten von dieser Einheit damit du korrekt
+      umtauschen kannst!
+    </p>
+    <p style="color: red" v-if="notmorethan2L">
+      Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
+      umtauschen kannst!
+    </p>
+    <p style="color: red" v-if="notmorethan5X">
+      Du benötigst mindestens 5 Karten von dieser Einheit damit du korrekt
+      umtauschen kannst!
+    </p>
+    <p style="color: red" v-if="notmorethan2V">
+      Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
+      umtauschen kannst!
+    </p>
+    <p style="color: red" v-if="notmorethan5I">
+      Du benötigst mindestens 5 Karten von dieser Einheit damit du korrekt
+      umtauschen kannst!
+    </p>
 
     <br />
     <Newtask :task="'Binaersystem_1'" />
-    <Nexttask @next_task="reloadPage()"/>
+    <Nexttask @next_task="reloadPage()" />
     <button @click="submit()" class="btn_submit" v-if="addup">
       <img src="../assets/icons/check.png" class="icon" />
       <br />Überprüfen
@@ -162,7 +202,7 @@
     <p v-if="hint">
       In der Tabelle findest du die entsprechenden Grössen und deren Wert.
     </p>
-    <div style="max-width: 1000px; margin: 0 auto;">
+    <div style="max-width: 1000px; margin: 0 auto">
       <img
         src="../assets/hints/hint_roman_1.png"
         style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
@@ -228,6 +268,12 @@ export default {
       eingabesummand1: "",
       eingabesummand2: "",
       eingabesumme: "",
+      notmorethan2D: false,
+      notmorethan5C: false,
+      notmorethan2L: false,
+      notmorethan5X: false,
+      notmorethan2V: false,
+      notmorethan5I: false,
     };
   },
   created: function () {
@@ -363,34 +409,100 @@ export default {
       }
     },
     changeDforM() {
+      if(this.D3 >= 2){
       this.M3 = this.M3 + 1;
       this.D3 = this.D3 - 2;
       this.checkmorethan();
+      this.notmorethan2D = false;
+      }else{
+        this.notmorethan2D = true;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;       
+      }
+
     },
     changeCforD() {
+      if(this.C3 >= 5){
       this.D3 = this.D3 + 1;
       this.C3 = this.C3 - 5;
       this.checkmorethan();
+      this.notmorethan5C = false;
+      }else{
+        this.notmorethan2D = false;
+        this.notmorethan5C = true;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;  
+      }
+
     },
     changeLforC() {
+      if(this.L3 >= 2){
       this.C3 = this.C3 + 1;
       this.L3 = this.L3 - 2;
       this.checkmorethan();
+      this.notmorethan2L = false;
+      }else{
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = true;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;  
+      }
+
     },
     changeXforL() {
+      if(this.X3 >= 5){
       this.L3 = this.L3 + 1;
       this.X3 = this.X3 - 5;
       this.checkmorethan();
+      this.notmorethan5X = false;
+      }else{
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = true;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;  
+      }
+
     },
     changeVforX() {
+      if(this.V3 >= 2){
       this.X3 = this.X3 + 1;
       this.V3 = this.V3 - 2;
       this.checkmorethan();
+      this.notmorethan2V = false;
+      }else{
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = true;
+        this.notmorethan5I = false;  
+      }
+
     },
     changeIforV() {
+      if(this.I3 >= 5){
       this.V3 = this.V3 + 1;
       this.I3 = this.I3 - 5;
       this.checkmorethan();
+      this.notmorethan5I = false;
+      }else{
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = true;  
+      }
+
     },
     showHint() {
       this.hint = true;
@@ -432,5 +544,9 @@ export default {
 .addition {
   font-size: 25px;
   font-weight: bold;
+}
+.rm {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <Header
       :title="'Dezimalsystem_3'"
       :taskdescription="'Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Karten Karten korrekt umtauschst.'"
@@ -15,7 +14,12 @@
 
     <h2>
       Summand 1:
-      <input type="number" placeholder="Summand 1" v-model="eingabesummand1" class="field"/>
+      <input
+        type="number"
+        placeholder="Summand 1"
+        v-model="eingabesummand1"
+        class="field"
+      />
     </h2>
     <div class="zahl">
       <div class="einheit">
@@ -42,7 +46,12 @@
 
     <h2>
       Summand 2:
-      <input type="number" placeholder="Summand 2" v-model="eingabesummand2" class="field" />
+      <input
+        type="number"
+        placeholder="Summand 2"
+        v-model="eingabesummand2"
+        class="field"
+      />
     </h2>
     <div class="zahl">
       <div class="einheit">
@@ -64,7 +73,13 @@
     </div>
 
     <h2 v-if="addup">
-      Summe: <input type="number" placeholder="Summe" v-model="eingabesumme" class="field"/>
+      Summe:
+      <input
+        type="number"
+        placeholder="Summe"
+        v-model="eingabesumme"
+        class="field"
+      />
     </h2>
     <div class="zahl" v-if="addup">
       <div class="einheit summe">
@@ -91,42 +106,27 @@
     </div>
     <br />
     <div v-if="addup">
-      <button
-        class="umtausch"
-        v-if="morethan10tausender"
-        @click="changetausenderforzehntausender()"
-      >
-        10000 <i class="arrow left"></i> 9*1000
+      <button class="umtausch" @click="changetausenderforzehntausender()">
+        <span class="karte btncard">10000</span> <i class="arrow left"></i> 10 x <span class="karte btncard">1000</span>
       </button>
-      <button
-        class="umtausch"
-        v-if="morethan10hunderter"
-        @click="changehunderterfortausender()"
-      >
-        1000 <i class="arrow left"></i> 9*100
+      <button class="umtausch" @click="changehunderterfortausender()">
+        <span class="karte btncard">1000</span> <i class="arrow left"></i> 10 x <span class="karte btncard">100</span>
       </button>
-      <button
-        class="umtausch"
-        v-if="morethan10zehner"
-        @click="changezehnerforhunderter()"
-      >
-        100 <i class="arrow left"></i> 9*10
+      <button class="umtausch" @click="changezehnerforhunderter()">
+        <span class="karte btncard">100</span> <i class="arrow left"></i> 10 x <span class="karte btncard">10</span>
       </button>
-      <button
-        class="umtausch"
-        v-if="morethan10einer"
-        @click="changeeinerforzehner()"
-      >
-        10 <i class="arrow left"></i> 9*1
+      <button class="umtausch" @click="changeeinerforzehner()">
+        <span class="karte btncard">10</span> <i class="arrow left"></i> 10 x <span class="karte btncard">1</span>
       </button>
     </div>
+    <p style="color: red" v-if="notmorethan10">Du brauchst mindestens 10 Karten von einer Einheit um zu tauschen!</p>
     <Newtask :task="'Romansystem_1'" />
-    <Nexttask @next_task="reloadPage()"/>
+    <Nexttask @next_task="reloadPage()" />
     <button @click="submit()" class="btn_submit" v-if="addup">
       <img src="../assets/icons/check.png" class="icon" />
       <br />Überprüfen
     </button>
-    
+
     <Footer />
   </div>
 </template>
@@ -175,6 +175,7 @@ export default {
       eingabesummand1: "",
       eingabesummand2: "",
       eingabesumme: "",
+      notmorethan10: false,
     };
   },
   created: function () {
@@ -210,7 +211,7 @@ export default {
     this.resulteiner = this.summerandomnumber % 10;
   },
   methods: {
-    reloadPage(){
+    reloadPage() {
       this.$router.go(0);
     },
     submit() {
@@ -268,24 +269,47 @@ export default {
       }
     },
     changetausenderforzehntausender() {
-      this.summetausender = this.summetausender - 10;
-      this.summezehntausender = this.summezehntausender + 1;
-      this.checkmorethan10();
+      if (this.summetausender > 9) {
+        this.summetausender = this.summetausender - 10;
+        this.summezehntausender = this.summezehntausender + 1;
+        this.checkmorethan10();
+        this.notmorethan10 = false;
+      }else {
+        this.notmorethan10 = true;
+      }
     },
     changehunderterfortausender() {
+      if(this.summehunderter > 9){
       this.summehunderter = this.summehunderter - 10;
       this.summetausender = this.summetausender + 1;
       this.checkmorethan10();
+      this.notmorethan10 = false;
+      }else{
+        this.notmorethan10 = true;
+      }
+
     },
     changezehnerforhunderter() {
+      if(this.summezehner > 9){
       this.summezehner = this.summezehner - 10;
       this.summehunderter = this.summehunderter + 1;
       this.checkmorethan10();
+      this.notmorethan10 = false;
+      }else{
+        this.notmorethan10 = true;
+      }
+
     },
     changeeinerforzehner() {
+      if(this.summeeiner > 9){
       this.summeeiner = this.summeeiner - 10;
       this.summezehner = this.summezehner + 1;
       this.checkmorethan10();
+      this.notmorethan10 = false;
+      }else{
+        this.notmorethan10 = true;
+      }
+
     },
   },
 };
@@ -311,10 +335,18 @@ export default {
   -webkit-transform: rotate(135deg);
 }
 .umtausch {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 110px;
+  height: 40px;
+  width: 200px;
+  /* width: 110px; */
   margin-right: 20px;
   margin-left: 20px;
+}
+.btncard {
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: normal;
+  margin: 5px;
 }
 </style>

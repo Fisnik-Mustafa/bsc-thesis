@@ -12,9 +12,9 @@
         </div>
         <div class="flex-item flex-center flex-space-between flex-col">
           <div class="flex-item flex-center flex-space-between flex-row">
-            <img class="corr_img" v-if="correctSolution" :src="require('@/assets/icons/correct.png')"
+            <img class="corr_img" v-if="correctSolution" :src="require('@/assets/icons/Task-completed-correctly-v3.png')"
              draggable="false"/>
-            <img class="corr_img" v-else :src="require('@/assets/icons/wrong.jpeg')"
+            <img class="corr_img" v-else :src="require('@/assets/icons/Task-completed-incorrectly2.png')"
              draggable="false"/>
           </div>
           <hr>
