@@ -4,7 +4,7 @@
       :title="'Dezimalsystem_1'"
       :taskdescription="'Erkennst du die dargestellte Zahl?'"
     />
-    
+
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
@@ -29,7 +29,7 @@
 
     <br />
     <Newtask :task="'Dezimalsystem_2'" />
-    <Nexttask @next_task="reloadPage()"/>
+    <Nexttask @next_task="reloadPage()" />
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" />
       <br />
@@ -41,6 +41,14 @@
       placeholder="Antwort"
       class="field"
     />
+    <Tutorial :modalActive="modalActive">
+      <div class="modal-content">
+        <h1>This is a Modal Header</h1>
+        <p>This is a modal message</p>
+      </div>
+    </Tutorial>
+  
+
     <Footer />
   </div>
 </template>
@@ -51,9 +59,10 @@ import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header, Footer },
+  components: { Nexttask, Verifier, Newtask, Header, Footer, Tutorial },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -68,6 +77,7 @@ export default {
       eingabe: null,
       submitted: false,
       result: false,
+      modalActive: true,
     };
   },
   created: function () {
@@ -81,9 +91,9 @@ export default {
       this.result = this.randomnumber == this.eingabe;
       this.submitted = true;
     },
-    reloadPage(){
+    reloadPage() {
       this.$router.go(0);
-    }
+    },
   },
 };
 </script>
@@ -122,5 +132,4 @@ export default {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-
 </style>
