@@ -12,13 +12,51 @@
       :tip="''"
       @close-verifier="this.submitted = false"
     />
+
+    <Tutorial
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Binaersystem1'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"
+    />
+
     <div style="max-width: 840px; display: flex; margin: auto">
-      <button class="binaer_btn" @click="addcard(0)"><span style="display: flex; flex-direction: row; justify-content: center;">32</span></button>
-      <button class="binaer_btn" @click="addcard(1)"><span style="display: flex; flex-direction: row; justify-content: center;">16</span></button>
-      <button class="binaer_btn" @click="addcard(2)"><span style="display: flex; flex-direction: row; justify-content: center;">8</span></button>
-      <button class="binaer_btn" @click="addcard(3)"><span style="display: flex; flex-direction: row; justify-content: center;">4</span></button>
-      <button class="binaer_btn" @click="addcard(4)"><span style="display: flex; flex-direction: row; justify-content: center;">2</span></button>
-      <button class="binaer_btn" @click="addcard(5)"><span style="display: flex; flex-direction: row; justify-content: center;">1</span></button>
+      <button class="binaer_btn" @click="addcard(0)">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >32</span
+        >
+      </button>
+      <button class="binaer_btn" @click="addcard(1)">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >16</span
+        >
+      </button>
+      <button class="binaer_btn" @click="addcard(2)">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >8</span
+        >
+      </button>
+      <button class="binaer_btn" @click="addcard(3)">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >4</span
+        >
+      </button>
+      <button class="binaer_btn" @click="addcard(4)">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >2</span
+        >
+      </button>
+      <button class="binaer_btn" @click="addcard(5)">
+        <span
+          style="display: flex; flex-direction: row; justify-content: center"
+          >1</span
+        >
+      </button>
     </div>
 
     <div class="binary_container">
@@ -32,7 +70,15 @@
 
     <br />
     <Newtask :task="'Binaersystem_2'" />
-    <Nexttask @next_task="reloadPage()"/>
+
+    <Nexttask @next_task="reloadPage()" />
+
+    <button @click="showTutorial()" class="btn_submit">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Hilfe
+    </button>
+
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
@@ -47,9 +93,10 @@ import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Verifier, Nexttask, Newtask, Header, Footer },
+  components: { Verifier, Nexttask, Newtask, Header, Footer, Tutorial },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * 63) + 1,
@@ -70,13 +117,14 @@ export default {
       bit4: 0,
       bit2: 0,
       bit1: 0,
+      tutorialActive: false,
     };
   },
   created: function () {
     this.deztobin();
   },
   methods: {
-    reloadPage(){
+    reloadPage() {
       this.$router.go(0);
     },
     deztobin() {
@@ -170,6 +218,12 @@ export default {
         this.chosen1 = !this.chosen1;
       }
     },
+    showTutorial() {
+      this.tutorialActive = true;
+    },
+    getTaskDescription() {
+      return "Diese Aufgabe soll dir das Binärsystem beibringen. Du hast eine Zahl gegeben. Weiter hast du eine 32, 16, 8, 4, 2 und 1 Karte gegeben. Welche von diesen Karten benötigst du, damit die Summe der Karten genau der Zahl entspricht? Der Trick ist immer die grösstmögliche Karte zu probieren, dann die nächstkleinere und so weiter. Klicke auf eine Karte, falls sie in Frage kommen sollte um die Zahl im Binärsystem darzustellen."
+    }
   },
 };
 </script>

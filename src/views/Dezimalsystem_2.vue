@@ -13,6 +13,12 @@
       @close-verifier="this.submitted = false"
     />
 
+    <Tutorial 
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Dezimalsystem2'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"/>
+
     <div
       class="btn_div"
       style="display: flex; margin: auto; max-width: 700px"
@@ -88,8 +94,17 @@
         </div>
       </div>
     </div>
+    <br> <br>
     <Newtask :task="'Dezimalsystem_3'" />
+
     <Nexttask @next_task="reloadPage()"/>
+
+    <button @click="showTutorial()" class="btn_submit">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Hilfe
+    </button>
+
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" />
       <br />
@@ -106,9 +121,10 @@ import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header, Footer },
+  components: { Nexttask, Verifier, Newtask, Header, Footer, Tutorial },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -122,6 +138,7 @@ export default {
       resulteiner: 0,
       result: false,
       submitted: false,
+      tutorialActive: false,
     };
   },
   created: function () {
@@ -185,6 +202,12 @@ export default {
       if (this.einer > 0) {
         this.einer = this.einer - 1;
       }
+    },
+    showTutorial(){
+      this.tutorialActive = true;
+    },
+    getTaskDescription() {
+      return "Du hast eine Zahl gegeben. Versuche diese Zahl in 1000er Karten aufzuteilen solange es geht, indem du auf den Knopf drückst. Wenn du fertig bist machst du dasselbe noch mit den 100er Karten, dann mit den 10er und anschliessend mit den 1er Karten. Am Schluss sollte dann die Zahl korrekt in den jeweiligen Karten aufgeteilt sein, sodass die Summe der Karten wieder die ursprüngliche Zahl zurückgibt.";
     },
   },
 };

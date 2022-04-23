@@ -21,7 +21,7 @@ export default {
 
 <style>
 .next_task {
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
   border-color: rgb(83, 81, 81);

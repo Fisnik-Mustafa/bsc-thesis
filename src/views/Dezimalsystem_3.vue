@@ -12,6 +12,13 @@
       @close-verifier="this.submitted = false"
     />
 
+    <Tutorial
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Dezimalsystem3'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"
+    />
+
     <h2>
       Summand 1:
       <input
@@ -104,27 +111,43 @@
         <div v-for="index in summeeiner" :key="index" class="karte">1</div>
       </div>
     </div>
-    <br />
+    <br /> <br>
     <div v-if="addup">
       <button class="umtausch" @click="changetausenderforzehntausender()">
-        <span class="karte btncard">10000</span>  &larr; 10 x <span class="karte btncard">1000</span>
+        <span class="karte btncard">10000</span> &larr; 10 x
+        <span class="karte btncard">1000</span>
       </button>
 
       <button class="umtausch" @click="changehunderterfortausender()">
-        <span class="karte btncard">1000</span>  &larr; 10 x <span class="karte btncard">100</span>
+        <span class="karte btncard">1000</span> &larr; 10 x
+        <span class="karte btncard">100</span>
       </button>
 
       <button class="umtausch" @click="changezehnerforhunderter()">
-        <span class="karte btncard">100</span> &larr; 10 x <span class="karte btncard">10</span>
+        <span class="karte btncard">100</span> &larr; 10 x
+        <span class="karte btncard">10</span>
       </button>
 
       <button class="umtausch" @click="changeeinerforzehner()">
-        <span class="karte btncard">10</span> &larr; 10 x <span class="karte btncard">1</span>
+        <span class="karte btncard">10</span> &larr; 10 x
+        <span class="karte btncard">1</span>
       </button>
     </div>
-    <p style="color: red" v-if="notmorethan10">Du brauchst mindestens 10 Karten von einer Einheit um zu tauschen!</p>
+    
+    <p style="color: red" v-if="notmorethan10">
+      Du brauchst mindestens 10 Karten von einer Einheit um zu tauschen!
+    </p>
+    <br> <br>
     <Newtask :task="'Romansystem_1'" />
+
     <Nexttask @next_task="reloadPage()" />
+
+    <button @click="showTutorial()" class="btn_submit">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Hilfe
+    </button>
+
     <button @click="submit()" class="btn_submit" v-if="addup">
       <img src="../assets/icons/check.png" class="icon" />
       <br />Überprüfen
@@ -140,9 +163,10 @@ import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Verifier, Nexttask, Newtask, Header, Footer },
+  components: { Verifier, Nexttask, Newtask, Header, Footer, Tutorial },
   data() {
     return {
       summand2randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -179,6 +203,7 @@ export default {
       eingabesummand2: "",
       eingabesumme: "",
       notmorethan10: false,
+      tutorialActive: false,
     };
   },
   created: function () {
@@ -277,42 +302,45 @@ export default {
         this.summezehntausender = this.summezehntausender + 1;
         this.checkmorethan10();
         this.notmorethan10 = false;
-      }else {
+      } else {
         this.notmorethan10 = true;
       }
     },
     changehunderterfortausender() {
-      if(this.summehunderter > 9){
-      this.summehunderter = this.summehunderter - 10;
-      this.summetausender = this.summetausender + 1;
-      this.checkmorethan10();
-      this.notmorethan10 = false;
-      }else{
+      if (this.summehunderter > 9) {
+        this.summehunderter = this.summehunderter - 10;
+        this.summetausender = this.summetausender + 1;
+        this.checkmorethan10();
+        this.notmorethan10 = false;
+      } else {
         this.notmorethan10 = true;
       }
-
     },
     changezehnerforhunderter() {
-      if(this.summezehner > 9){
-      this.summezehner = this.summezehner - 10;
-      this.summehunderter = this.summehunderter + 1;
-      this.checkmorethan10();
-      this.notmorethan10 = false;
-      }else{
+      if (this.summezehner > 9) {
+        this.summezehner = this.summezehner - 10;
+        this.summehunderter = this.summehunderter + 1;
+        this.checkmorethan10();
+        this.notmorethan10 = false;
+      } else {
         this.notmorethan10 = true;
       }
-
     },
     changeeinerforzehner() {
-      if(this.summeeiner > 9){
-      this.summeeiner = this.summeeiner - 10;
-      this.summezehner = this.summezehner + 1;
-      this.checkmorethan10();
-      this.notmorethan10 = false;
-      }else{
+      if (this.summeeiner > 9) {
+        this.summeeiner = this.summeeiner - 10;
+        this.summezehner = this.summezehner + 1;
+        this.checkmorethan10();
+        this.notmorethan10 = false;
+      } else {
         this.notmorethan10 = true;
       }
-
+    },
+    showTutorial() {
+      this.tutorialActive = true;
+    },
+    getTaskDescription() {
+      return "In dieser Aufgabe hast du zwei Zahlen in form von Karten gegeben. Deine Aufgabe besteht darin diese beiden Zahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als 9 Karten gegeben sind. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
     },
   },
 };

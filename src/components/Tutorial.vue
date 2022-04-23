@@ -1,81 +1,167 @@
 <template>
-  <div>
-    <transition name="modal-animation">
-      <div v-show="modalActive" class="modal">
-        <transition name="modal-animation-inner">
-          <div>
-            <div v-show="modalActive" class="modal-inner"></div>
-            <button @click="close()">close</button>
-            <slot />
-            <!-- Modal Content -->
+  <div id="tutorial-wrapper" class="modal-mask"
+   @mousedown.stop="showModal = false; $emit('close-tutorial')">
+    <div class="modal-wrapper">
+      <div class="modal-container" @mousedown.stop>
+        <div class="modal-header">
+          <p class="title">
+            Anleitung zur Aufgabe
+          </p>
+          <button class="exit-button"
+           @click="showModal = false;
+           $emit('close-tutorial')">
+           &times;
+           </button>
+        </div>
+        <div class="body">
+          <div class="description_and_video">
+            <div class="d_and_v" id="d">
+              <slot name="description">{{description}}</slot>
+            </div>
+            <div class="d_and_v" id="v">
+              <slot name="video">
+                <video controls>
+                  <source :src="getSrc()">
+                </video>
+              </slot>
+            </div>
           </div>
-        </transition>
-      </div>
-    </transition>
+        </div>
+       </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  props: ["modalActive"],
-  setup(props, { emit }) {
-    const close = () => {
-      emit("close");
-    };
-    return { close };
+import { defineComponent } from 'vue';
+export default defineComponent({
+  name: 'Tutorial',
+  data() {
+    return {
+      
+    }
   },
-};
+  props: [
+    'video_name',
+    'description',
+  ],
+  created: function(){
+    console.log("Tutorial activated")
+  },
+  methods: {
+    reloadPage(){
+      location.reload()
+    },
+    getSrc() {
+        return require( `@/assets/videos/${this.video_name}.mp4`);
+    }
+  }
+});
 </script>
 
-<style>
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-.modal-inner {
-  position: relative;
-  max-width: 640px;
-  width: 80%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.6);
-  background-color: white;
-  padding: 64px 16px;
-}
-i {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-
-}
-.modal-animation-enter-active,
-.modal-animation-leave-active{
-  transition: opacity 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02);
-}
-.modal-animation-enter-from,
-.modal-animation-leave-to{
-  opacity: 0;
-}
-
-.modal-animation-inner-enter-active {
-  transition: opacity 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0.15s;
-}
-.modal-animation-inner-leave-active {
-  transition: opacity 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02);
-}
-
-.modal-animation-inner-enter-from {
-  opacity: 0;
-  transform: scale(0.8);
-}
-.modal-animation-inner-leave-to {
-  transform: scale(0.8);
-}
+<style scoped>
+  .description_and_video {
+    display: block;
+  }
+  .d_and_v {
+    align-items: center;
+    justify-content: center;
+  }
+  hr {
+    width: 50%;
+  }
+  
+  #d {
+    padding: 0 20px 20px 20px;
+  }
+  video {
+    width: 90%;
+    height: auto;
+  }
+  
+  .description > p {
+    margin: 1em;
+    text-align: justify;
+    font-size: 1.5em !important;
+  }
+  .modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  }
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .tutorial-container {
+    background-color: #fff;
+  }
+  .exit-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 10px;
+      width: 2em;
+      height: 2em;
+      text-align: center;
+      padding: 0;
+      background: #f5f5f5;
+      font-size: 1.5em;
+      line-height: 1.7em;
+      border-radius: 3px;
+  }
+  .modal-container {
+    position: relative;
+    margin: 0px auto;
+    width: 60%;
+    min-width: 500px;
+    padding: 20px 30px 40px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.25em;
+  }
+  .modal-header {
+    padding-bottom: 30px;
+  }
+  .modal-header h3 {
+    font-size: 1.4em;
+  }
+  .modal-body {
+    margin: 20px 0;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+  }
+  .modal-default-button {
+    float: right;
+  }
+  /*
+  * The following styles are auto-applied to elements with
+  * transition="modal" when their visibility is toggled
+  * by Vue.js.
+  *
+  * You can easily play with the modal transition by editing
+  * these styles.
+  */
+  .modal-enter {
+    opacity: 0;
+  }
+  .modal-leave-active {
+    opacity: 0;
+  }
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 </style>
