@@ -41,12 +41,13 @@
       placeholder="Antwort"
       class="field"
     />
-    <Tutorial :modalActive="modalActive">
+    <Tutorial @close="toggleModal()" :modalActive="modalActive">
       <div class="modal-content">
         <h1>This is a Modal Header</h1>
         <p>This is a modal message</p>
       </div>
     </Tutorial>
+    <button @click="toggleModal()">Open Modal</button>
   
 
     <Footer />
@@ -77,7 +78,7 @@ export default {
       eingabe: null,
       submitted: false,
       result: false,
-      modalActive: true,
+      modalActive: false,
     };
   },
   created: function () {
@@ -94,6 +95,9 @@ export default {
     reloadPage() {
       this.$router.go(0);
     },
+    toggleModal() {
+      this.modalActive = !this.modalActive;
+    }
   },
 };
 </script>
@@ -132,4 +136,6 @@ export default {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
+
+
 </style>

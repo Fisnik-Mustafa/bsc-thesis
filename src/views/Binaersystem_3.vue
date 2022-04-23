@@ -120,38 +120,40 @@
         class="umtausch"
         @click="changezweiunddreissigforvierundsechzig()"
       >
-        <span class="karte btncard bin">62</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">32</span>
+        <span class="karte btncard bin">62</span> &larr; 2 x <span class="karte btncard bin">32</span>
       </button>
       <button
         class="umtausch"
         @click="changesechzehnerforzweiunddressig()"
       >
-        <span class="karte btncard bin">32</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">16</span>
+        <span class="karte btncard bin">32</span> &larr; 2 x <span class="karte btncard bin">16</span>
       </button>
+
       <button
         class="umtausch"
-        v-if="morethan2achter"
         @click="changeachterforsechszehner()"
       >
-        <span class="karte btncard bin">16</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">8</span>
+        <span class="karte btncard bin">16</span> &larr; 2 x <span class="karte btncard bin">8</span>
       </button>
+
       <button
         class="umtausch"
         @click="changeviererforachter()"
       >
-        <span class="karte btncard bin">8</span>  <i class="arrow left"></i> 2 x <span class="karte btncard bin">4</span> 
+        <span class="karte btncard bin">8</span>  &larr; 2 x <span class="karte btncard bin">4</span> 
       </button>
+
       <button
         class="umtausch"
         @click="changezweierforvierer()"
       >
-       <span class="karte btncard bin">4</span>  <i class="arrow left"></i> 2 x <span class="karte btncard bin">2</span> 
+       <span class="karte btncard bin">4</span>  &larr; 2 x <span class="karte btncard bin">2</span> 
       </button>
       <button
         class="umtausch"
         @click="changeeinerforzweier()"
       >
-       <span class="karte btncard bin">2</span> <i class="arrow left"></i> 2 x <span class="karte btncard bin">1</span>
+       <span class="karte btncard bin">2</span> &larr; 2 x <span class="karte btncard bin">1</span>
       </button>
       <p style="color: red" v-if="notmorethan2">Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
       umtauschen kannst!</p>

@@ -137,22 +137,22 @@
 
     <div v-if="addup">
       <button class="umtausch" @click="changeDforM()">
-        <span class="karte btncard rm">M</span> <i class="arrow left"></i> 2 x <span class="karte btncard rm">D</span>
+        <span class="karte btncard rm">M</span> &larr; 2 x <span class="karte btncard rm">D</span>
       </button>
       <button class="umtausch" @click="changeCforD()">
-        <span class="karte btncard rm">D</span> <i class="arrow left"></i> 5 x <span class="karte btncard rm">C</span>
+        <span class="karte btncard rm">D</span> &larr; 5 x <span class="karte btncard rm">C</span>
       </button>
       <button class="umtausch" @click="changeLforC()">
-        <span class="karte btncard rm">C</span> <i class="arrow left"></i> 2 x <span class="karte btncard rm">L</span>
+        <span class="karte btncard rm">C</span> &larr; 2 x <span class="karte btncard rm">L</span>
       </button>
       <button class="umtausch" @click="changeXforL()">
-        <span class="karte btncard rm">L</span> <i class="arrow left"></i> 5 x <span class="karte btncard rm">X</span>
+        <span class="karte btncard rm">L</span> &larr; 5 x <span class="karte btncard rm">X</span>
       </button>
       <button class="umtausch" @click="changeVforX()">
-        <span class="karte btncard rm">X</span> <i class="arrow left"></i> 2 x <span class="karte btncard rm">V</span>
+        <span class="karte btncard rm">X</span> &larr; 2 x <span class="karte btncard rm">V</span>
       </button>
       <button class="umtausch" @click="changeIforV()">
-        <span class="karte btncard rm">V</span> <i class="arrow left"></i> 5 x <span class="karte btncard rm">I</span>
+        <span class="karte btncard rm">V</span> &larr; 5 x <span class="karte btncard rm">I</span>
       </button>
     </div>
     <p style="color: red" v-if="notmorethan2D">

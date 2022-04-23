@@ -107,16 +107,19 @@
     <br />
     <div v-if="addup">
       <button class="umtausch" @click="changetausenderforzehntausender()">
-        <span class="karte btncard">10000</span> <i class="arrow left"></i> 10 x <span class="karte btncard">1000</span>
+        <span class="karte btncard">10000</span>  &larr; 10 x <span class="karte btncard">1000</span>
       </button>
+
       <button class="umtausch" @click="changehunderterfortausender()">
-        <span class="karte btncard">1000</span> <i class="arrow left"></i> 10 x <span class="karte btncard">100</span>
+        <span class="karte btncard">1000</span>  &larr; 10 x <span class="karte btncard">100</span>
       </button>
+
       <button class="umtausch" @click="changezehnerforhunderter()">
-        <span class="karte btncard">100</span> <i class="arrow left"></i> 10 x <span class="karte btncard">10</span>
+        <span class="karte btncard">100</span> &larr; 10 x <span class="karte btncard">10</span>
       </button>
+
       <button class="umtausch" @click="changeeinerforzehner()">
-        <span class="karte btncard">10</span> <i class="arrow left"></i> 10 x <span class="karte btncard">1</span>
+        <span class="karte btncard">10</span> &larr; 10 x <span class="karte btncard">1</span>
       </button>
     </div>
     <p style="color: red" v-if="notmorethan10">Du brauchst mindestens 10 Karten von einer Einheit um zu tauschen!</p>
@@ -322,17 +325,6 @@ export default {
 }
 .summe {
   height: 820px;
-}
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
 }
 .umtausch {
   height: 40px;
