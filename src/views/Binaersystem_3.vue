@@ -12,9 +12,21 @@
       @close-verifier="this.submitted = false"
     />
 
+    <Tutorial
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Romansystem1'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"
+    />
+
     <h2>
       Summand 1:
-      <input type="number" placeholder="Summand 1" v-model="eingabesummand1" class="field" />
+      <input
+        type="number"
+        placeholder="Summand 1"
+        v-model="eingabesummand1"
+        class="field"
+      />
     </h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_1_32 }}</div>
@@ -31,7 +43,12 @@
 
     <h2>
       Summand 2:
-      <input type="number" placeholder="Summand 2" v-model="eingabesummand2" class="field" />
+      <input
+        type="number"
+        placeholder="Summand 2"
+        v-model="eingabesummand2"
+        class="field"
+      />
     </h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit_2_32 }}</div>
@@ -45,7 +62,13 @@
     <br />
 
     <h2 v-if="addup">
-      Summe: <input type="number" placeholder="Summe" v-model="eingabesumme" class="field"/>
+      Summe:
+      <input
+        type="number"
+        placeholder="Summe"
+        v-model="eingabesumme"
+        class="field"
+      />
     </h2>
 
     <div class="zahl" v-if="addup">
@@ -120,47 +143,48 @@
         class="umtausch"
         @click="changezweiunddreissigforvierundsechzig()"
       >
-        <span class="karte btncard bin">62</span> &larr; 2 x <span class="karte btncard bin">32</span>
+        <span class="karte btncard bin">62</span> &larr; 2 x
+        <span class="karte btncard bin">32</span>
       </button>
-      <button
-        class="umtausch"
-        @click="changesechzehnerforzweiunddressig()"
-      >
-        <span class="karte btncard bin">32</span> &larr; 2 x <span class="karte btncard bin">16</span>
-      </button>
-
-      <button
-        class="umtausch"
-        @click="changeachterforsechszehner()"
-      >
-        <span class="karte btncard bin">16</span> &larr; 2 x <span class="karte btncard bin">8</span>
+      <button class="umtausch" @click="changesechzehnerforzweiunddressig()">
+        <span class="karte btncard bin">32</span> &larr; 2 x
+        <span class="karte btncard bin">16</span>
       </button>
 
-      <button
-        class="umtausch"
-        @click="changeviererforachter()"
-      >
-        <span class="karte btncard bin">8</span>  &larr; 2 x <span class="karte btncard bin">4</span> 
+      <button class="umtausch" @click="changeachterforsechszehner()">
+        <span class="karte btncard bin">16</span> &larr; 2 x
+        <span class="karte btncard bin">8</span>
       </button>
 
-      <button
-        class="umtausch"
-        @click="changezweierforvierer()"
-      >
-       <span class="karte btncard bin">4</span>  &larr; 2 x <span class="karte btncard bin">2</span> 
+      <button class="umtausch" @click="changeviererforachter()">
+        <span class="karte btncard bin">8</span> &larr; 2 x
+        <span class="karte btncard bin">4</span>
       </button>
-      <button
-        class="umtausch"
-        @click="changeeinerforzweier()"
-      >
-       <span class="karte btncard bin">2</span> &larr; 2 x <span class="karte btncard bin">1</span>
+
+      <button class="umtausch" @click="changezweierforvierer()">
+        <span class="karte btncard bin">4</span> &larr; 2 x
+        <span class="karte btncard bin">2</span>
       </button>
-      <p style="color: red" v-if="notmorethan2">Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
-      umtauschen kannst!</p>
+      <button class="umtausch" @click="changeeinerforzweier()">
+        <span class="karte btncard bin">2</span> &larr; 2 x
+        <span class="karte btncard bin">1</span>
+      </button>
+      <p style="color: red" v-if="notmorethan2">
+        Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
+        umtauschen kannst!
+      </p>
     </div>
 
     <Newtask :task="'Dezimalsystem_1'" />
-    <Nexttask @next_task="reloadPage()"/>
+
+    <Nexttask @next_task="reloadPage()" />
+
+    <button @click="showTutorial()" class="btn_submit">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Hilfe
+    </button>
+
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />
       Überprüfen
@@ -173,9 +197,10 @@ import Nexttask from "@/components/Nexttask.vue";
 import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header },
+  components: { Nexttask, Verifier, Newtask, Header, Tutorial },
   data() {
     return {
       bit_1_32: 0,
@@ -221,6 +246,7 @@ export default {
       eingabesummand2: "",
       eingabesumme: "",
       notmorethan2: false,
+      tutorialActive: false,
     };
   },
   created: function () {
@@ -241,7 +267,7 @@ export default {
     1;
   },
   methods: {
-    reloadPage(){
+    reloadPage() {
       this.$router.go(0);
     },
     getDecfromBin(e0, e1, e2, e3, e4, e5, e6) {
@@ -358,76 +384,70 @@ export default {
       }
     },
     changezweiunddreissigforvierundsechzig() {
-      if(this.position_32 > 1){
-      this.position_64 = this.position_64 + 1;
-      this.position_32 = this.position_32 - 2;
-      this.checkmorethan2();
-      this.checkboxtoshow();
-      this.notmorethan2 = false;
-      }else{
+      if (this.position_32 > 1) {
+        this.position_64 = this.position_64 + 1;
+        this.position_32 = this.position_32 - 2;
+        this.checkmorethan2();
+        this.checkboxtoshow();
+        this.notmorethan2 = false;
+      } else {
         this.notmorethan2 = true;
       }
-
     },
     changesechzehnerforzweiunddressig() {
-      if(this.position_16 > 1){
-      this.position_32 = this.position_32 + 1;
-      this.position_16 = this.position_16 - 2;
-      this.checkmorethan2();
-      this.checkboxtoshow();
-      this.notmorethan2 = false;
-      }else{
+      if (this.position_16 > 1) {
+        this.position_32 = this.position_32 + 1;
+        this.position_16 = this.position_16 - 2;
+        this.checkmorethan2();
+        this.checkboxtoshow();
+        this.notmorethan2 = false;
+      } else {
         this.notmorethan2 = true;
       }
-
     },
     changeachterforsechszehner() {
-      if(this.position_8 > 1){
-      this.position_16 = this.position_16 + 1;
-      this.position_8 = this.position_8 - 2;
-      this.checkmorethan2();
-      this.checkboxtoshow();
-      this.notmorethan2 = false;
-      }else{
+      if (this.position_8 > 1) {
+        this.position_16 = this.position_16 + 1;
+        this.position_8 = this.position_8 - 2;
+        this.checkmorethan2();
+        this.checkboxtoshow();
+        this.notmorethan2 = false;
+      } else {
         this.notmorethan2 = true;
       }
-
     },
     changeviererforachter() {
-      if(this.position_4 > 1){
-      this.position_8 = this.position_8 + 1;
-      this.position_4 = this.position_4 - 2;
-      this.checkmorethan2();
-      this.checkboxtoshow();
-      this.notmorethan2 = false;
-      }else{
+      if (this.position_4 > 1) {
+        this.position_8 = this.position_8 + 1;
+        this.position_4 = this.position_4 - 2;
+        this.checkmorethan2();
+        this.checkboxtoshow();
+        this.notmorethan2 = false;
+      } else {
         this.notmorethan2 = true;
       }
-
     },
     changezweierforvierer() {
-      if(this.position_2 > 1){
-      this.position_4 = this.position_4 + 1;
-      this.position_2 = this.position_2 - 2;
-      this.checkmorethan2();
-      this.checkboxtoshow();
-      this.notmorethan2 = false;
-      }else{
+      if (this.position_2 > 1) {
+        this.position_4 = this.position_4 + 1;
+        this.position_2 = this.position_2 - 2;
+        this.checkmorethan2();
+        this.checkboxtoshow();
+        this.notmorethan2 = false;
+      } else {
         this.notmorethan2 = true;
       }
-
     },
     changeeinerforzweier() {
-      if(this.position_1 > 1){
-      this.position_2 = this.position_2 + 1;
-      this.position_1 = this.position_1 - 2;
-      this.checkmorethan2();
-      this.checkboxtoshow();
-      this.notmorethan2 = false;
-      }else{
+      if (this.position_1 > 1) {
+        this.position_2 = this.position_2 + 1;
+        this.position_1 = this.position_1 - 2;
+        this.checkmorethan2();
+        this.checkboxtoshow();
+        this.notmorethan2 = false;
+      } else {
         this.notmorethan2 = true;
       }
-
     },
     checkboxtoshow() {
       if (this.position_64 > 0) {
@@ -469,6 +489,12 @@ export default {
       } else {
         this.showposition_1 = false;
       }
+    },
+    getTaskDescription() {
+      return "In dieser Aufgabe hast du zwei Zahlen in der Binärdarstellung gegeben. Wandle die beiden Zahlen in die Dezimaldarstellung um und addiere anschliessend die beiden Zahlen. Anschliessend musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du sicherstellen, indem du zwischen den Grössen korrekt umtauschst.";
+    },
+    showTutorial() {
+      this.tutorialActive = true;
     },
   },
 };

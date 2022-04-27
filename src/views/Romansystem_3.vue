@@ -12,6 +12,13 @@
       @close-verifier="this.submitted = false"
     />
 
+    <Tutorial
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Romansystem1'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"
+    />
+
     <h2>
       Summand 1:
       <input
@@ -137,22 +144,28 @@
 
     <div v-if="addup">
       <button class="umtausch" @click="changeDforM()">
-        <span class="karte btncard rm">M</span> &larr; 2 x <span class="karte btncard rm">D</span>
+        <span class="karte btncard rm">M</span> &larr; 2 x
+        <span class="karte btncard rm">D</span>
       </button>
       <button class="umtausch" @click="changeCforD()">
-        <span class="karte btncard rm">D</span> &larr; 5 x <span class="karte btncard rm">C</span>
+        <span class="karte btncard rm">D</span> &larr; 5 x
+        <span class="karte btncard rm">C</span>
       </button>
       <button class="umtausch" @click="changeLforC()">
-        <span class="karte btncard rm">C</span> &larr; 2 x <span class="karte btncard rm">L</span>
+        <span class="karte btncard rm">C</span> &larr; 2 x
+        <span class="karte btncard rm">L</span>
       </button>
       <button class="umtausch" @click="changeXforL()">
-        <span class="karte btncard rm">L</span> &larr; 5 x <span class="karte btncard rm">X</span>
+        <span class="karte btncard rm">L</span> &larr; 5 x
+        <span class="karte btncard rm">X</span>
       </button>
       <button class="umtausch" @click="changeVforX()">
-        <span class="karte btncard rm">X</span> &larr; 2 x <span class="karte btncard rm">V</span>
+        <span class="karte btncard rm">X</span> &larr; 2 x
+        <span class="karte btncard rm">V</span>
       </button>
       <button class="umtausch" @click="changeIforV()">
-        <span class="karte btncard rm">V</span> &larr; 5 x <span class="karte btncard rm">I</span>
+        <span class="karte btncard rm">V</span> &larr; 5 x
+        <span class="karte btncard rm">I</span>
       </button>
     </div>
     <p style="color: red" v-if="notmorethan2D">
@@ -182,7 +195,15 @@
 
     <br />
     <Newtask :task="'Binaersystem_1'" />
+
     <Nexttask @next_task="reloadPage()" />
+
+    <button @click="showTutorial()" class="btn_submit">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Hilfe
+    </button>
+
     <button @click="submit()" class="btn_submit" v-if="addup">
       <img src="../assets/icons/check.png" class="icon" />
       <br />Überprüfen
@@ -219,9 +240,10 @@ import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header, Footer },
+  components: { Nexttask, Verifier, Newtask, Header, Footer, Tutorial },
   data() {
     return {
       randomnumber1: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -274,6 +296,7 @@ export default {
       notmorethan5X: false,
       notmorethan2V: false,
       notmorethan5I: false,
+      tutorialActive: false,
     };
   },
   created: function () {
@@ -362,7 +385,7 @@ export default {
     this.Iresult = temp;
   },
   methods: {
-    reloadPage(){
+    reloadPage() {
       this.$router.go(0);
     },
     add() {
@@ -409,100 +432,94 @@ export default {
       }
     },
     changeDforM() {
-      if(this.D3 >= 2){
-      this.M3 = this.M3 + 1;
-      this.D3 = this.D3 - 2;
-      this.checkmorethan();
-      this.notmorethan2D = false;
-      }else{
+      if (this.D3 >= 2) {
+        this.M3 = this.M3 + 1;
+        this.D3 = this.D3 - 2;
+        this.checkmorethan();
+        this.notmorethan2D = false;
+      } else {
         this.notmorethan2D = true;
         this.notmorethan5C = false;
         this.notmorethan2L = false;
         this.notmorethan5X = false;
         this.notmorethan2V = false;
-        this.notmorethan5I = false;       
+        this.notmorethan5I = false;
       }
-
     },
     changeCforD() {
-      if(this.C3 >= 5){
-      this.D3 = this.D3 + 1;
-      this.C3 = this.C3 - 5;
-      this.checkmorethan();
-      this.notmorethan5C = false;
-      }else{
+      if (this.C3 >= 5) {
+        this.D3 = this.D3 + 1;
+        this.C3 = this.C3 - 5;
+        this.checkmorethan();
+        this.notmorethan5C = false;
+      } else {
         this.notmorethan2D = false;
         this.notmorethan5C = true;
         this.notmorethan2L = false;
         this.notmorethan5X = false;
         this.notmorethan2V = false;
-        this.notmorethan5I = false;  
+        this.notmorethan5I = false;
       }
-
     },
     changeLforC() {
-      if(this.L3 >= 2){
-      this.C3 = this.C3 + 1;
-      this.L3 = this.L3 - 2;
-      this.checkmorethan();
-      this.notmorethan2L = false;
-      }else{
+      if (this.L3 >= 2) {
+        this.C3 = this.C3 + 1;
+        this.L3 = this.L3 - 2;
+        this.checkmorethan();
+        this.notmorethan2L = false;
+      } else {
         this.notmorethan2D = false;
         this.notmorethan5C = false;
         this.notmorethan2L = true;
         this.notmorethan5X = false;
         this.notmorethan2V = false;
-        this.notmorethan5I = false;  
+        this.notmorethan5I = false;
       }
-
     },
     changeXforL() {
-      if(this.X3 >= 5){
-      this.L3 = this.L3 + 1;
-      this.X3 = this.X3 - 5;
-      this.checkmorethan();
-      this.notmorethan5X = false;
-      }else{
+      if (this.X3 >= 5) {
+        this.L3 = this.L3 + 1;
+        this.X3 = this.X3 - 5;
+        this.checkmorethan();
+        this.notmorethan5X = false;
+      } else {
         this.notmorethan2D = false;
         this.notmorethan5C = false;
         this.notmorethan2L = false;
         this.notmorethan5X = true;
         this.notmorethan2V = false;
-        this.notmorethan5I = false;  
+        this.notmorethan5I = false;
       }
-
     },
     changeVforX() {
-      if(this.V3 >= 2){
-      this.X3 = this.X3 + 1;
-      this.V3 = this.V3 - 2;
-      this.checkmorethan();
-      this.notmorethan2V = false;
-      }else{
+      if (this.V3 >= 2) {
+        this.X3 = this.X3 + 1;
+        this.V3 = this.V3 - 2;
+        this.checkmorethan();
+        this.notmorethan2V = false;
+      } else {
         this.notmorethan2D = false;
         this.notmorethan5C = false;
         this.notmorethan2L = false;
         this.notmorethan5X = false;
         this.notmorethan2V = true;
-        this.notmorethan5I = false;  
+        this.notmorethan5I = false;
       }
-
     },
     changeIforV() {
-      if(this.I3 >= 5){
-      this.V3 = this.V3 + 1;
-      this.I3 = this.I3 - 5;
-      this.checkmorethan();
-      this.notmorethan5I = false;
-      }else{
+      if (this.I3 >= 5) {
+        this.V3 = this.V3 + 1;
+        this.I3 = this.I3 - 5;
+        this.checkmorethan();
+        this.notmorethan5I = false;
+      } else {
         this.notmorethan2D = false;
         this.notmorethan5C = false;
         this.notmorethan2L = false;
         this.notmorethan5X = false;
         this.notmorethan2V = false;
-        this.notmorethan5I = true;  
+        this.notmorethan5I = true;
       }
-
     },
     showHint() {
       this.hint = true;
@@ -535,6 +552,12 @@ export default {
         this.result = false;
       }
       this.submitted = true;
+    },
+    getTaskDescription() {
+      return "In dieser Aufgabe hast du zwei Zahlen im vorrömischen System gegeben. Bestimme deren Wert im unseren Dezimalsystem. Addiere beide Zahlen zusammen, indem du auf den Plus-Knopf drückst. Anschliessend musst du sicherstellen, dass für jede Grösse nicht mehr Karten vorhanden sind als erlaubt. Du stellst dies sicher, indem du zwischen den Grössen korrekt umtauschst.";
+    },
+    showTutorial() {
+      this.tutorialActive = true;
     },
   },
 };

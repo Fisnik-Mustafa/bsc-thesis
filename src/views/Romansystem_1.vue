@@ -12,6 +12,13 @@
       @close-verifier="this.submitted = false"
     />
 
+    <Tutorial
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Romansystem1'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"
+    />
+
     <div class="zahl roman">
       <div class="einheit roman_einheit">
         <div v-for="index in M" :key="index" class="karte">M</div>
@@ -43,7 +50,15 @@
     </div>
 
     <Newtask :task="'Romansystem_2'" />
-    <Nexttask @next_task="reloadPage()"/>
+
+    <Nexttask @next_task="reloadPage()" />
+
+    <button @click="showTutorial()" class="btn_submit">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Hilfe
+    </button>
+
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />
       Überprüfen
@@ -53,7 +68,6 @@
       type="number"
       placeholder="Antwort"
       class="field"
-      
     />
     <br />
     <button @click="showHint()" class="btn_submit" v-if="!hint">
@@ -69,14 +83,14 @@
     <p v-if="hint">
       In der Tabelle findest du die entsprechenden Grössen und deren Wert.
     </p>
-    <div style="max-width: 1000px; margin: 0 auto;">
+    <div style="max-width: 1000px; margin: 0 auto">
       <img
         src="../assets/hints/hint_roman_1.png"
         style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
         v-if="hint"
       />
     </div>
-    
+
     <Footer />
   </div>
 </template>
@@ -87,9 +101,10 @@ import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header, Footer },
+  components: { Nexttask, Verifier, Newtask, Header, Footer, Tutorial },
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
@@ -104,6 +119,7 @@ export default {
       result: false,
       eingabe: "",
       hint: false,
+      tutorialActive: false,
     };
   },
 
@@ -138,7 +154,7 @@ export default {
     this.I = temp;
   },
   methods: {
-    reloadPage(){
+    reloadPage() {
       this.$router.go(0);
     },
     submit() {
@@ -154,6 +170,12 @@ export default {
     },
     removeHint() {
       this.hint = false;
+    },
+    getTaskDescription() {
+      return "In dieser Aufgabe betrachten wir nun das vorrömische Zahlensystem. Ähnlich wie bei der ersten Aufgaben hast du hier Karten in verschiedenen Grössen gegeben. Das Ziel in dieser Aufgabe ist es diese Grössen zu erkennen und die entsprechenden Karten miteinander zu addieren. Sollten dir die Grössen unbekannt sein, so kannst du unten auf auf den Hinweis-Knopf drücken und es werden dir die Einheiten und deren Wert eingeblendet.";
+    },
+    showTutorial() {
+      this.tutorialActive = true;
     },
   },
 };

@@ -12,6 +12,13 @@
       @close-verifier="this.submitted = false"
     />
 
+    <Tutorial
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Romansystem1'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"
+    />
+
     <div class="binary_container">
       <div class="binary_card">{{ bit32 }}</div>
       <div class="binary_card">{{ bit16 }}</div>
@@ -22,7 +29,15 @@
     </div>
 
     <Newtask :task="'Binaersystem_3'" />
-    <Nexttask @next_task="reloadPage()"/>
+
+    <Nexttask @next_task="reloadPage()" />
+
+    <button @click="showTutorial()" class="btn_submit">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Hilfe
+    </button>
+
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
@@ -32,7 +47,7 @@
       placeholder="Antwort"
       class="field"
     />
-    
+
     <Footer />
   </div>
 </template>
@@ -43,9 +58,10 @@ import Nexttask from "@/components/Nexttask.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Tutorial from "@/components/Tutorial.vue";
 
 export default {
-  components: { Verifier, Nexttask, Newtask, Header, Footer },
+  components: { Verifier, Nexttask, Newtask, Header, Footer, Tutorial },
   data() {
     return {
       num: 0,
@@ -58,6 +74,7 @@ export default {
       usernum: "",
       result: false,
       submitted: false,
+      tutorialActive: false
     };
   },
   created: function () {
@@ -70,7 +87,7 @@ export default {
     this.getDecNum();
   },
   methods: {
-    reloadPage(){
+    reloadPage() {
       this.$router.go(0);
     },
     // source: mdn web docs
@@ -94,6 +111,12 @@ export default {
         this.result = false;
       }
       this.submitted = true;
+    },
+    getTaskDescription() {
+      return "In dieser Aufgabe hast du eine Zahl in der Binärdarstellung gegeben. Wandle diese Zahl in unser altbekanntes Dezimalsystem um.";
+    },
+    showTutorial() {
+      this.tutorialActive = true;
     },
   },
 };
