@@ -28,6 +28,8 @@
       <div class="binary_card">{{ bit1 }}</div>
     </div>
 
+    <br> <br>
+
     <Newtask :task="'Binaersystem_3'" />
 
     <Nexttask @next_task="reloadPage()" />

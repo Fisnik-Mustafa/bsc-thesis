@@ -181,6 +181,7 @@
         umtauschen kannst!
       </p>
     </div>
+    <br> <br>
 
     <Newtask :task="'Dezimalsystem_1'" />
 
