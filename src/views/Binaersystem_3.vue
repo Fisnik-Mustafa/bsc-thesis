@@ -189,6 +189,8 @@
       <img src="../assets/icons/check.png" class="icon" /> <br />
       Überprüfen
     </button>
+
+    <Footer />
   </div>
 </template>
 
@@ -198,9 +200,10 @@ import Verifier from "@/components/Verifier.vue";
 import Newtask from "@/components/Newtask.vue";
 import Header from "@/components/Header.vue";
 import Tutorial from "@/components/Tutorial.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Nexttask, Verifier, Newtask, Header, Tutorial },
+  components: { Nexttask, Verifier, Newtask, Header, Tutorial, Footer },
   data() {
     return {
       bit_1_32: 0,

@@ -113,26 +113,38 @@
     <div class="zahl roman" v-if="addup">
       <div class="einheit roman_einheit summe">
         <div v-for="index in M3" :key="index" class="karte">M</div>
+
+        <div v-for="index in umtauschM" :key="index" class="karte exchange">M</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in D3" :key="index" class="karte">D</div>
+      
+        <div v-for="index in umtauschD" :key="index" class="karte exchange">D</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in C3" :key="index" class="karte">C</div>
+
+        <div v-for="index in umtauschC" :key="index" class="karte exchange">C</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in L3" :key="index" class="karte">L</div>
+
+        <div v-for="index in umtauschL" :key="index" class="karte exchange">L</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in X3" :key="index" class="karte">X</div>
+
+        <div v-for="index in umtauschX" :key="index" class="karte exchange">X</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in V3" :key="index" class="karte">V</div>
+      
+        <div v-for="index in umtauschV" :key="index" class="karte exchange">V</div>
       </div>
 
       <div class="einheit roman_einheit summe">
@@ -297,6 +309,12 @@ export default {
       notmorethan2V: false,
       notmorethan5I: false,
       tutorialActive: false,
+      umtauschV: 0,
+      umtauschX: 0,
+      umtauschL: 0,
+      umtauschC: 0,
+      umtauschD: 0,
+      umtauschM: 0
     };
   },
   created: function () {
@@ -432,9 +450,15 @@ export default {
       }
     },
     changeDforM() {
-      if (this.D3 >= 2) {
-        this.M3 = this.M3 + 1;
-        this.D3 = this.D3 - 2;
+      if (this.D3+this.umtauschD >= 2) {
+        if(this.umtauschD > 0){
+          this.umtauschD = this.umtauschD - 1;
+          this.D3 = this.D3 -1;
+          this.umtauschM = this.umtauschM + 1;
+        }else {
+          this.D3 = this.D3 - 2;
+          this.umtauschM = this.umtauschM + 1;
+        }
         this.checkmorethan();
         this.notmorethan2D = false;
       } else {
@@ -447,9 +471,15 @@ export default {
       }
     },
     changeCforD() {
-      if (this.C3 >= 5) {
-        this.D3 = this.D3 + 1;
-        this.C3 = this.C3 - 5;
+      if (this.C3 + this.umtauschC >= 5) {
+        if(this.umtauschC > 0){
+          this.umtauschC = this.umtauschC - 1;
+          this.C3 = this.C3 - 4;
+          this.umtauschD = this.umtauschD + 1;
+        }else {
+          this.C3 = this.C3 - 5;
+          this.umtauschD = this.umtauschD + 1;
+        }
         this.checkmorethan();
         this.notmorethan5C = false;
       } else {
@@ -462,9 +492,15 @@ export default {
       }
     },
     changeLforC() {
-      if (this.L3 >= 2) {
-        this.C3 = this.C3 + 1;
-        this.L3 = this.L3 - 2;
+      if (this.L3 + this.umtauschL >= 2) {
+        if(this.umtauschL > 0){
+          this.umtauschL = this.umtauschL - 1;
+          this.L3 = this.L3 - 1;
+          this.umtauschC = this.umtauschC + 1;
+        }else {
+          this.L3 = this.L3 - 2;
+          this.umtauschC = this.umtauschC + 1;
+        }
         this.checkmorethan();
         this.notmorethan2L = false;
       } else {
@@ -477,9 +513,15 @@ export default {
       }
     },
     changeXforL() {
-      if (this.X3 >= 5) {
-        this.L3 = this.L3 + 1;
-        this.X3 = this.X3 - 5;
+      if (this.X3 + this.umtauschX >= 5) {
+        if(this.umtauschX > 0){
+          this.umtauschX = this.umtauschX-1;
+          this.X3 = this.X3-4;
+          this.umtauschL = this.umtauschL + 1;
+        }else {
+          this.X3 = this.X3 - 5;
+          this.umtauschL = this.umtauschL + 1;
+        }
         this.checkmorethan();
         this.notmorethan5X = false;
       } else {
@@ -492,9 +534,15 @@ export default {
       }
     },
     changeVforX() {
-      if (this.V3 >= 2) {
-        this.X3 = this.X3 + 1;
-        this.V3 = this.V3 - 2;
+      if (this.V3 + this.umtauschV >= 2) {
+        if(this.umtauschV > 0){
+          this.umtauschV = this.umtauschV - 1;
+          this.V3 = this.V3 - 1;
+          this.umtauschX = this.umtauschX + 1;
+        }else{
+          this.V3 = this.V3 - 2;
+          this.umtauschX = this.umtauschX + 1;
+        }        
         this.checkmorethan();
         this.notmorethan2V = false;
       } else {
@@ -508,7 +556,7 @@ export default {
     },
     changeIforV() {
       if (this.I3 >= 5) {
-        this.V3 = this.V3 + 1;
+        this.umtauschV = this.umtauschV + 1
         this.I3 = this.I3 - 5;
         this.checkmorethan();
         this.notmorethan5I = false;
@@ -529,22 +577,22 @@ export default {
     },
     submit() {
       if (
-        this.M3 == this.Mresult &&
-        this.D3 == this.Dresult &&
-        this.C3 == this.Cresult &&
-        this.L3 == this.Lresult &&
-        this.X3 == this.Xresult &&
-        this.V3 == this.Vresult &&
+        this.M3 + this.umtauschM == this.Mresult &&
+        this.D3 + this.umtauschD == this.Dresult &&
+        this.C3 + this.umtauschC == this.Cresult &&
+        this.L3 + this.umtauschL == this.Lresult &&
+        this.X3 + this.umtauschX == this.Xresult &&
+        this.V3 + this.umtauschV == this.Vresult &&
         this.I3 == this.Iresult &&
         this.eingabesummand1 == this.randomnumber1 &&
         this.eingabesummand2 == this.randomnumber2 &&
         this.eingabesumme ==
-          this.M3 * 1000 +
-            this.D3 * 500 +
-            this.C3 * 100 +
-            this.L3 * 50 +
-            this.X3 * 10 +
-            this.V3 * 5 +
+          (this.M3 + this.umtauschM) * 1000 +
+            (this.D3 + this.umtauschD) * 500 +
+            (this.C3 + this.umtauschC) * 100 +
+            (this.L3 + this.umtauschL) * 50 +
+            (this.X3 + this.umtauschX) * 10 +
+            (this.V3 + this.umtauschV) * 5 +
             this.I3
       ) {
         this.result = true;
