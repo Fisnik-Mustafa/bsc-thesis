@@ -93,9 +93,17 @@
         <div v-for="index in summezehntausender" :key="index" class="karte">
           10000
         </div>
+
+        <div v-for="index in umtauschzehntausender" :key="index" class="karte exchange">
+          10000
+        </div>
       </div>
       <div class="einheit summe">
         <div v-for="index in summetausender" :key="index" class="karte">
+          1000
+        </div>
+
+        <div v-for="index in umtauschtausender" :key="index" class="karte exchange">
           1000
         </div>
       </div>
@@ -103,15 +111,24 @@
         <div v-for="index in summehunderter" :key="index" class="karte">
           100
         </div>
+
+        <div v-for="index in umtauschhunderter" :key="index" class="karte exchange">
+          100
+        </div>
       </div>
       <div class="einheit summe">
         <div v-for="index in summezehner" :key="index" class="karte">10</div>
+
+        <div v-for="index in umtauschzehner" :key="index" class="karte exchange">10</div>
       </div>
       <div class="einheit summe">
         <div v-for="index in summeeiner" :key="index" class="karte">1</div>
       </div>
     </div>
-    <br /> <br>
+
+    <br />
+    <br />
+
     <div v-if="addup">
       <button class="umtausch" @click="changetausenderforzehntausender()">
         <span class="karte btncard">10000</span> &larr; 10 x
@@ -133,11 +150,12 @@
         <span class="karte btncard">1</span>
       </button>
     </div>
-    
+
     <p style="color: red" v-if="notmorethan10">
       Du brauchst mindestens 10 Karten von einer Einheit um zu tauschen!
     </p>
-    <br> <br>
+    <br />
+    <br />
     <Newtask :task="'Romansystem_1'" />
 
     <Nexttask @next_task="reloadPage()" />
@@ -204,6 +222,10 @@ export default {
       eingabesumme: "",
       notmorethan10: false,
       tutorialActive: false,
+      umtauschzehntausender: 0,
+      umtauschtausender: 0,
+      umtauschhunderter: 0,
+      umtauschzehner: 0,
     };
   },
   created: function () {
@@ -248,10 +270,10 @@ export default {
     },
     checkResult() {
       if (
-        this.resultzehntausender == this.summezehntausender &&
-        this.resulttausender == this.summetausender &&
-        this.resulthunderter == this.summehunderter &&
-        this.resultzehner == this.summezehner &&
+        this.resultzehntausender == this.summezehntausender + this.umtauschzehntausender &&
+        this.resulttausender == this.summetausender + this.umtauschtausender &&
+        this.resulthunderter == this.summehunderter + this.umtauschhunderter &&
+        this.resultzehner == this.summezehner + this.umtauschzehner &&
         this.resulteiner == this.summeeiner &&
         this.eingabesummand1 == this.summand1randomnumber &&
         this.eingabesummand2 == this.summand2randomnumber &&
@@ -262,8 +284,10 @@ export default {
             this.resultzehner * 10 +
             this.resulteiner
       ) {
+        console.log(this.resulteiner, this.resultzehner, this.resulthunderter, this.resulttausender, this.resultzehntausender);
         this.result = true;
       } else {
+        console.log(this.resultzehntausender+this.umtauschzehntausender, this.resulttausender+this.umtauschtausender, this.resulthunderter+this.umtauschhunderter, this.resultzehner+this.umtauschzehner, this.resulteiner);
         this.result = false;
       }
     },
@@ -297,9 +321,15 @@ export default {
       }
     },
     changetausenderforzehntausender() {
-      if (this.summetausender > 9) {
-        this.summetausender = this.summetausender - 10;
-        this.summezehntausender = this.summezehntausender + 1;
+      if (this.summetausender+this.umtauschtausender > 9) {
+        if(this.umtauschtausender > 0){
+          this.umtauschtausender = this.umtauschtausender -1;
+          this.summetausender = this.summetausender - 9;
+          this.umtauschzehntausender = this.umtauschzehntausender + 1;
+        }else {
+          this.summetausender = this.summetausender - 10;
+          this.umtauschzehntausender = this.umtauschzehntausender + 1;
+        }
         this.checkmorethan10();
         this.notmorethan10 = false;
       } else {
@@ -307,9 +337,15 @@ export default {
       }
     },
     changehunderterfortausender() {
-      if (this.summehunderter > 9) {
-        this.summehunderter = this.summehunderter - 10;
-        this.summetausender = this.summetausender + 1;
+      if (this.summehunderter + this.umtauschhunderter > 9) {
+        if(this.umtauschhunderter > 0){
+          this.umtauschhunderter = this.umtauschhunderter - 1;
+          this.summehunderter = this.summehunderter - 9;
+          this.umtauschtausender = this.umtauschtausender + 1;
+        }else{
+          this.summehunderter = this.summehunderter -10;
+          this.umtauschtausender = this.umtauschtausender + 1;
+        }
         this.checkmorethan10();
         this.notmorethan10 = false;
       } else {
@@ -317,9 +353,15 @@ export default {
       }
     },
     changezehnerforhunderter() {
-      if (this.summezehner > 9) {
-        this.summezehner = this.summezehner - 10;
-        this.summehunderter = this.summehunderter + 1;
+      if (this.summezehner+this.umtauschzehner > 9) {
+        if(this.umtauschzehner > 0){
+          this.umtauschzehner = this.umtauschzehner-1;
+          this.summezehner = this.summezehner-9;
+          this.umtauschhunderter = this.umtauschhunderter + 1;
+        }else{
+          this.summezehner = this.summezehner - 10;
+          this.umtauschhunderter = this.umtauschhunderter + 1;
+        }
         this.checkmorethan10();
         this.notmorethan10 = false;
       } else {
@@ -329,7 +371,7 @@ export default {
     changeeinerforzehner() {
       if (this.summeeiner > 9) {
         this.summeeiner = this.summeeiner - 10;
-        this.summezehner = this.summezehner + 1;
+        this.umtauschzehner = this.umtauschzehner + 1;
         this.checkmorethan10();
         this.notmorethan10 = false;
       } else {
@@ -352,7 +394,7 @@ export default {
   padding: 10px 40px 10px 40px;
 }
 .summe {
-  height: 820px;
+  height: 850px;
 }
 .umtausch {
   height: 40px;
@@ -368,5 +410,8 @@ export default {
   padding-right: 5px;
   font-weight: normal;
   margin: 5px;
+}
+.exchange {
+  border-color: red;
 }
 </style>
