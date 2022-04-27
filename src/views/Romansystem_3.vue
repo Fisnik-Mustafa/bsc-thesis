@@ -454,11 +454,10 @@ export default {
         if(this.umtauschD > 0){
           this.umtauschD = this.umtauschD - 1;
           this.D3 = this.D3 -1;
-          this.umtauschM = this.umtauschM + 1;
         }else {
           this.D3 = this.D3 - 2;
-          this.umtauschM = this.umtauschM + 1;
         }
+        this.umtauschM = this.umtauschM + 1;
         this.checkmorethan();
         this.notmorethan2D = false;
       } else {
@@ -475,11 +474,10 @@ export default {
         if(this.umtauschC > 0){
           this.umtauschC = this.umtauschC - 1;
           this.C3 = this.C3 - 4;
-          this.umtauschD = this.umtauschD + 1;
         }else {
           this.C3 = this.C3 - 5;
-          this.umtauschD = this.umtauschD + 1;
         }
+        this.umtauschD = this.umtauschD + 1;
         this.checkmorethan();
         this.notmorethan5C = false;
       } else {
@@ -517,11 +515,10 @@ export default {
         if(this.umtauschX > 0){
           this.umtauschX = this.umtauschX-1;
           this.X3 = this.X3-4;
-          this.umtauschL = this.umtauschL + 1;
         }else {
           this.X3 = this.X3 - 5;
-          this.umtauschL = this.umtauschL + 1;
         }
+        this.umtauschL = this.umtauschL + 1;
         this.checkmorethan();
         this.notmorethan5X = false;
       } else {
@@ -538,11 +535,10 @@ export default {
         if(this.umtauschV > 0){
           this.umtauschV = this.umtauschV - 1;
           this.V3 = this.V3 - 1;
-          this.umtauschX = this.umtauschX + 1;
         }else{
-          this.V3 = this.V3 - 2;
-          this.umtauschX = this.umtauschX + 1;
-        }        
+          this.V3 = this.V3 - 2;  
+        }
+        this.umtauschX = this.umtauschX + 1;        
         this.checkmorethan();
         this.notmorethan2V = false;
       } else {

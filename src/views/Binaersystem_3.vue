@@ -74,7 +74,9 @@
     <div class="zahl" v-if="addup">
       <div class="einheit binaer" v-if="showposition_64">
         64
+
         <div v-for="index in position_64" :key="index" class="karte">1</div>
+        <div v-for="index in umtausch64" :key="index" class="karte exchange">1</div>
       </div>
       <div class="einheit binaer" v-else>
         64
@@ -84,6 +86,7 @@
       <div class="einheit binaer" v-if="showposition_32">
         32
         <div v-for="index in position_32" :key="index" class="karte">1</div>
+        <div v-for="index in umtausch32" :key="index" class="karte exchange">1</div>
       </div>
       <div class="einheit binaer" v-else>
         32
@@ -93,6 +96,7 @@
       <div class="einheit binaer" v-if="showposition_16">
         16
         <div v-for="index in position_16" :key="index" class="karte">1</div>
+        <div v-for="index in umtausch16" :key="index" class="karte exchange">1</div>
       </div>
       <div class="einheit binaer" v-else>
         16
@@ -102,6 +106,7 @@
       <div class="einheit binaer" v-if="showposition_8">
         8
         <div v-for="index in position_8" :key="index" class="karte">1</div>
+        <div v-for="index in umtausch8" :key="index" class="karte exchange">1</div>
       </div>
       <div class="einheit binaer" v-else>
         8
@@ -111,6 +116,7 @@
       <div class="einheit binaer" v-if="showposition_4">
         4
         <div v-for="index in position_4" :key="index" class="karte">1</div>
+        <div v-for="index in umtausch4" :key="index" class="karte exchange">1</div>
       </div>
       <div class="einheit binaer" v-else>
         4
@@ -120,6 +126,7 @@
       <div class="einheit binaer" v-if="showposition_2">
         2
         <div v-for="index in position_2" :key="index" class="karte">1</div>
+        <div v-for="index in umtausch2" :key="index" class="karte exchange">1</div>
       </div>
       <div class="einheit binaer" v-else>
         2
@@ -250,6 +257,12 @@ export default {
       eingabesumme: "",
       notmorethan2: false,
       tutorialActive: false,
+      umtausch64: 0,
+      umtausch32: 0,
+      umtausch16: 0,
+      umtausch8: 0,
+      umtausch4: 0,
+      umtausch2: 0,
     };
   },
   created: function () {
@@ -267,7 +280,13 @@ export default {
     this.bit_2_4 = this.getRandomIntInclusive(0, 1);
     this.bit_2_2 = this.getRandomIntInclusive(0, 1);
     this.bit_2_1 = this.getRandomIntInclusive(0, 1);
-    1;
+    
+    this.position_32 = this.bit_1_32 + this.bit_2_32;
+    this.position_16 = this.bit_1_16 + this.bit_2_16;
+    this.position_8 = this.bit_1_8 + this.bit_2_8;
+    this.position_4 = this.bit_1_4 + this.bit_2_4;
+    this.position_2 = this.bit_1_2 + this.bit_2_2;
+    this.position_1 = this.bit_1_1 + this.bit_2_1;
   },
   methods: {
     reloadPage() {
@@ -301,12 +320,12 @@ export default {
       );
       this.sumindec = this.summand1indec + this.summand2indec;
       this.submitsum = this.getDecfromBin(
-        this.position_64,
-        this.position_32,
-        this.position_16,
-        this.position_8,
-        this.position_4,
-        this.position_2,
+        this.position_64+this.umtausch64,
+        this.position_32+this.umtausch32,
+        this.position_16+this.umtausch16,
+        this.position_8+this.umtausch8,
+        this.position_4+this.umtausch4,
+        this.position_2+this.umtausch2,
         this.position_1
       );
       if (
@@ -340,12 +359,6 @@ export default {
     },
     add() {
       this.addup = true;
-      this.position_32 = this.bit_1_32 + this.bit_2_32;
-      this.position_16 = this.bit_1_16 + this.bit_2_16;
-      this.position_8 = this.bit_1_8 + this.bit_2_8;
-      this.position_4 = this.bit_1_4 + this.bit_2_4;
-      this.position_2 = this.bit_1_2 + this.bit_2_2;
-      this.position_1 = this.bit_1_1 + this.bit_2_1;
       this.checkmorethan2();
       this.checkboxtoshow();
     },
@@ -387,9 +400,14 @@ export default {
       }
     },
     changezweiunddreissigforvierundsechzig() {
-      if (this.position_32 > 1) {
-        this.position_64 = this.position_64 + 1;
-        this.position_32 = this.position_32 - 2;
+      if (this.position_32 + this.umtausch32 > 1) {
+        if(this.umtausch32 > 0){
+          this.umtausch32 = this.umtausch32 -1;
+          this.position_32 = this.position_32-1;
+        }else {
+          this.position_32 = this.position_32 - 2;
+        }
+        this.umtausch64 = this.umtausch64 + 1;
         this.checkmorethan2();
         this.checkboxtoshow();
         this.notmorethan2 = false;
@@ -398,9 +416,14 @@ export default {
       }
     },
     changesechzehnerforzweiunddressig() {
-      if (this.position_16 > 1) {
-        this.position_32 = this.position_32 + 1;
-        this.position_16 = this.position_16 - 2;
+      if (this.position_16 + this.umtausch16 > 1) {
+        if(this.umtausch16 > 0){
+          this.umtausch16 = this.umtausch16 - 1;
+          this.position_16 = this.position_16 - 1;
+        }else {
+          this.position_16 = this.position_16 - 2;
+        }
+        this.umtausch32 = this.umtausch32 + 1;
         this.checkmorethan2();
         this.checkboxtoshow();
         this.notmorethan2 = false;
@@ -409,9 +432,14 @@ export default {
       }
     },
     changeachterforsechszehner() {
-      if (this.position_8 > 1) {
-        this.position_16 = this.position_16 + 1;
-        this.position_8 = this.position_8 - 2;
+      if (this.position_8 + this.umtausch8 > 1) {
+        if(this.umtausch8 > 0){
+          this.umtausch8 = this.umtausch8 - 1;
+          this.position_8 = this.position_8 - 1;
+        }else {
+          this.position_8 = this.position_8 - 2;
+        }
+        this.umtausch16 = this.umtausch16 + 1;
         this.checkmorethan2();
         this.checkboxtoshow();
         this.notmorethan2 = false;
@@ -420,9 +448,14 @@ export default {
       }
     },
     changeviererforachter() {
-      if (this.position_4 > 1) {
-        this.position_8 = this.position_8 + 1;
-        this.position_4 = this.position_4 - 2;
+      if (this.position_4 + this.umtausch4 > 1) {
+        if(this.umtausch4 > 0){
+          this.umtausch4 = this.umtausch4 - 1;
+          this.position_4 = this.position_4 - 1;
+        }else{
+          this.position_4 = this.position_4 - 2;
+        }
+        this.umtausch8 = this.umtausch8 + 1;
         this.checkmorethan2();
         this.checkboxtoshow();
         this.notmorethan2 = false;
@@ -431,9 +464,14 @@ export default {
       }
     },
     changezweierforvierer() {
-      if (this.position_2 > 1) {
-        this.position_4 = this.position_4 + 1;
-        this.position_2 = this.position_2 - 2;
+      if (this.position_2 + this.umtausch2 > 1) {
+        if(this.umtausch2 > 0){
+          this.umtausch2 = this.umtausch2 - 1;
+          this.position_2 = this.position_2 - 1;
+        }else {
+          this.position_2 = this.position_2 - 2;
+        }
+        this.umtausch4 = this.umtausch4 + 1;
         this.checkmorethan2();
         this.checkboxtoshow();
         this.notmorethan2 = false;
@@ -443,7 +481,7 @@ export default {
     },
     changeeinerforzweier() {
       if (this.position_1 > 1) {
-        this.position_2 = this.position_2 + 1;
+        this.umtausch2 = this.umtausch2 + 1;
         this.position_1 = this.position_1 - 2;
         this.checkmorethan2();
         this.checkboxtoshow();
@@ -453,36 +491,36 @@ export default {
       }
     },
     checkboxtoshow() {
-      if (this.position_64 > 0) {
+      if (this.position_64 + this.umtausch64 > 0) {
         this.showposition_64 = true;
       } else {
         this.showposition_64 = false;
       }
 
-      if (this.position_32 > 0) {
+      if (this.position_32 + this.umtausch32 > 0) {
         this.showposition_32 = true;
       } else {
         this.showposition_32 = false;
       }
 
-      if (this.position_16 > 0) {
+      if (this.position_16 + this.umtausch16 > 0) {
         this.showposition_16 = true;
       } else {
         this.showposition_16 = false;
       }
 
-      if (this.position_8 > 0) {
+      if (this.position_8 + this.umtausch8 > 0) {
         this.showposition_8 = true;
       } else {
         this.showposition_8 = false;
       }
 
-      if (this.position_4 > 0) {
+      if (this.position_4 + this.umtausch4 > 0) {
         this.showposition_4 = true;
       } else {
         this.showposition_4 = false;
       }
-      if (this.position_2 > 0) {
+      if (this.position_2 + this.umtausch2 > 0) {
         this.showposition_2 = true;
       } else {
         this.showposition_2 = false;

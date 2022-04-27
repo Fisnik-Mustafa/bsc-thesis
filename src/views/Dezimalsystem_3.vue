@@ -325,11 +325,10 @@ export default {
         if(this.umtauschtausender > 0){
           this.umtauschtausender = this.umtauschtausender -1;
           this.summetausender = this.summetausender - 9;
-          this.umtauschzehntausender = this.umtauschzehntausender + 1;
         }else {
           this.summetausender = this.summetausender - 10;
-          this.umtauschzehntausender = this.umtauschzehntausender + 1;
         }
+        this.umtauschzehntausender = this.umtauschzehntausender + 1;
         this.checkmorethan10();
         this.notmorethan10 = false;
       } else {
@@ -341,11 +340,10 @@ export default {
         if(this.umtauschhunderter > 0){
           this.umtauschhunderter = this.umtauschhunderter - 1;
           this.summehunderter = this.summehunderter - 9;
-          this.umtauschtausender = this.umtauschtausender + 1;
         }else{
           this.summehunderter = this.summehunderter -10;
-          this.umtauschtausender = this.umtauschtausender + 1;
         }
+        this.umtauschtausender = this.umtauschtausender + 1;
         this.checkmorethan10();
         this.notmorethan10 = false;
       } else {
@@ -357,11 +355,10 @@ export default {
         if(this.umtauschzehner > 0){
           this.umtauschzehner = this.umtauschzehner-1;
           this.summezehner = this.summezehner-9;
-          this.umtauschhunderter = this.umtauschhunderter + 1;
         }else{
           this.summezehner = this.summezehner - 10;
-          this.umtauschhunderter = this.umtauschhunderter + 1;
         }
+        this.umtauschhunderter = this.umtauschhunderter + 1;
         this.checkmorethan10();
         this.notmorethan10 = false;
       } else {
