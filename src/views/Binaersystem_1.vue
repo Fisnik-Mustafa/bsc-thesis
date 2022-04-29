@@ -20,6 +20,7 @@
       @close-tutorial="this.tutorialActive = false"
     />
 
+    <h2>Binäre Karten:</h2>
     <div style="max-width: 840px; display: flex; margin: auto">
       <button class="binaer_btn" @click="addcard(0)">
         <span
@@ -59,6 +60,7 @@
       </button>
     </div>
 
+    <h2>Binäre Zahlendarstellung:</h2>
     <div class="binary_container">
       <div class="binary_card">{{ bit32 }}</div>
       <div class="binary_card">{{ bit16 }}</div>
@@ -82,6 +84,29 @@
     <button @click="submit()" class="btn_submit">
       <img src="../assets/icons/check.png" class="icon" /> <br />Überprüfen
     </button>
+
+    <br>
+
+     <button @click="showHint()" class="btn_submit" v-if="!hint">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Zeige Hinweis
+    </button>
+    <button @click="removeHint()" class="btn_submit" v-if="hint">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Entferne Hinweis
+    </button>
+    <p v-if="hint">
+      In der Tabelle findest du die entsprechenden Grössen und deren Wert.
+    </p>
+    <div style="max-width: 1000px; margin: 0 auto">
+      <img
+        src="../assets/hints/hint_binaer_1.png"
+        style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
+        v-if="hint"
+      />
+    </div>  
 
     <Footer />
   </div>
@@ -223,7 +248,13 @@ export default {
     },
     getTaskDescription() {
       return "Diese Aufgabe soll dir das Binärsystem beibringen. Du hast eine Zahl gegeben. Weiter hast du eine 32, 16, 8, 4, 2 und 1 Karte gegeben. Welche von diesen Karten benötigst du, damit die Summe der Karten genau der Zahl entspricht? Der Trick ist immer die grösstmögliche Karte zu probieren, dann die nächstkleinere und so weiter. Klicke auf eine Karte, falls sie in Frage kommen sollte um die Zahl im Binärsystem darzustellen."
-    }
+    },
+    showHint() {
+      this.hint = true;
+    },
+    removeHint() {
+      this.hint = false;
+    },
   },
 };
 </script>

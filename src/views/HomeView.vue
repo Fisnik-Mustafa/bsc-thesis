@@ -1,45 +1,61 @@
 <template>
   <div>
-    <h1 style="padding-top: 100px;">Zahlensysteme erkennen und verstehen.</h1>
+    <h1 style="padding-top: 100px">Zahlensysteme erkennen und verstehen.</h1>
     <div class="tasks">
       <!-- DezimalSystem -->
-      <router-link to="Dezimalsystem_1">
-        <button class="taskbtn">Dezimalsystem_1</button>
-      </router-link>
+      <div>
+        <router-link to="Dezimalsystem_1">
+          <button class="taskbtn">Dezimalsystem_1</button>
+        </router-link>
 
-      <router-link to="Dezimalsystem_2">
-        <button class="taskbtn">Dezimalsystem_2</button>
-      </router-link>
+        <router-link to="Dezimalsystem_2">
+          <button class="taskbtn">Dezimalsystem_2</button>
+        </router-link>
 
-      <router-link to="Dezimalsystem_3">
-        <button class="taskbtn">Dezimalsystem_3</button>
-      </router-link>
+        <router-link to="Dezimalsystem_3">
+          <button class="taskbtn">Dezimalsystem_3</button>
+        </router-link>
+      </div>
+
+      <br />
+      <br />
 
       <!-- RömischesSystem -->
-      <router-link to="Romansystem_1">
-        <button class="taskbtn">Romansystem_1</button>
-      </router-link>
+      <div>
+        <router-link to="Romansystem_1">
+          <button class="taskbtn">Romansystem_1</button>
+        </router-link>
 
-      <router-link to="Romansystem_2">
-        <button class="taskbtn">Romansystem_2</button>
-      </router-link>
+        <router-link to="Romansystem_2">
+          <button class="taskbtn">Romansystem_2</button>
+        </router-link>
 
-      <router-link to="Romansystem_3">
-        <button class="taskbtn">Romansystem_3</button>
-      </router-link>
+        <router-link to="Romansystem_3">
+          <button class="taskbtn">Romansystem_3</button>
+        </router-link>
+      </div>
+
+      <br />
+      <br />
 
       <!-- Binärsystem -->
-      <router-link to="Binaersystem_1">
-        <button class="taskbtn">Binärsystem_1</button>
-      </router-link>
+      <div>
+        <router-link to="Binaersystem_1">
+          <button class="taskbtn">Binärsystem_1</button>
+        </router-link>
 
-      <router-link to="Binaersystem_2">
-        <button class="taskbtn">Binärsystem_2</button>
-      </router-link>
+        <router-link to="Binaersystem_2">
+          <button class="taskbtn">Binärsystem_2</button>
+        </router-link>
 
-      <router-link to="Binaersystem_3">
-        <button class="taskbtn">Binärsystem_3</button>
-      </router-link>
+        <router-link to="Binaersystem_3">
+          <button class="taskbtn">Binärsystem_3</button>
+        </router-link>
+
+        <router-link to="Binaersystem_4">
+          <button class="taskbtn">Binärsystem_4</button>
+        </router-link>
+      </div>
     </div>
 
     <!-- About page Route -->

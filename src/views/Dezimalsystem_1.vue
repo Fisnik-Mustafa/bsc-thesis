@@ -12,6 +12,13 @@
       @close-verifier="this.submitted = false"
     />
 
+    <Tutorial
+      :description="getTaskDescription()"
+      :video_name="'Tutorial_Dezimalsystem1'"
+      v-if="tutorialActive"
+      @close-tutorial="this.tutorialActive = false"
+    />
+
     <div class="zahl">
       <div class="einheit">
         <div v-for="index in tausender" :key="index" class="karte">1000</div>
@@ -49,12 +56,6 @@
       type="number"
       placeholder="Antwort"
       class="field"
-    />
-    <Tutorial
-      :description="getTaskDescription()"
-      :video_name="'Tutorial_Dezimalsystem1'"
-      v-if="tutorialActive"
-      @close-tutorial="this.tutorialActive = false"
     />
 
     <Footer />

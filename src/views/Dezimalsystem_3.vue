@@ -95,7 +95,7 @@
         </div>
 
         <div v-for="index in umtauschzehntausender" :key="index" class="karte exchange">
-          10000
+          {{newUmtausch(10000)}}
         </div>
       </div>
       <div class="einheit summe">
@@ -104,7 +104,7 @@
         </div>
 
         <div v-for="index in umtauschtausender" :key="index" class="karte exchange">
-          1000
+          {{newUmtausch(1000)}}
         </div>
       </div>
       <div class="einheit summe">
@@ -113,13 +113,13 @@
         </div>
 
         <div v-for="index in umtauschhunderter" :key="index" class="karte exchange">
-          100
+          {{newUmtausch(100)}}
         </div>
       </div>
       <div class="einheit summe">
         <div v-for="index in summezehner" :key="index" class="karte">10</div>
 
-        <div v-for="index in umtauschzehner" :key="index" class="karte exchange">10</div>
+        <div v-for="index in umtauschzehner" :key="index" class="karte exchange">{{newUmtausch(10)}}</div>
       </div>
       <div class="einheit summe">
         <div v-for="index in summeeiner" :key="index" class="karte">1</div>
@@ -152,7 +152,7 @@
     </div>
 
     <p style="color: red" v-if="notmorethan10">
-      Du brauchst mindestens 10 Karten von einer Einheit um zu tauschen!
+      Du brauchst mindestens 10 Karten von dieser Einheit um zu tauschen!
     </p>
     <br />
     <br />
@@ -321,6 +321,7 @@ export default {
       }
     },
     changetausenderforzehntausender() {
+
       if (this.summetausender+this.umtauschtausender > 9) {
         if(this.umtauschtausender > 0){
           this.umtauschtausender = this.umtauschtausender -1;
@@ -381,6 +382,12 @@ export default {
     getTaskDescription() {
       return "In dieser Aufgabe hast du zwei Zahlen in form von Karten gegeben. Deine Aufgabe besteht darin diese beiden Zahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als 9 Karten gegeben sind. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
     },
+    newUmtausch(i) {
+      setTimeout(function(){
+        document.querySelectorAll('.exchange').forEach((x) => x.classList.remove('exchange'))
+      }, 5000);
+      return i;
+    }
   },
 };
 </script>
@@ -410,5 +417,10 @@ export default {
 }
 .exchange {
   border-color: red;
+  -webkit-transition : border 500ms ease-out;
+  -moz-transition : border 500ms ease-out;
+  -o-transition : border 500ms ease-out;
+  transition : border 500ms ease-out;
+  background-color: rgb(246, 141, 141);
 }
 </style>

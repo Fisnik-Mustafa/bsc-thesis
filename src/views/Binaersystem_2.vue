@@ -14,7 +14,7 @@
 
     <Tutorial
       :description="getTaskDescription()"
-      :video_name="'Tutorial_Romansystem1'"
+      :video_name="'Tutorial_Binaersystem2'"
       v-if="tutorialActive"
       @close-tutorial="this.tutorialActive = false"
     />
@@ -28,7 +28,8 @@
       <div class="binary_card">{{ bit1 }}</div>
     </div>
 
-    <br> <br>
+    <br />
+    <br />
 
     <Newtask :task="'Binaersystem_3'" />
 
@@ -49,6 +50,29 @@
       placeholder="Antwort"
       class="field"
     />
+
+    <br />
+
+    <button @click="showHint()" class="btn_submit" v-if="!hint">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Zeige Hinweis
+    </button>
+    <button @click="removeHint()" class="btn_submit" v-if="hint">
+      <img src="../assets/icons/info.png" class="icon" />
+      <br />
+      Entferne Hinweis
+    </button>
+    <p v-if="hint">
+      In der Tabelle findest du die entsprechenden Grössen und deren Wert.
+    </p>
+    <div style="max-width: 1000px; margin: 0 auto">
+      <img
+        src="../assets/hints/hint_binaer_1.png"
+        style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
+        v-if="hint"
+      />
+    </div>
 
     <Footer />
   </div>
@@ -76,7 +100,8 @@ export default {
       usernum: "",
       result: false,
       submitted: false,
-      tutorialActive: false
+      tutorialActive: false,
+      hint: false,
     };
   },
   created: function () {
@@ -89,6 +114,12 @@ export default {
     this.getDecNum();
   },
   methods: {
+    showHint() {
+      this.hint = true;
+    },
+    removeHint() {
+      this.hint = false;
+    },
     reloadPage() {
       this.$router.go(0);
     },

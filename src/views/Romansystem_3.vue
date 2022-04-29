@@ -14,7 +14,7 @@
 
     <Tutorial
       :description="getTaskDescription()"
-      :video_name="'Tutorial_Romansystem1'"
+      :video_name="'Tutorial_Romansystem3'"
       v-if="tutorialActive"
       @close-tutorial="this.tutorialActive = false"
     />
@@ -114,37 +114,37 @@
       <div class="einheit roman_einheit summe">
         <div v-for="index in M3" :key="index" class="karte">M</div>
 
-        <div v-for="index in umtauschM" :key="index" class="karte exchange">M</div>
+        <div v-for="index in umtauschM" :key="index" class="karte exchange">{{newUmtausch('M')}}</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in D3" :key="index" class="karte">D</div>
       
-        <div v-for="index in umtauschD" :key="index" class="karte exchange">D</div>
+        <div v-for="index in umtauschD" :key="index" class="karte exchange">{{newUmtausch('D')}}</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in C3" :key="index" class="karte">C</div>
 
-        <div v-for="index in umtauschC" :key="index" class="karte exchange">C</div>
+        <div v-for="index in umtauschC" :key="index" class="karte exchange">{{newUmtausch('C')}}</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in L3" :key="index" class="karte">L</div>
 
-        <div v-for="index in umtauschL" :key="index" class="karte exchange">L</div>
+        <div v-for="index in umtauschL" :key="index" class="karte exchange">{{newUmtausch('L')}}</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in X3" :key="index" class="karte">X</div>
 
-        <div v-for="index in umtauschX" :key="index" class="karte exchange">X</div>
+        <div v-for="index in umtauschX" :key="index" class="karte exchange">{{newUmtausch('X')}}</div>
       </div>
 
       <div class="einheit roman_einheit summe">
         <div v-for="index in V3" :key="index" class="karte">V</div>
       
-        <div v-for="index in umtauschV" :key="index" class="karte exchange">V</div>
+        <div v-for="index in umtauschV" :key="index" class="karte exchange">{{newUmtausch('V')}}</div>
       </div>
 
       <div class="einheit roman_einheit summe">
@@ -460,6 +460,11 @@ export default {
         this.umtauschM = this.umtauschM + 1;
         this.checkmorethan();
         this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;
       } else {
         this.notmorethan2D = true;
         this.notmorethan5C = false;
@@ -479,7 +484,12 @@ export default {
         }
         this.umtauschD = this.umtauschD + 1;
         this.checkmorethan();
+        this.notmorethan2D = false;
         this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;
       } else {
         this.notmorethan2D = false;
         this.notmorethan5C = true;
@@ -500,7 +510,12 @@ export default {
           this.umtauschC = this.umtauschC + 1;
         }
         this.checkmorethan();
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
         this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;
       } else {
         this.notmorethan2D = false;
         this.notmorethan5C = false;
@@ -520,7 +535,12 @@ export default {
         }
         this.umtauschL = this.umtauschL + 1;
         this.checkmorethan();
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
         this.notmorethan5X = false;
+        this.notmorethan2V = false;
+        this.notmorethan5I = false;
       } else {
         this.notmorethan2D = false;
         this.notmorethan5C = false;
@@ -540,7 +560,12 @@ export default {
         }
         this.umtauschX = this.umtauschX + 1;        
         this.checkmorethan();
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
         this.notmorethan2V = false;
+        this.notmorethan5I = false;
       } else {
         this.notmorethan2D = false;
         this.notmorethan5C = false;
@@ -555,6 +580,11 @@ export default {
         this.umtauschV = this.umtauschV + 1
         this.I3 = this.I3 - 5;
         this.checkmorethan();
+        this.notmorethan2D = false;
+        this.notmorethan5C = false;
+        this.notmorethan2L = false;
+        this.notmorethan5X = false;
+        this.notmorethan2V = false;
         this.notmorethan5I = false;
       } else {
         this.notmorethan2D = false;
@@ -603,6 +633,12 @@ export default {
     showTutorial() {
       this.tutorialActive = true;
     },
+    newUmtausch(i) {
+      setTimeout(function(){
+        document.querySelectorAll('.exchange').forEach((x) => x.classList.remove('exchange'))
+      }, 5000);
+      return i;
+    }
   },
 };
 </script>
@@ -615,5 +651,13 @@ export default {
 .rm {
   padding-left: 20px;
   padding-right: 20px;
+}
+.exchange {
+  border-color: red;
+  -webkit-transition : border 500ms ease-out;
+  -moz-transition : border 500ms ease-out;
+  -o-transition : border 500ms ease-out;
+  transition : border 500ms ease-out;
+  background-color: rgb(246, 141, 141);
 }
 </style>

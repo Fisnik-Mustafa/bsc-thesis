@@ -9,6 +9,7 @@ import Romansystem_3 from '../views/Romansystem_3.vue'
 import Binaersystem_1 from '../views/Binaersystem_1.vue'
 import Binaersystem_2 from '../views/Binaersystem_2.vue'
 import Binaersystem_3 from '../views/Binaersystem_3.vue'
+import Binaersystem_4 from '../views/Binaersystem_4.vue'
 import AboutView from '../views/AboutView.vue'
 
 
@@ -70,6 +71,11 @@ const routes = [
     path: '/binaersystem_3',
     name: 'Binaersystem_3',
     component: Binaersystem_3
+  },
+  {
+    path: '/binaersystem_4',
+    name: 'Binaersystem_4',
+    component: Binaersystem_4
   },
   {
     path: '/aboutview',
