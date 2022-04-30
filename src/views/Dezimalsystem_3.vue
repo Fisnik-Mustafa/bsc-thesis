@@ -398,6 +398,7 @@ export default {
   padding: 10px 40px 10px 40px;
   border-radius: 10px;
   background-color: rgb(230, 230, 156);
+  cursor: pointer;
 }
 .addition:hover {
   background-color: rgb(83, 81, 81);
@@ -414,6 +415,7 @@ export default {
   /* width: 110px; */
   margin-right: 20px;
   margin-left: 20px;
+  cursor: pointer;
 }
 .btncard {
   padding-top: 2.5px;

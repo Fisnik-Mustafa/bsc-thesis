@@ -211,6 +211,8 @@ span {
   padding: 10px;
   border-radius: 10px;
   border-color: rgb(83, 81, 81);
+  background-color: rgb(230, 230, 156);
+  cursor: pointer;
 }
 .info:hover {
   background-color: rgb(83, 81, 81);
@@ -229,6 +231,7 @@ span {
   border: none;
   width: 250px;
   height: 250px;
+  cursor: pointer;
 }
 .taskbtn:hover {
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 90%);

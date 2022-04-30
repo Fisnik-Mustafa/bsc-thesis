@@ -144,6 +144,7 @@ export default {
   background-color: rgb(230, 230, 156);
   width: 150px;
   height: 70px;
+  cursor: pointer;
 }
 .btn_submit:hover {
   background-color: rgb(83, 81, 81);

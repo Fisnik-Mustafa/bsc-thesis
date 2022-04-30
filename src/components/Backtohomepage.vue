@@ -25,6 +25,7 @@ export default {
   border-color: rgb(83,81,81);
   border: 1px;
   background-color: rgb(230, 230, 156);
+  cursor: pointer;
 }
 .back_to_homepage:hover {
   background-color: rgb(83, 81, 81);
