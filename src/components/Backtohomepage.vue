@@ -23,7 +23,7 @@ export default {
   padding: 10px;
   border-radius: 10px;
   border-color: rgb(83,81,81);
-  border: 1px;
+  border: 1px solid black;
   background-color: rgb(230, 230, 156);
   cursor: pointer;
 }

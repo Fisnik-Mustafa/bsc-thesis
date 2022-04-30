@@ -399,6 +399,7 @@ export default {
   border-radius: 10px;
   background-color: rgb(230, 230, 156);
   cursor: pointer;
+  border: 1px solid black;
 }
 .addition:hover {
   background-color: rgb(83, 81, 81);
