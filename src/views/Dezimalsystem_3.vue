@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Dezimalsystem_3'"
+      :title="'Dezimalzahlen addieren'"
       :taskdescription="'Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Karten Karten korrekt umtauschst.'"
     />
 
@@ -396,6 +396,14 @@ export default {
 .addition {
   text-align: center;
   padding: 10px 40px 10px 40px;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 156);
+}
+.addition:hover {
+  background-color: rgb(83, 81, 81);
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .summe {
   height: 850px;

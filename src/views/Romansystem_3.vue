@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Romansystem_3'"
+      :title="'Vorrömische Zahlen addieren'"
       :taskdescription="'Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.'"
     />
 

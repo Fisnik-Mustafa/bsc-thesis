@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Binaersystem_1'"
+      :title="'Binärsystem kennenlernen'"
       :taskdescription="'Stelle die folgende Zahl mithilfe der folgenden Karten dar: '"
       :num="randomnumber"
     />
@@ -143,6 +143,7 @@ export default {
       bit2: 0,
       bit1: 0,
       tutorialActive: false,
+      hint: false,
     };
   },
   created: function () {
@@ -270,6 +271,7 @@ export default {
   border-radius: 10px;
   border-color: rgb(83, 81, 81);
   font-weight: bold;
+  background-color: rgb(230, 230, 156);
 }
 .binaer_btn:hover {
   background-color: rgb(83, 81, 81);

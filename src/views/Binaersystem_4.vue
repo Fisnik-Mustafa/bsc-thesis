@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Binaersystem_4'"
+      :title="'Binärzahlen addieren in der Binärdarstellung'"
       :taskdescription="'Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.'"
     />
 

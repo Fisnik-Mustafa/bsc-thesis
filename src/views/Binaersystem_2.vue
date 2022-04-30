@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Binaersystem_2'"
+      :title="'Binärzahl in Dezimalzahl umwandeln'"
       :taskdescription="'Gegeben die Zahl in Binärdarstellung. Gib die Zahl in Dezimalsystem an.'"
     />
 

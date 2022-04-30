@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Dezimalsystem_2'"
+      :title="'Dezimalzahl mit Karten darstellen'"
       :taskdescription="'Wieviele Karten benötigst du um diese Zahl darzustellen:'"
       :num="randomnumber"
     />
@@ -221,6 +221,7 @@ export default {
   margin: 0 auto;
   display: inline;
   border-color: rgb(83, 81, 81);
+  background-color: rgb(230, 230, 156);
   font-size: 25px;
 }
 .karte_btn:hover {

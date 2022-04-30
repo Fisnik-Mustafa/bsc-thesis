@@ -1,82 +1,181 @@
 <template>
   <div>
-    <h1 style="padding-top: 100px">Zahlensysteme erkennen und verstehen.</h1>
-    <div class="tasks">
-      <!-- DezimalSystem -->
-      <div>
-        <router-link to="Dezimalsystem_1">
-          <button class="taskbtn">Dezimalsystem_1</button>
-        </router-link>
+    <div class="header">
+      <h1>
+        Willkommen in der Lernumgebung Zahlensysteme erkennen und verstehen!
+      </h1>
+      <p class="aufgabenstellung">
+        In dieser Lernumgebung erwarten dich spannende Rätsel zu verschiedenen
+        Zahlensysteme. Nachdem du die Aufgaben gemeistert hast, wirst du in der
+        Lage sein wichtige Zahlensysteme der Informatik anzuwenden.
+      </p>
+      <hr
+        style="
+          max-width: 1100px;
+          background-color: black;
+          height: 1px;
+          border: none;
+        "
+      />
+    </div>
+    <!-- DezimalSystem -->
+    <h2>Aufgaben zum Dezimalsystem</h2>
+    <div>
+      <router-link to="Dezimalsystem_1">
+        <button class="taskbtn">
+          <span>1. Dezimalsystem kennenlernen</span> <br />
+          <br />
+          <br />
+          <img
+            src="../assets/home/dez_cards.png"
+            style="height: 180px; width: auto"
+          />
+          <br />
+        </button>
+      </router-link>
 
-        <router-link to="Dezimalsystem_2">
-          <button class="taskbtn">Dezimalsystem_2</button>
-        </router-link>
+      <router-link to="Dezimalsystem_2">
+        <button class="taskbtn">
+          <span>2. Dezimalzahl mit Karten darstellen</span> <br />
+          <br />
+          <img
+            src="../assets/home/dez_cards.png"
+            style="height: 180px; width: auto"
+          />
+          <br />
+        </button>
+      </router-link>
 
-        <router-link to="Dezimalsystem_3">
-          <button class="taskbtn">Dezimalsystem_3</button>
-        </router-link>
-      </div>
+      <router-link to="Dezimalsystem_3">
+        <button class="taskbtn">
+          <span>3. Dezimalzahlen addieren</span> <br />
+          <br />
+          <br />
+          <img
+            src="../assets/home/dez_cards.png"
+            style="height: 180px; width: auto"
+          />
+          <br />
+        </button>
+      </router-link>
+    </div>
 
-      <br />
-      <br />
+    <!-- RömischesSystem -->
+    <h2>Aufgaben zur vorrömischen Darstellung</h2>
+    <div>
+      <router-link to="Romansystem_1">
+        <button class="taskbtn">
+          <span>4. Vorrömisches Zahlensystem kennenlernen</span> <br />
+          <br />
+          <img
+            src="../assets/home/roman_cards.png"
+            style="height: 50px; width: 175px"
+          />
+          <br />
+        </button>
+      </router-link>
 
-      <!-- RömischesSystem -->
-      <div>
-        <router-link to="Romansystem_1">
-          <button class="taskbtn">Romansystem_1</button>
-        </router-link>
+      <router-link to="Romansystem_2">
+        <button class="taskbtn">
+          <span>5. Vorrömische Zahl in Dezimalzahl umwandeln</span> <br />
+          <br />
+          <img
+            src="../assets/home/roman_cards.png"
+            style="height: 50px; width: 175px"
+          />
+          <br />
+        </button>
+      </router-link>
 
-        <router-link to="Romansystem_2">
-          <button class="taskbtn">Romansystem_2</button>
-        </router-link>
+      <router-link to="Romansystem_3">
+        <button class="taskbtn">
+          <span>6. Vorrömische Zahlen addieren</span> <br />
+          <br />
+          <br />
+          <img
+            src="../assets/home/roman_cards.png"
+            style="height: 50px; width: 175px"
+          />
+          <br />
+        </button>
+      </router-link>
+    </div>
 
-        <router-link to="Romansystem_3">
-          <button class="taskbtn">Romansystem_3</button>
-        </router-link>
-      </div>
+    <!-- Binärsystem -->
+    <h2>Aufgaben zum Binärsystem</h2>
+    <div>
+      <router-link to="Binaersystem_1">
+        <button class="taskbtn">
+          <span>7. Binärsystem kennenlernen</span> <br />
+          <br />
+          <br />
+          <img
+            src="../assets/home/bin_cards.png"
+            style="height: 120px; width: 220px"
+          />
+          <br />
+        </button>
+      </router-link>
 
-      <br />
-      <br />
+      <router-link to="Binaersystem_2">
+        <button class="taskbtn">
+          <span>8. Binärzahl in Dezimalzahl umwandeln</span> <br />
+          <br />
+          <img
+            src="../assets/home/bin_cards.png"
+            style="height: 120px; width: 220px"
+          />
+          <br />
+        </button>
+      </router-link>
 
-      <!-- Binärsystem -->
-      <div>
-        <router-link to="Binaersystem_1">
-          <button class="taskbtn">Binärsystem_1</button>
-        </router-link>
+      <router-link to="Binaersystem_3">
+        <button class="taskbtn">
+          <span>9. Binärzahlen addieren</span> <br />
+          <br />
+          <br />
+          <img
+            src="../assets/home/bin_cards.png"
+            style="height: 120px; width: 220px"
+          />
+          <br />
+        </button>
+      </router-link>
 
-        <router-link to="Binaersystem_2">
-          <button class="taskbtn">Binärsystem_2</button>
-        </router-link>
-
-        <router-link to="Binaersystem_3">
-          <button class="taskbtn">Binärsystem_3</button>
-        </router-link>
-
-        <router-link to="Binaersystem_4">
-          <button class="taskbtn">Binärsystem_4</button>
-        </router-link>
-      </div>
+      <router-link to="Binaersystem_4">
+        <button class="taskbtn">
+          <span>10. Binärzahlen addieren in der Binärdarstellung</span> <br />
+          <br />
+          <img
+            src="../assets/home/bin_cards.png"
+            style="height: 120px; width: 220px"
+          />
+          <br />
+        </button>
+      </router-link>
     </div>
 
     <!-- About page Route -->
     <router-link to="AboutView">
       <button class="info">Information</button>
     </router-link>
+
+    <Footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "HomeView",
-  components: {},
+  components: { Footer },
 };
 </script>
 
 <style>
 body {
-  background-color: rgb(157, 220, 157);
+  background-color: rgb(162, 203, 162);
 }
 h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -122,16 +221,16 @@ span {
 .taskbtn {
   text-align: center;
   text-decoration: none;
-  background-color: lightgrey;
+  background-color: rgb(109, 175, 96);
   border-radius: 10px;
-  padding: 30px;
-  margin: 10px;
+  padding: 10px;
+  margin: 20px;
   border-color: rgb(83, 81, 81);
+  border: none;
+  width: 250px;
+  height: 250px;
 }
 .taskbtn:hover {
-  background-color: rgb(83, 81, 81);
-  color: white;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 90%);
 }
 </style>

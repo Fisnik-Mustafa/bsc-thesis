@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Dezimalsystem_1'"
+      :title="'Dezimalsystem kennenlernen'"
       :taskdescription="'Erkennst du die dargestellte Zahl?'"
     />
 
@@ -141,6 +141,9 @@ export default {
   padding: 10px;
   border-radius: 10px;
   border-color: rgb(83, 81, 81);
+  background-color: rgb(230, 230, 156);
+  width: 150px;
+  height: 70px;
 }
 .btn_submit:hover {
   background-color: rgb(83, 81, 81);

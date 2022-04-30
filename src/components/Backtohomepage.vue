@@ -23,6 +23,8 @@ export default {
   padding: 10px;
   border-radius: 10px;
   border-color: rgb(83,81,81);
+  border: 1px;
+  background-color: rgb(230, 230, 156);
 }
 .back_to_homepage:hover {
   background-color: rgb(83, 81, 81);

@@ -1,11 +1,22 @@
 <template>
   <div class="about">
-    <h1 style="padding-top: 100px; padding-bottom: 100px;">Impressum</h1>
-    <Backtohomepage />
-    <p>
-      Diese Lernplattform basiert auf das Lehrmittel 'Einfach Informatik 7-9'
-    </p>
-    <p>Entwickler: Fisnik Mustafa</p>
+    <div class="header">
+      <h1>
+        Impressum
+      </h1>
+      <p class="aufgabenstellung">
+        Diese Lernplattform basiert auf das Lehrmittel 'Einfach Informatik 7-9'. <br> Entwickler: Fisnik Mustafa
+      </p>
+      <hr
+        style="
+          max-width: 1100px;
+          background-color: black;
+          height: 1px;
+          border: none;
+        "
+      />
+    </div>
+
     <div>
       Home icon made by
       <a href="https://www.freepik.com" title="Freepik">Freepik</a> and
@@ -33,16 +44,14 @@
       on <a href="https://freeicons.io" target="_blank">freeicons.io</a>
     </div>
     <br />
-    <!--    <router-link to="/">
-      <button class="back_to_homepage">
-        Startseite
-      </button>
-    </router-link> -->
+    <Backtohomepage />
+    <Footer />
   </div>
 </template>
 <script>
 import Backtohomepage from "@/components/Backtohomepage.vue";
-export default { components: { Backtohomepage } };
+import Footer from "@/components/Footer.vue";
+export default { components: { Backtohomepage, Footer } };
 </script>
 
 <style>

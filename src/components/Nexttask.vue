@@ -25,6 +25,9 @@ export default {
   padding: 10px;
   border-radius: 10px;
   border-color: rgb(83, 81, 81);
+  background-color: rgb(230, 230, 156);
+  width: 150px;
+  height: 70px;
 }
 .next_task:hover {
   background-color: rgb(83, 81, 81);
