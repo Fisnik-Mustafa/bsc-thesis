@@ -75,10 +75,6 @@ export default {
   data() {
     return {
       randomnumber: Math.floor(Math.random() * (9999 - 1 + 1)) + 1,
-      // tausender: Array(Math.floor(this.randomnumber / 1000)).fill(1000),
-      // hunderter: Array(Math.floor((this.randomnumber % 1000) / 100)).fill(100),
-      // zehner: Array(Math.floor((this.randomnumber % 100) / 10)).fill(10),
-      // einer: Array(this.randomnumber % 10).fill(1)
       tausender: 0,
       hunderter: 0,
       zehner: 0,

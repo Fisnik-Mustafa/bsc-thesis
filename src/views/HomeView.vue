@@ -9,6 +9,9 @@
         Zahlensysteme. Nachdem du die Aufgaben gemeistert hast, wirst du in der
         Lage sein wichtige Zahlensysteme der Informatik anzuwenden.
       </p>
+
+      <img src="../assets/bilder/7_9_Daten_Kap2_Roemer_Pferd.png" id="bild" />
+      
       <hr
         style="
           max-width: 1100px;
@@ -235,5 +238,9 @@ span {
 }
 .taskbtn:hover {
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 90%);
+}
+#bild {
+  width: 50%;
+  height: auto;
 }
 </style>
