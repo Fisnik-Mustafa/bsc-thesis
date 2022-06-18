@@ -3,6 +3,7 @@
     <Header
       :title="'Dezimalzahlen addieren'"
       :taskdescription="'Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Karten Karten korrekt umtauschst.'"
+      :bildname="'3_4_HB_p58_2'"
     />
 
     <Verifier

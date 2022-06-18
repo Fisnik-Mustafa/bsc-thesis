@@ -3,6 +3,7 @@
     <Header
       :title="'Vorrömische Zahl in Dezimalzahl umwandeln'"
       :taskdescription="'Wandle die vorrömische Zahl in die entsprechende Dezimalzahl um.'"
+      :bildname="'5_6_Roemer_LF_Illu_p18'"
     />
 
     <Verifier

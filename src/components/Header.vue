@@ -12,6 +12,9 @@
           Startseite
         </button>
       </router-link>
+
+      <img :src="getSrc()" id="bild"/>
+
       <p class="aufgabenstellung">{{taskdescription}} <span style="font-size: 25px; font-weight: bold">{{num}}</span></p>
       <hr style="max-width: 1100px; background-color: black; height: 1px; border: none;">
   </div>
@@ -20,7 +23,17 @@
 
 <script>
 export default {
-    props: ['title', 'taskdescription', 'num']
+    props: ['title', 'taskdescription', 'bildname' ,'num'],
+    data() {
+    return {
+      
+    }
+  },
+    methods: {
+    getSrc() {
+        return require(`../assets/bilder/${this.bildname}.png`);
+    }
+  }
 
 }
 </script>

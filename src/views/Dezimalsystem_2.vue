@@ -3,6 +3,7 @@
     <Header
       :title="'Dezimalzahl mit Karten darstellen'"
       :taskdescription="'Wieviele Karten benötigst du um diese Zahl darzustellen:'"
+      :bildname="'3_4_HB_p58_2'"
       :num="randomnumber"
     />
 

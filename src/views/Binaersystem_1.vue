@@ -3,6 +3,7 @@
     <Header
       :title="'Binärsystem kennenlernen'"
       :taskdescription="'Stelle die folgende Zahl mithilfe der folgenden Karten dar: '"
+      :bildname="'16-Binare-Zahlen1'"
       :num="randomnumber"
     />
 

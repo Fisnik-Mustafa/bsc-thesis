@@ -3,6 +3,7 @@
     <Header
       :title="'Vorrömisches Zahlensystem kennenlernen'"
       :taskdescription="'Erkennst du die dargestellte vorrömische Zahl? Gib die Zahl im Dezimalsystem an.'"
+      :bildname="'3_4_HB_p58_2'"
     />
 
     <Verifier

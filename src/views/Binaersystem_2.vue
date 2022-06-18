@@ -3,6 +3,7 @@
     <Header
       :title="'Binärzahl in Dezimalzahl umwandeln'"
       :taskdescription="'Gegeben die Zahl in Binärdarstellung. Gib die Zahl in Dezimalsystem an.'"
+      :bildname="'18-Binare-Zahlen3b'"
     />
 
     <Verifier

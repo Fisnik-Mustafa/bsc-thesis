@@ -3,6 +3,7 @@
     <Header
       :title="'Vorrömische Zahlen addieren'"
       :taskdescription="'Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.'"
+      :bildname="'7_9_Daten_Kap2_Roemer_Pferd'"
     />
 
     <Verifier

@@ -3,6 +3,7 @@
     <Header
       :title="'Dezimalsystem kennenlernen'"
       :taskdescription="'Erkennst du die dargestellte Zahl?'"
+      :bildname="'3_4_HB_p58_2'"
     />
 
     <Verifier
