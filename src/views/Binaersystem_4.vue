@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'Binärzahlen addieren in der Binärdarstellung'"
-      :taskdescription="'Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.'"
+      :title="'Binärfolgen addieren'"
+      :taskdescription="'Bestimme die Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Summe in die korrekte Kartendarstellung bringst.'"
       :bildname="'18-Binare-Zahlen3b'"
     />
 

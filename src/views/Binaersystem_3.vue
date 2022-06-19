@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'Binärzahlen addieren'"
-      :taskdescription="'Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Karten Karten korrekt umtauschst.'"
+      :title="'Binärzahlen mithilfe der Kartendarstellung addieren'"
+      :taskdescription="'Bestimme die Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Summe in die korrekte Kartendarstellung bringst.'"
       :bildname="'17-Binare-Zahlen2_schwimmender_Biber_2'" 
     />
 

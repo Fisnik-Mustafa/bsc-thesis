@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'Vorrömische Zahlen addieren'"
-      :taskdescription="'Bestimme die beiden Summanden und die Summe in der Dezimaldarstellung. Addiere sie korrekt zusammen, indem du die Karten korrekt umtauschst.'"
+      :title="'Vorrömische Zahlen mithilfe der Kartendarstellung addieren'"
+      :taskdescription="'Bestimme die Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Summe in die korrekte Kartendarstellung bringst.'"
       :bildname="'7_9_Daten_Kap2_Roemer_Pferd'"
     />
 

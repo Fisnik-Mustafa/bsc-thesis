@@ -22,13 +22,11 @@
       />
     </div>
     <!-- DezimalSystem -->
-    <h2>Aufgaben zum Dezimalsystem</h2>
-    <div>
+    <h2>Aufgaben zur dezimalen Zahlendarstellung</h2>
+    <div class="taskrow">
       <router-link to="Dezimalsystem_1">
         <button class="taskbtn">
-          <span>1. Dezimalsystem kennenlernen</span> <br />
-          <br />
-          <br />
+          <span>1. dezimale Kartendarstellung kennenlernen</span> <br />
           <img
             src="../assets/home/dez_cards.png"
             style="height: 180px; width: auto"
@@ -39,8 +37,7 @@
 
       <router-link to="Dezimalsystem_2">
         <button class="taskbtn">
-          <span>2. Dezimalzahl mit Karten darstellen</span> <br />
-          <br />
+          <span>2. Dezimalzahl in der Kartendarstellung angeben</span> <br />
           <img
             src="../assets/home/dez_cards.png"
             style="height: 180px; width: auto"
@@ -51,9 +48,7 @@
 
       <router-link to="Dezimalsystem_3">
         <button class="taskbtn">
-          <span>3. Dezimalzahlen addieren</span> <br />
-          <br />
-          <br />
+          <span>3. Dezimalzahlen mithilfe der Kartendarstellung addieren</span> <br />
           <img
             src="../assets/home/dez_cards.png"
             style="height: 180px; width: auto"
@@ -64,12 +59,12 @@
     </div>
 
     <!-- RömischesSystem -->
-    <h2>Aufgaben zur vorrömischen Darstellung</h2>
-    <div>
+    <h2>Aufgaben zur vorrömischen Zahlendarstellung</h2>
+    <div class="taskrow">
       <router-link to="Romansystem_1">
         <button class="taskbtn">
-          <span>4. Vorrömisches Zahlensystem kennenlernen</span> <br />
-          <br />
+          <span>4. Vorrömische Kartendarstellung kennenlernen</span> <br />
+          <br>
           <img
             src="../assets/home/roman_cards.png"
             style="height: 50px; width: 175px"
@@ -81,7 +76,7 @@
       <router-link to="Romansystem_2">
         <button class="taskbtn">
           <span>5. Vorrömische Zahl in Dezimalzahl umwandeln</span> <br />
-          <br />
+          <br>
           <img
             src="../assets/home/roman_cards.png"
             style="height: 50px; width: 175px"
@@ -92,9 +87,8 @@
 
       <router-link to="Romansystem_3">
         <button class="taskbtn">
-          <span>6. Vorrömische Zahlen addieren</span> <br />
-          <br />
-          <br />
+          <span>6. Vorrömische Zahlen mithilfe der Kartendarstellung addieren</span> <br />
+          <br>
           <img
             src="../assets/home/roman_cards.png"
             style="height: 50px; width: 175px"
@@ -105,13 +99,11 @@
     </div>
 
     <!-- Binärsystem -->
-    <h2>Aufgaben zum Binärsystem</h2>
-    <div>
+    <h2>Aufgaben zur binären Zahlendarstellung</h2>
+    <div class="taskrow">
       <router-link to="Binaersystem_1">
         <button class="taskbtn">
-          <span>7. Binärsystem kennenlernen</span> <br />
-          <br />
-          <br />
+          <span>7. binäre Kartendarstellung kennenlernen</span> <br />
           <img
             src="../assets/home/bin_cards.png"
             style="height: 120px; width: 220px"
@@ -123,7 +115,6 @@
       <router-link to="Binaersystem_2">
         <button class="taskbtn">
           <span>8. Binärzahl in Dezimalzahl umwandeln</span> <br />
-          <br />
           <img
             src="../assets/home/bin_cards.png"
             style="height: 120px; width: 220px"
@@ -134,9 +125,7 @@
 
       <router-link to="Binaersystem_3">
         <button class="taskbtn">
-          <span>9. Binärzahlen addieren</span> <br />
-          <br />
-          <br />
+          <span>9. Binärzahlen mithilfe der Kartendarstellung addieren</span> <br />
           <img
             src="../assets/home/bin_cards.png"
             style="height: 120px; width: 220px"
@@ -147,8 +136,8 @@
 
       <router-link to="Binaersystem_4">
         <button class="taskbtn">
-          <span>10. Binärzahlen addieren in der Binärdarstellung</span> <br />
-          <br />
+          <span>10. Binärfolgen addieren</span> <br />
+          <br>
           <img
             src="../assets/home/bin_cards.png"
             style="height: 120px; width: 220px"
@@ -242,5 +231,11 @@ span {
 #bild {
   width: 50%;
   height: auto;
+}
+.taskrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 </style>

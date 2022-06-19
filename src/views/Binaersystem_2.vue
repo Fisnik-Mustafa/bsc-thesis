@@ -2,7 +2,7 @@
   <div>
     <Header
       :title="'Binärzahl in Dezimalzahl umwandeln'"
-      :taskdescription="'Gegeben die Zahl in Binärdarstellung. Gib die Zahl in Dezimalsystem an.'"
+      :taskdescription="'Du hast eine Zahl als Binärfolge gegeben. Gib die Zahl in der dezimalen Schreibweise an.'"
       :bildname="'18-Binare-Zahlen3b'"
     />
 

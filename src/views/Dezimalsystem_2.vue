@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'Dezimalzahl mit Karten darstellen'"
-      :taskdescription="'Wieviele Karten benötigst du um diese Zahl darzustellen:'"
+      :title="'Dezimalzahl in der kartendarstellung angeben'"
+      :taskdescription="'Bilde die Kartendarstellung für die folgende Zahl:'"
       :bildname="'3_4_HB_p58_2'"
       :num="randomnumber"
     />

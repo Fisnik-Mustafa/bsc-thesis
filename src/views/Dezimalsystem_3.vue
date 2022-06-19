@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'Dezimalzahlen addieren'"
-      :taskdescription="'Bestimme die beiden Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Karten Karten korrekt umtauschst.'"
+      :title="'Dezimalzahlen mithilfe der Kartendarstellung addieren'"
+      :taskdescription="'Bestimme die Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Summe in die korrekte Kartendarstellung bringst.'"
       :bildname="'3_4_HB_p58_2'"
     />
 

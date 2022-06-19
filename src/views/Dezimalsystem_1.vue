@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Dezimalsystem kennenlernen'"
+      :title="'dezimale Kartendarstellung kennenlernen'"
       :taskdescription="'Erkennst du die dargestellte Zahl?'"
       :bildname="'3_4_HB_p58_2'"
     />

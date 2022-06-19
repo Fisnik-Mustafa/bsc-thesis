@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'Vorrömisches Zahlensystem kennenlernen'"
-      :taskdescription="'Erkennst du die dargestellte vorrömische Zahl? Gib die Zahl im Dezimalsystem an.'"
+      :title="'Vorrömische Kartendarstellung kennenlernen'"
+      :taskdescription="'Erkennst du die dargestellte vorrömische Zahl? Gib die Zahl in der dezimalen Schreibweise an.'"
       :bildname="'3_4_HB_p58_2'"
     />
 

@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'Binärsystem kennenlernen'"
-      :taskdescription="'Stelle die folgende Zahl mithilfe der folgenden Karten dar: '"
+      :title="'binäre Kartendarstellung kennenlernen'"
+      :taskdescription="'Stelle die folgende Zahl mithilfe der binären Karten dar: '"
       :bildname="'16-Binare-Zahlen1'"
       :num="randomnumber"
     />
