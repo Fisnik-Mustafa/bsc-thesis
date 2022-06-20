@@ -9,7 +9,7 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="''"
+      :tip="'Achte darauf, dass du korrekt umtauschst!'"
       @close-verifier="this.submitted = false"
     />
 
@@ -629,7 +629,7 @@ export default {
       this.submitted = true;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du zwei Zahlen im vorrömischen System gegeben. Bestimme deren Wert im unseren Dezimalsystem. Addiere beide Zahlen zusammen, indem du auf den Plus-Knopf drückst. Anschliessend musst du sicherstellen, dass für jede Grösse nicht mehr Karten vorhanden sind als erlaubt. Du stellst dies sicher, indem du zwischen den Grössen korrekt umtauschst.";
+      return "In dieser Aufgabe hast du zwei Zahlen im vorrömischen System gegeben. Bestimme deren Wert als Dezimalzahl. Addiere beide Zahlen zusammen, indem du auf den Plus-Knopf drückst. Anschliessend musst du sicherstellen, dass für jede Grösse nicht mehr Karten vorhanden sind als erlaubt. Du stellst dies sicher, indem du zwischen den Grössen korrekt umtauschst.";
     },
     showTutorial() {
       this.tutorialActive = true;

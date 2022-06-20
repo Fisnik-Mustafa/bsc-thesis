@@ -26,7 +26,7 @@
     <div class="taskrow">
       <router-link to="Dezimalsystem_1">
         <button class="taskbtn">
-          <span>1. dezimale Kartendarstellung kennenlernen</span> <br />
+          <span>1. Dezimale Kartendarstellung kennenlernen</span> <br />
           <img
             src="../assets/home/dez_cards.png"
             style="height: 180px; width: auto"
@@ -103,7 +103,7 @@
     <div class="taskrow">
       <router-link to="Binaersystem_1">
         <button class="taskbtn">
-          <span>7. binäre Kartendarstellung kennenlernen</span> <br />
+          <span>7. Binäre Kartendarstellung kennenlernen</span> <br />
           <img
             src="../assets/home/bin_cards.png"
             style="height: 120px; width: 220px"

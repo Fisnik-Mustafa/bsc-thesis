@@ -9,13 +9,13 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="'Versuche die Karten zusammenzuaddieren. und stelle durch Umtauschen sicher, dass von jeder Grösse die korrekten Anzahl Karten dargestellt sind.'"
+      :tip="'Achte darauf, dass du korrekt umtauschst!'"
       @close-verifier="this.submitted = false"
     />
 
     <Tutorial
       :description="getTaskDescription()"
-      :video_name="'Tutorial_Binaersystem3'"
+      :video_name="'Tutorial_Binaersystem4'"
       v-if="tutorialActive"
       @close-tutorial="this.tutorialActive = false"
     />
@@ -558,7 +558,7 @@ export default {
       }
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du zwei Zahlen in der Binärdarstellung gegeben. Wandle die beiden Zahlen in die Dezimaldarstellung um und addiere anschliessend die beiden Zahlen. Anschliessend musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du sicherstellen, indem du zwischen den Grössen korrekt umtauschst.";
+      return "In dieser Aufgabe hast du zwei Zahlen als Binärfolgen gegeben. Bestimme die beiden Zahlen als Dezimalzahl und addiere anschliessend die beiden Zahlen. Zum Schluss musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du sicherstellen, indem du zwischen den Grössen korrekt umtauschst.";
     },
     showTutorial() {
       this.tutorialActive = true;

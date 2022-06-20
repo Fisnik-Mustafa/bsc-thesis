@@ -9,7 +9,7 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="'Versuche die Karten zusammenzuaddieren.'"
+      :tip="'Versuche die Karten zu addieren!'"
       @close-verifier="this.submitted = false"
     />
 

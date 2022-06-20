@@ -10,7 +10,7 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="'Versuche die Zahl in 1000er, 100er, 10er und 1er Blöcke zu teilen.'"
+      :tip="'Versuche die Zahl in 1000er, 100er, 10er und 1er Blöcke zu teilen!'"
       @close-verifier="this.submitted = false"
     />
 
@@ -208,7 +208,7 @@ export default {
       this.tutorialActive = true;
     },
     getTaskDescription() {
-      return "Du hast eine Zahl gegeben. Versuche diese Zahl in 1000er Karten aufzuteilen solange es geht, indem du auf den Knopf drückst. Wenn du fertig bist machst du dasselbe noch mit den 100er Karten, dann mit den 10er und anschliessend mit den 1er Karten. Am Schluss sollte dann die Zahl korrekt in den jeweiligen Karten aufgeteilt sein, sodass die Summe der Karten wieder die ursprüngliche Zahl zurückgibt.";
+      return "Du hast eine Zahl gegeben. Versuche diese Zahl in 1000er Karten aufzuteilen solange es geht, indem du auf den Knopf mit der Zahl 1000 drückst. Wenn du fertig bist machst du dasselbe noch mit den 100er Karten, dann mit den 10er und anschliessend mit den 1er Karten. Am Schluss hast du dann die korrekte Kartendarstellung, sodass die Summe der Karten wieder die ursprüngliche Zahl ergibt.";
     },
   },
 };

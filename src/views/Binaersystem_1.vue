@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'binäre Kartendarstellung kennenlernen'"
+      :title="'Binäre Kartendarstellung kennenlernen'"
       :taskdescription="'Stelle die folgende Zahl mithilfe der binären Karten dar: '"
       :bildname="'16-Binare-Zahlen1'"
       :num="randomnumber"
@@ -249,7 +249,7 @@ export default {
       this.tutorialActive = true;
     },
     getTaskDescription() {
-      return "Diese Aufgabe soll dir das Binärsystem beibringen. Du hast eine Zahl gegeben. Weiter hast du eine 32, 16, 8, 4, 2 und 1 Karte gegeben. Welche von diesen Karten benötigst du, damit die Summe der Karten genau der Zahl entspricht? Der Trick ist immer die grösstmögliche Karte zu probieren, dann die nächstkleinere und so weiter. Klicke auf eine Karte, falls sie in Frage kommen sollte um die Zahl im Binärsystem darzustellen."
+      return "Diese Aufgabe soll dir das Binärsystem beibringen. Du hast eine Zahl gegeben. Weiter hast du eine 32, 16, 8, 4, 2 und 1 Karte gegeben. Welche von diesen Karten benötigst du, damit die Summe der Karten genau der Zahl entspricht? Der Trick ist immer die grösstmögliche Karte zu probieren, dann die nächstkleinere und so weiter. Klicke auf eine Karte, falls sie in Frage kommen sollte, um die Zahl im Binärsystem darzustellen."
     },
     showHint() {
       this.hint = true;

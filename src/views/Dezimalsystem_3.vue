@@ -9,7 +9,7 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="'Achte darauf, dass du korrekt umtauscht!'"
+      :tip="'Achte darauf, dass du korrekt umtauschst!'"
       @close-verifier="this.submitted = false"
     />
 
@@ -381,7 +381,7 @@ export default {
       this.tutorialActive = true;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du zwei Zahlen in form von Karten gegeben. Deine Aufgabe besteht darin diese beiden Zahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als 9 Karten gegeben sind. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
+      return "In dieser Aufgabe hast du zwei Zahlen in der Kartendarstellung gegeben. Deine Aufgabe besteht darin diese beiden Zahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als 9 Karten gegeben sind. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
     },
     newUmtausch(i) {
       setTimeout(function(){

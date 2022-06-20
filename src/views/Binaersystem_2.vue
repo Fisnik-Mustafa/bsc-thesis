@@ -9,7 +9,7 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="'Versuche die Karten zusammenzuaddieren.'"
+      :tip="'Versuche die Karten zu addieren!'"
       @close-verifier="this.submitted = false"
     />
 
@@ -147,7 +147,7 @@ export default {
       this.submitted = true;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du eine Zahl in der Binärdarstellung gegeben. Wandle diese Zahl in unser altbekanntes Dezimalsystem um.";
+      return "In dieser Aufgabe hast du eine Zahl als Binärfolge gegeben. Wandle diese Zahl in unser altbekanntes Dezimalsystem um.";
     },
     showTutorial() {
       this.tutorialActive = true;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'dezimale Kartendarstellung kennenlernen'"
+      :title="'Dezimale Kartendarstellung kennenlernen'"
       :taskdescription="'Erkennst du die dargestellte Zahl?'"
       :bildname="'3_4_HB_p58_2'"
     />
@@ -9,7 +9,7 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="'Versuche die Karten zusammenzuaddieren.'"
+      :tip="'Versuche die Karten zu addieren!'"
       @close-verifier="this.submitted = false"
     />
 

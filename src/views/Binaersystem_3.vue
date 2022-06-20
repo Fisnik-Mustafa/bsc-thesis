@@ -9,7 +9,7 @@
     <Verifier
       v-if="this.submitted"
       :correctSolution="this.result"
-      :tip="'Achte darauf, dass du korrekt umtauscht!'"
+      :tip="'Achte darauf, dass du korrekt umtauschst!'"
       @close-verifier="this.submitted = false"
     />
 
