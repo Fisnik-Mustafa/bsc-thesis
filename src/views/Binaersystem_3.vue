@@ -269,7 +269,7 @@ export default {
       notmorethan2: 0,
       submitted: false,
       result_64: 0,
-      resutl_32: 0,
+      result_32: 0,
       result_16: 0,
       result_8: 0,
       result_4: 0,
@@ -401,10 +401,33 @@ export default {
         this.eingabesummand2 == this.summand2randomnumber &&
         this.eingabesumme == this.summerandomnumber
       ) {
+        // Troubleshooting
         console.log(this.summand1randomnumber, this.summand2randomnumber, this.summerandomnumber)
+        console.log(this.result_32, this.summe_32, this.umtausch_32)
+        console.log(this.result_16, this.summe_16, this.umtausch_16)
+        console.log(this.result_8, this.summe_8, this.umtausch_8)
+        console.log(this.result_4, this.summe_4, this.umtausch_4)
+        console.log(this.result_2, this.summe_2, this.umtausch_2)
+        console.log(this.result_1, this.summe_1)
+        console.log(this.eingabesummand1, this.summand1randomnumber)
+        console.log(this.eingabesummand2, this.summand2randomnumber)
+        console.log(this.eingabesumme, this.summerandomnumber)
+        // Troubleshooting
         this.result = true;
       } else {
-          console.log(this.summand1randomnumber, this.summand2randomnumber, this.summerandomnumber)
+        // Troubleshooting
+        console.log(this.summand1randomnumber, this.summand2randomnumber, this.summerandomnumber)
+        console.log(this.summand1randomnumber, this.summand2randomnumber, this.summerandomnumber)
+        console.log(this.result_32, this.summe_32, this.umtausch_32)
+        console.log(this.result_16, this.summe_16, this.umtausch_16)
+        console.log(this.result_8, this.summe_8, this.umtausch_8)
+        console.log(this.result_4, this.summe_4, this.umtausch_4)
+        console.log(this.result_2, this.summe_2, this.umtausch_2)
+        console.log(this.result_1, this.summe_1)
+        console.log(this.eingabesummand1, this.summand1randomnumber)
+        console.log(this.eingabesummand2, this.summand2randomnumber)
+        console.log(this.eingabesumme, this.summerandomnumber)
+        // Troubleshooting
         this.result = false;
       }
     },

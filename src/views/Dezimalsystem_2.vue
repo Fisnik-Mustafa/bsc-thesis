@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="'Dezimalzahl in der kartendarstellung angeben'"
+      :title="'Dezimalzahl in der Kartendarstellung angeben'"
       :taskdescription="'Bilde die Kartendarstellung für die folgende Zahl:'"
       :bildname="'3_4_HB_p58_2'"
       :num="randomnumber"
