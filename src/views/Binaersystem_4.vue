@@ -558,7 +558,7 @@ export default {
       }
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du zwei Zahlen als Binärfolgen gegeben. Bestimme die beiden Zahlen als Dezimalzahl und addiere anschliessend die beiden Zahlen. Zum Schluss musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du sicherstellen, indem du zwischen den Grössen korrekt umtauschst.";
+      return "In dieser Aufgabe hast du zwei Zahlen als Binärfolgen gegeben. Deine Aufgabe besteht darin diese beiden Zahlen als Dezimalzahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Bestimme ebenfalls die Summe als Dezimalzahl. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
     },
     showTutorial() {
       this.tutorialActive = true;

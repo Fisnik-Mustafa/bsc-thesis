@@ -629,7 +629,7 @@ export default {
       this.submitted = true;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du zwei Zahlen im vorrömischen System gegeben. Bestimme deren Wert als Dezimalzahl. Addiere beide Zahlen zusammen, indem du auf den Plus-Knopf drückst. Anschliessend musst du sicherstellen, dass für jede Grösse nicht mehr Karten vorhanden sind als erlaubt. Du stellst dies sicher, indem du zwischen den Grössen korrekt umtauschst.";
+      return "In dieser Aufgabe hast du zwei Zahlen in der vorrömischen Kartendarstellung gegeben. Deine Aufgabe besteht darin diese beiden Zahlen als Dezimalzahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Bestimme ebenfalls die Summe als Dezimalzahl. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr Karten vorhanden sind als erlaubt. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
     },
     showTutorial() {
       this.tutorialActive = true;

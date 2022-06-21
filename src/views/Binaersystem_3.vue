@@ -3,7 +3,7 @@
     <Header
       :title="'Binärzahlen mithilfe der Kartendarstellung addieren'"
       :taskdescription="'Bestimme die Summanden und die Summe. Addiere sie korrekt zusammen, indem du die Summe in die korrekte Kartendarstellung bringst.'"
-      :bildname="'17-Binare-Zahlen2_schwimmender_Biber_2'" 
+      :bildname="'17-Binare-Zahlen2_schwimmender_Biber_2'"
     />
 
     <Verifier
@@ -15,7 +15,7 @@
 
     <Tutorial
       :description="getTaskDescription()"
-      :video_name="'Tutorial_Dezimalsystem3'"
+      :video_name="'Tutorial_Binaersystem3'"
       v-if="tutorialActive"
       @close-tutorial="this.tutorialActive = false"
     />
@@ -195,9 +195,9 @@
       <br />Überprüfen
     </button>
 
-    <br>
+    <br />
 
-     <button @click="showHint()" class="btn_submit" v-if="!hint">
+    <button @click="showHint()" class="btn_submit" v-if="!hint">
       <img src="../assets/icons/info.png" class="icon" />
       <br />
       Zeige Hinweis
@@ -216,7 +216,7 @@
         style="max-width: 100%; height: auto; width: auto\9; /* ie8 */"
         v-if="hint"
       />
-    </div>   
+    </div>
 
     <Footer />
   </div>
@@ -276,7 +276,8 @@ export default {
       result_2: 0,
       result_1: 0,
       result: false,
-      hint: false
+      hint: false,
+      tutorialActive: false,
     };
   },
   created: function () {
@@ -402,31 +403,43 @@ export default {
         this.eingabesumme == this.summerandomnumber
       ) {
         // Troubleshooting
-        console.log(this.summand1randomnumber, this.summand2randomnumber, this.summerandomnumber)
-        console.log(this.result_32, this.summe_32, this.umtausch_32)
-        console.log(this.result_16, this.summe_16, this.umtausch_16)
-        console.log(this.result_8, this.summe_8, this.umtausch_8)
-        console.log(this.result_4, this.summe_4, this.umtausch_4)
-        console.log(this.result_2, this.summe_2, this.umtausch_2)
-        console.log(this.result_1, this.summe_1)
-        console.log(this.eingabesummand1, this.summand1randomnumber)
-        console.log(this.eingabesummand2, this.summand2randomnumber)
-        console.log(this.eingabesumme, this.summerandomnumber)
+        console.log(
+          this.summand1randomnumber,
+          this.summand2randomnumber,
+          this.summerandomnumber
+        );
+        console.log(this.result_32, this.summe_32, this.umtausch_32);
+        console.log(this.result_16, this.summe_16, this.umtausch_16);
+        console.log(this.result_8, this.summe_8, this.umtausch_8);
+        console.log(this.result_4, this.summe_4, this.umtausch_4);
+        console.log(this.result_2, this.summe_2, this.umtausch_2);
+        console.log(this.result_1, this.summe_1);
+        console.log(this.eingabesummand1, this.summand1randomnumber);
+        console.log(this.eingabesummand2, this.summand2randomnumber);
+        console.log(this.eingabesumme, this.summerandomnumber);
         // Troubleshooting
         this.result = true;
       } else {
         // Troubleshooting
-        console.log(this.summand1randomnumber, this.summand2randomnumber, this.summerandomnumber)
-        console.log(this.summand1randomnumber, this.summand2randomnumber, this.summerandomnumber)
-        console.log(this.result_32, this.summe_32, this.umtausch_32)
-        console.log(this.result_16, this.summe_16, this.umtausch_16)
-        console.log(this.result_8, this.summe_8, this.umtausch_8)
-        console.log(this.result_4, this.summe_4, this.umtausch_4)
-        console.log(this.result_2, this.summe_2, this.umtausch_2)
-        console.log(this.result_1, this.summe_1)
-        console.log(this.eingabesummand1, this.summand1randomnumber)
-        console.log(this.eingabesummand2, this.summand2randomnumber)
-        console.log(this.eingabesumme, this.summerandomnumber)
+        console.log(
+          this.summand1randomnumber,
+          this.summand2randomnumber,
+          this.summerandomnumber
+        );
+        console.log(
+          this.summand1randomnumber,
+          this.summand2randomnumber,
+          this.summerandomnumber
+        );
+        console.log(this.result_32, this.summe_32, this.umtausch_32);
+        console.log(this.result_16, this.summe_16, this.umtausch_16);
+        console.log(this.result_8, this.summe_8, this.umtausch_8);
+        console.log(this.result_4, this.summe_4, this.umtausch_4);
+        console.log(this.result_2, this.summe_2, this.umtausch_2);
+        console.log(this.result_1, this.summe_1);
+        console.log(this.eingabesummand1, this.summand1randomnumber);
+        console.log(this.eingabesummand2, this.summand2randomnumber);
+        console.log(this.eingabesumme, this.summerandomnumber);
         // Troubleshooting
         this.result = false;
       }
@@ -526,11 +539,17 @@ export default {
       }, 5000);
       return i;
     },
-    showHint(){
-        this.hint = true;
+    showHint() {
+      this.hint = true;
     },
-    removeHint(){
-        this.hint = false;
+    removeHint() {
+      this.hint = false;
+    },
+    getTaskDescription() {
+      return "In dieser Aufgabe hast du zwei Zahlen in der binären Kartendarstellung gegeben. Deine Aufgabe besteht darin diese beiden Zahlen als Dezimalzahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Bestimme ebenfalls die Summe als Dezimalzahl. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
+    },
+    showTutorial() {
+      this.tutorialActive = true;
     }
   },
 };
@@ -538,19 +557,19 @@ export default {
 
 <style>
 .bin3 {
-    height: 65px;
-    max-width: 800px;
+  height: 65px;
+  max-width: 800px;
 }
 .summe_bin3 {
-    height: 150px;
+  height: 150px;
 }
 .summe_width {
-    max-width: 800px;
+  max-width: 800px;
 }
 .bincard {
-    padding-top: 2.5px;
-    padding-bottom: 2.5px;
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 </style>
