@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <h1>
-        Willkommen in der Lernumgebung Zahlensysteme erkennen und verstehen!
+        Willkommen in der Lernumgebung Zahlendarstellungen erkennen und verstehen!
       </h1>
       <p class="aufgabenstellung">
         In dieser Lernumgebung erwarten dich spannende Rätsel zu verschiedenen
