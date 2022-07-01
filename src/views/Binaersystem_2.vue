@@ -147,7 +147,7 @@ export default {
       this.submitted = true;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du eine Zahl als Binärfolge gegeben. Wandle diese Zahl in unser altbekanntes Dezimalsystem um.";
+      return "In dieser Aufgabe hast du eine Zahl als Binärfolge gegeben. Wandle diese Zahl in das altbekanntes Dezimalsystem um.";
     },
     showTutorial() {
       this.tutorialActive = true;

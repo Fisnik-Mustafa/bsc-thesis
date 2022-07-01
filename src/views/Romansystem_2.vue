@@ -170,7 +170,7 @@ export default {
       this.hint = false;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du eine Zahl im vorrömischen System gegeben. Wandle diese Zahl nun in unser altbekanntes Dezimalsystem um.";
+      return "In dieser Aufgabe hast du eine Zahl im vorrömischen System gegeben. Wandle diese Zahl nun in das altbekanntes Dezimalsystem um.";
     },
     showTutorial() {
       this.tutorialActive = true;

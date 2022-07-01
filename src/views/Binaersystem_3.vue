@@ -546,7 +546,7 @@ export default {
       this.hint = false;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du zwei Zahlen in der binären Kartendarstellung gegeben. Deine Aufgabe besteht darin diese beiden Zahlen als Dezimalzahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Bestimme ebenfalls die Summe als Dezimalzahl. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
+      return "In dieser Aufgabe hast du zwei Zahlen in der binären Kartendarstellung gegeben. Deine Aufgabe besteht darin, diese beiden Zahlen als Dezimalzahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Bestimme ebenfalls die Summe als Dezimalzahl. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
     },
     showTutorial() {
       this.tutorialActive = true;

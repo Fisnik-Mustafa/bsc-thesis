@@ -173,7 +173,7 @@ export default {
       this.hint = false;
     },
     getTaskDescription() {
-      return "In dieser Aufgabe betrachten wir nun das vorrömische Zahlensystem. Ähnlich wie bei der ersten Aufgaben hast du hier Karten in verschiedenen Grössen gegeben. Das Ziel in dieser Aufgabe ist es diese Grössen zu erkennen und die entsprechenden Karten miteinander zu addieren. Sollten dir die Grössen unbekannt sein, so kannst du unten auf auf den Hinweis-Knopf drücken und es werden dir die Einheiten und deren Wert eingeblendet.";
+      return "In dieser Aufgabe betrachten wir nun das vorrömische Zahlensystem. Ähnlich wie bei der ersten Aufgaben hast du hier Karten in verschiedenen Grössen gegeben. Das Ziel in dieser Aufgabe ist es, diese Grössen zu erkennen und die entsprechenden Karten miteinander zu addieren. Sollten dir die Grössen unbekannt sein, kannst du unten auf auf den Hinweis-Knopf drücken und es werden dir die Einheiten und deren Wert eingeblendet.";
     },
     showTutorial() {
       this.tutorialActive = true;

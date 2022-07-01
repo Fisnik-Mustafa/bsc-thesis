@@ -292,7 +292,6 @@ export default {
     };
   },
   created: function () {
-    // source: mdn web docs
     this.bit_1_32 = this.getRandomIntInclusive(0, 1);
     this.bit_1_16 = this.getRandomIntInclusive(0, 1);
     this.bit_1_8 = this.getRandomIntInclusive(0, 1);
@@ -558,7 +557,7 @@ export default {
       }
     },
     getTaskDescription() {
-      return "In dieser Aufgabe hast du zwei Zahlen als Binärfolgen gegeben. Deine Aufgabe besteht darin diese beiden Zahlen als Dezimalzahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Bestimme ebenfalls die Summe als Dezimalzahl. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
+      return "In dieser Aufgabe hast du zwei Zahlen als Binärfolgen gegeben. Deine Aufgabe besteht darin, diese beiden Zahlen als Dezimalzahlen zu bestimmen. Anschliessend addierst du die beiden Zahlen, indem du auf den + Knopf drückst. Bestimme ebenfalls die Summe als Dezimalzahl. Nun musst du sicherstellen, dass von jeder Grösse nicht mehr als eine Karte vorhanden ist. Dies kannst du garantieren, indem du zwischen den Grössen korrekt umtauschst.";
     },
     showTutorial() {
       this.tutorialActive = true;
