@@ -8,7 +8,7 @@
       <img src="../assets/bilder/7_9_Daten_Kap1_binaer_rechnen.png" id="bild"/>
 
       <p class="aufgabenstellung">
-        Diese Lernplattform basiert auf das Lehrmittel 'Einfach Informatik 7-9'. <br> Entwickler: Fisnik Mustafa <br> <br>
+        Diese Lernplattform basiert auf das Lehrmittel 'Einfach Informatik 7-9'. <br> Entwickler: Fisnik Mustafa, mustafaf@student.ethz.ch <br> <br>
         Viele Entwurfsentscheidungen wurden durch die <a href="https://selbiev.github.io/algo-lernplattform/#/">Lernplattform</a> von Said Elbiev inspiriert.
       </p>
       <hr
