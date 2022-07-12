@@ -175,7 +175,7 @@
     </div>
 
     <p style="color: red" v-if="notmorethan2">
-      Du brauchst mindestens 2 Karten von dieser Einheit um zu tauschen!
+      Du benötigst mindestens 2 Karten von dieser Einheit, um zu tauschen!
     </p>
     <br />
     <br />

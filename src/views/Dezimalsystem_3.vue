@@ -153,7 +153,7 @@
     </div>
 
     <p style="color: red" v-if="notmorethan10">
-      Du brauchst mindestens 10 Karten von dieser Einheit um zu tauschen!
+      Du benötigtst mindestens 10 Karten von dieser Einheit, um zu tauschen!
     </p>
     <br />
     <br />

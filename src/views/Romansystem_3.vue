@@ -182,28 +182,22 @@
       </button>
     </div>
     <p style="color: red" v-if="notmorethan2D">
-      Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
-      umtauschen kannst!
+      Du benötigst mindestens 2 Karten von dieser Einheit, um zu tauschen!
     </p>
     <p style="color: red" v-if="notmorethan5C">
-      Du benötigst mindestens 5 Karten von dieser Einheit damit du korrekt
-      umtauschen kannst!
+      Du benötigst mindestens 5 Karten von dieser Einheit, um zu tauschen!
     </p>
     <p style="color: red" v-if="notmorethan2L">
-      Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
-      umtauschen kannst!
+      Du benötigst mindestens 2 Karten von dieser Einheit, um zu tauschen!
     </p>
     <p style="color: red" v-if="notmorethan5X">
-      Du benötigst mindestens 5 Karten von dieser Einheit damit du korrekt
-      umtauschen kannst!
+      Du benötigst mindestens 5 Karten von dieser Einheit, um zu tauschen!
     </p>
     <p style="color: red" v-if="notmorethan2V">
-      Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
-      umtauschen kannst!
+      Du benötigst mindestens 2 Karten von dieser Einheit, um zu tauschen!
     </p>
     <p style="color: red" v-if="notmorethan5I">
-      Du benötigst mindestens 5 Karten von dieser Einheit damit du korrekt
-      umtauschen kannst!
+      Du benötigst mindestens 5 Karten von dieser Einheit, um zu tauschen!
     </p>
 
     <br />

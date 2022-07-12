@@ -178,8 +178,7 @@
         <span class="karte btncard bin">1</span>
       </button>
       <p style="color: red" v-if="notmorethan2">
-        Du benötigst mindestens 2 Karten von dieser Einheit damit du korrekt
-        umtauschen kannst!
+        Du benötigst mindestens 2 Karten von dieser Einheit, um zu tauschen!
       </p>
     </div>
     <br> <br>
